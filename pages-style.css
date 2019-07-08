@@ -554,7 +554,7 @@ nav ul li a:hover{
 	background: #308d8c;
 	border-right: 1px solid #308d8c;
 	min-height: 100vh;
-	background: url("otherimg/kockasiva.png");
+	background: url("otherimg/kockaSiva.png");
 	background-repeat: repeat;
 	background-size:cover;
 	width: 250px;
@@ -568,7 +568,7 @@ nav ul li a:hover{
 	background: #308d8c;
 	border-left: 1px solid #308d8c;
 	min-height: 100vh;
-	background: url("otherimg/kockasiva.png");
+	background: url("otherimg/kockaSiva.png");
 	background-repeat: repeat;
 	background-size:cover;
 	width: 250px;
