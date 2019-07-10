@@ -309,6 +309,16 @@ nav ul li a:hover{
 	color: rgba(255, 165, 0, 0.9);
 }
 
+.mobileMenu {
+	position: fixed;
+	top: 75px;
+	left: 25px;
+	z-index: 1001;
+	width: 80px;
+	height: 80px;
+	cursor: url("hand.png"), pointer;
+}
+#hamburger, #x {display:none;}
 
 
 @media only screen and (max-width: 1725px) {
@@ -372,13 +382,14 @@ nav{
 @media only screen and (max-width: 1000px) {.slides {margin: 35px;}}
 
 @media only screen and (max-width: 818px) {
+#hamburger {display: block;}
 nav{
 	width: 200px;
 }
 nav ul {
 	display: none;
 }
-#logo {display: none;}
+#prviLogo {display: none;}
 #logozafon {display:block; margin-left: 20px;}
 #social-icons{
 	float: left;
@@ -450,6 +461,11 @@ nav ul {
 .diveInBtn{
 	margin-left: -123px;
 }
+.slides {
+	width: 80px;
+	height: 130px;
+	margin: 10px;
+}
 }
 
 
@@ -468,6 +484,17 @@ nav {width: 10px;}
 nav ul li{
 	height: 32px;
 	line-height: 32px;
+}
+#arrowLeft {left: 20%;}
+#arrowRight {right: 20%;}
+.slideArrows {
+	height: 42px;
+	bottom: -60px;
+}
+.slides {
+	width: 60px;
+	height: 100px;
+	margin: 5px;
 }
 }
 @media only screen and (max-width: 320px) {
@@ -499,14 +526,6 @@ nav ul li{
 
 
 
-
-
-
-
-
-
-
-}
 
 
 

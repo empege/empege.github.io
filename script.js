@@ -144,7 +144,12 @@ $(document).ready(function(){
 			var destination = 'index.html';
 			zatamnjenjeFoo(destination);
 	});
-	$('#logo').on('click', function(e){
+	$('#logozafon').on('click', function(e){
+			e.preventDefault();
+			var destination = 'index.html';
+			zatamnjenjeFoo(destination);
+	});
+	$('#prviLogo').on('click', function(e){
 			e.preventDefault();
 			var destination = 'index.html';
 			zatamnjenjeFoo(destination);
@@ -170,7 +175,7 @@ $(document).ready(function(){
 				that.html('ARTHUR');
 				break;
 			case 'startPageImg/knight3.jpg':
-				that.html('MALI DJOKICA');
+				that.html('Der Letzte Ritter');
 				break;
 		}
 		$(this).fadeIn(222);

@@ -49,6 +49,7 @@ a {text-decoration: none; cursor: url("hand.png"), pointer; color: black;}
 #logo{
 	position: fixed;
 }
+#logozafon {display: none;}
 nav{
 	margin: 0 auto;
 	width: 1200px;
@@ -526,6 +527,18 @@ nav ul li a:hover{
 	box-sizing: content-box;
 	display: none;
 }
+.mobileMenu {
+	position: fixed;
+	top: 75px;
+	left: 25px;
+	z-index: 1001;
+	width: 80px;
+	height: 80px;
+	cursor: url("hand.png"), pointer;
+}
+#hamburger, #x {display:none;}
+
+
 /* Contact */
 
 /*	SVE BOJE PO REDU
@@ -996,6 +1009,7 @@ nav{
 }
 
 @media only screen and (max-width: 818px) {
+#hamburger {display: block;}
 nav{
 	width: 500px;
 }
@@ -1063,7 +1077,190 @@ nav{
 
 
 
+@media only screen and (max-width: 1725px) {
+#arrowLeft {left: 15%;}
+#arrowRight {right: 15%;}
+}
 
+@media only screen and (max-width: 1500px) {
+#arrowLeft {left: 12%;}
+#arrowRight {right: 12%;}
+}
+
+@media only screen and (max-width: 1399px) {
+nav{
+	width: 800px;
+}
+#arrowLeft {left: 8%;}
+#arrowRight {right: 8%;}
+}
+
+@media only screen and (max-width: 1188px) {
+#arrowLeft {left: 25%;}
+#arrowRight {right: 25%;}
+.slideArrows {
+	bottom: 5px;
+	height: 60px;
+}
+.slides {
+	width: 180px;
+	height: 280px;
+}
+#sliderWrapper h1 {font-size: 50px;}
+#bookNameField {
+    line-height: 70px;
+    height: 75px;
+    font-size: 35px;
+}
+}
+
+@media only screen and (max-width: 1115px) {
+body{
+	
+}
+nav{
+	width: 600px;
+}
+#mainPageText{
+	left: 50%;
+	margin-left: -300px;
+	top: 23%;
+}
+.welcome {font-size: 52px;}
+.lineUp {font-size: 43px;}
+.lineUp span {font-size: 27px;}
+.lineDown {font-size: 40px;}
+.lineDown span {font-size: 24px;}
+#arrowLeft {left: 22%;}
+#arrowRight {right: 22%;}
+}
+
+@media only screen and (max-width: 1000px) {.slides {margin: 35px;}}
+
+@media only screen and (max-width: 818px) {
+nav{
+	width: 200px;
+}
+nav ul {
+	display: none;
+}
+#prviLogo {display: none;}
+#logozafon {display:block; margin-left: 20px;}
+#social-icons{
+	float: left;
+	height: 52px;
+}
+#backgroundImg {
+	transform: scale(1);
+}
+#mainPageText{
+	left: 50%;
+	margin-left: -258px;
+	top: 23%;
+}
+.welcome {font-size: 47px;}
+.lineUp {font-size: 38px;}
+.lineUp span {font-size: 22px;}
+.lineDown {font-size: 36px;}
+.lineDown span {font-size: 19px;}
+.diveInBtn{
+	font-size: 35px;
+	padding: 10px 60px;
+	margin-top: 200px;
+	left: 50%;
+	margin-left: -115px;
+	bottom: 30%;
+	border: 2px solid rgba(255, 165, 0, 0.8);
+}
+.slides {
+	width: 110px;
+	height: 180px;
+	margin: 15px;
+}
+#sliderWrapper h1 {font-size: 40px;}
+#arrowLeft {left: 15%;}
+#arrowRight {right: 15%;}
+#bookNameField {
+    line-height: 65px;
+    height: 70px;
+    font-size: 35px;
+	width: 250px;
+}
+}
+@media only screen and (max-width: 600px) {
+#arrowLeft {left: 10%;}
+#arrowRight {right: 10%;}
+#bookNameField {
+    line-height: 60px;
+    height: 65px;
+    font-size: 30px;
+	width: 230px;
+}
+.slideArrows {
+	height: 52px;
+}
+	
+}
+
+@media only screen and (max-width: 520px) {
+#mainPageText{
+	left: 50%;
+	margin-left: -216px;
+	top: 23%;
+}
+.welcome {font-size: 42px;}
+.lineUp {font-size: 33px;}
+.lineUp span {font-size: 17px;}
+.lineDown {font-size: 31px;}
+.lineDown span {font-size: 14px;}
+.diveInBtn{
+	margin-left: -123px;
+}
+}
+
+
+@media only screen and (max-width: 440px) {
+nav {width: 10px;}
+#mainPageText{
+	left: 50%;
+	margin-left: -174px;
+	top: 23%;
+}
+.welcome {font-size: 37px;}
+.lineUp {font-size: 28px;}
+.lineUp span {font-size: 12px;}
+.lineDown {font-size: 26px;}
+.lineDown span {font-size: 9px;}
+nav ul li{
+	height: 32px;
+	line-height: 32px;
+}
+}
+@media only screen and (max-width: 320px) {
+#mainPageText{
+	left: 50%;
+	margin-left: -137px;
+	top: 23%;
+}
+.welcome {font-size: 30px;}
+.lineUp {font-size: 20px;}
+.lineUp span {font-size: 12px;}
+.lineDown {font-size: 26px;}
+.lineDown span {font-size: 9px;}
+.diveInBtn{
+	font-size: 20px;
+	padding: 10px 60px;
+	margin-top: 200px;
+	left: 50%;
+	margin-left: -97px;
+}
+nav ul li{
+	height: 32px;
+	line-height: 32px;
+}
+	
+	
+}
 
 
 
