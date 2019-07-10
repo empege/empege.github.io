@@ -248,7 +248,7 @@ nav ul li a:hover{
 	position: absolute;
 	bottom: 46%;
 	box-shadow: 0 0 4px 4px #0f605e;
-	z-index: 555;
+	z-index: 1;
 	cursor: url("hand.png"), pointer;
 	border-radius: 50%;
 	transition: 0.3s;
@@ -313,13 +313,53 @@ nav ul li a:hover{
 	position: fixed;
 	top: 75px;
 	left: 25px;
-	z-index: 1001;
-	width: 80px;
-	height: 80px;
+	z-index: 1;
+	width: 60px;
+	height: 60px;
 	cursor: url("hand.png"), pointer;
 }
-#hamburger, #x {display:none;}
-
+#hamburger {
+	width: 70px;
+	height: 70px;
+}
+#x {left: 30px;}
+#hamburger, #x {display:none; z-index:2}
+#mobileMenu {
+	display: none;
+	position: fixed;
+	top: 54px;
+	width: 50%;
+	height: 100%;
+	z-index: 5;
+	background: rgba(255, 255, 255, 0.9);
+	color: black;
+	overflow: scroll;
+}
+.MobileMenuOptionsWrapper {
+	margin-top: 8px;
+	text-align: center;
+	font-size: 1.5em;
+	margin-bottom: 80px;
+}
+.mobileMenuTopMenu {
+	padding: 10px;
+	margin-left: 10px;
+	position: fixed;
+}
+.MobileMenuOptions {
+	padding: 10px;
+	margin: 10px auto;
+	border-top: 2px solid #f3b51e;
+	border-bottom: 2px solid #f3b51e;
+	width: 100%;
+	display: block;
+}
+.MobileMenuOptionsSub {
+	margin: 10px auto;
+	width: 100%;
+	display: block;
+}
+.MobileMenuOptions, .MobileMenuOptionsSub {text-decoration: none; color: black;}
 
 @media only screen and (max-width: 1725px) {
 #arrowLeft {left: 15%;}
@@ -485,16 +525,11 @@ nav ul li{
 	height: 32px;
 	line-height: 32px;
 }
-#arrowLeft {left: 20%;}
-#arrowRight {right: 20%;}
-.slideArrows {
-	height: 42px;
-	bottom: -60px;
-}
+#arrowLeft {left: 1%;}
+#arrowRight {right: 1%;}
 .slides {
 	width: 60px;
 	height: 100px;
-	margin: 5px;
 }
 }
 @media only screen and (max-width: 320px) {
@@ -519,6 +554,12 @@ nav ul li{
 	height: 32px;
 	line-height: 32px;
 }
+.slideArrows {
+	height: 42px;
+	bottom: -60px;
+}
+#arrowLeft {left: 20%;}
+#arrowRight {right: 20%;}
 	
 	
 }

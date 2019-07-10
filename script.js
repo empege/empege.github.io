@@ -1,17 +1,9 @@
 $(document).ready(function(){
-	//Promeni LocalStorage sa Cookies kad naucis!
 	var toStory;
 	if(JSON.parse(localStorage.getItem('toStory')) != null){
 		toStory = JSON.parse(localStorage.getItem('toStory'));
 	}
-	 
-	/*function setCookie(cname, cvalue) {
-	  document.cookie = cname + "=" + cvalue + ";path=/";
-	}
-	setCookie('djoka', 5); */
-	
 	$(window).load(function(){
-		//Cookies.set("tooo", "true", { expires:7 }); sa onim cmd-om
 		if(toStory == true){
 			$('.blackScreenStart').fadeOut(1500);
 			$('#backgroundImg').css({
@@ -657,7 +649,16 @@ $(window).scroll(function() {
    }else{ $('#footer').hide();}
 });
 
-
+$('#hamburger').on('click', function(){
+	$('#mobileMenu').fadeIn();
+	$(this).fadeOut();
+	$('#x').fadeIn();
+});
+$('#x').on('click', function(){
+	$('#mobileMenu').fadeOut();
+	$(this).fadeOut();
+	$('#hamburger').fadeIn();
+});
 
 
 
