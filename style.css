@@ -311,24 +311,65 @@ nav ul li a:hover{
 
 
 
-@media only screen and (max-width: 1625px) {
+@media only screen and (max-width: 1725px) {
+#arrowLeft {left: 15%;}
+#arrowRight {right: 15%;}
+}
+
+@media only screen and (max-width: 1500px) {
+#arrowLeft {left: 12%;}
+#arrowRight {right: 12%;}
 }
 
 @media only screen and (max-width: 1399px) {
 nav{
 	width: 800px;
 }
+#arrowLeft {left: 8%;}
+#arrowRight {right: 8%;}
 }
 
 @media only screen and (max-width: 1188px) {
+#arrowLeft {left: 25%;}
+#arrowRight {right: 25%;}
+.slideArrows {
+	bottom: 5px;
+	height: 60px;
+}
+.slides {
+	width: 180px;
+	height: 280px;
+}
+#sliderWrapper h1 {font-size: 50px;}
+#bookNameField {
+    line-height: 70px;
+    height: 75px;
+    font-size: 35px;
+}
 }
 
-
 @media only screen and (max-width: 1115px) {
+body{
+	
+}
 nav{
 	width: 600px;
 }
+#mainPageText{
+	left: 50%;
+	margin-left: -300px;
+	top: 23%;
 }
+.welcome {font-size: 52px;}
+.lineUp {font-size: 43px;}
+.lineUp span {font-size: 27px;}
+.lineDown {font-size: 40px;}
+.lineDown span {font-size: 24px;}
+#arrowLeft {left: 22%;}
+#arrowRight {right: 22%;}
+}
+
+@media only screen and (max-width: 1000px) {.slides {margin: 35px;}}
 
 @media only screen and (max-width: 818px) {
 nav{
@@ -357,15 +398,43 @@ nav ul {
 .lineDown {font-size: 36px;}
 .lineDown span {font-size: 19px;}
 .diveInBtn{
-	font-size: 25px;
+	font-size: 35px;
 	padding: 10px 60px;
 	margin-top: 200px;
 	left: 50%;
-	margin-left: -106px;
-	bottom: 20%;
+	margin-left: -115px;
+	bottom: 30%;
 	border: 2px solid rgba(255, 165, 0, 0.8);
 }
-
+.slides {
+	width: 110px;
+	height: 180px;
+	margin: 15px;
+}
+#sliderWrapper h1 {font-size: 40px;}
+#arrowLeft {left: 15%;}
+#arrowRight {right: 15%;}
+#bookNameField {
+    line-height: 65px;
+    height: 70px;
+    font-size: 35px;
+	width: 250px;
+}
+}
+@media only screen and (max-width: 600px) {
+#arrowLeft {left: 10%;}
+#arrowRight {right: 10%;}
+#bookNameField {
+    line-height: 60px;
+    height: 65px;
+    font-size: 30px;
+	width: 230px;
+}
+.slideArrows {
+	height: 52px;
+}
+	
+}
 
 @media only screen and (max-width: 520px) {
 #mainPageText{
@@ -379,12 +448,8 @@ nav ul {
 .lineDown {font-size: 31px;}
 .lineDown span {font-size: 14px;}
 .diveInBtn{
-	font-size: 20px;
-	padding: 10px 60px;
-	margin-top: 200px;
-	left: 50%;
-	margin-left: -98px;
-	bottom: 20%;
+	margin-left: -123px;
+}
 }
 
 
@@ -400,17 +465,10 @@ nav {width: 10px;}
 .lineUp span {font-size: 12px;}
 .lineDown {font-size: 26px;}
 .lineDown span {font-size: 9px;}
-.diveInBtn{
-	font-size: 20px;
-	padding: 10px 60px;
-	margin-top: 200px;
-	left: 50%;
-	margin-left: -97px;
-	bottom: 20%;
-}
 nav ul li{
 	height: 32px;
 	line-height: 32px;
+}
 }
 @media only screen and (max-width: 320px) {
 #mainPageText{
@@ -429,7 +487,6 @@ nav ul li{
 	margin-top: 200px;
 	left: 50%;
 	margin-left: -97px;
-	bottom: 20%;
 }
 nav ul li{
 	height: 32px;
