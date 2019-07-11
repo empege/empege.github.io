@@ -727,19 +727,19 @@ nav ul li a:hover{
 	float:left;
 }
 .mobileMenu {
-	position: fixed;
-	top: 75px;
-	left: 25px;
 	z-index: 1;
 	width: 60px;
 	height: 60px;
 	cursor: url("hand.png"), pointer;
 }
 #hamburger {
+	position: fixed;
 	width: 70px;
 	height: 70px;
+	top: 75px;
+	left: 25px;
 }
-#x {left: 30px;}
+#x {left: 50%; }
 
 
 #hamburger, #x {display:none; z-index:2}
@@ -1279,10 +1279,6 @@ nav ul {
 
 @media only screen and (max-width: 440px) {
 nav {width: 10px;}
-#mobileMenu {
-	font-size: 0.6em;
-	
-}
 #mainPageText{
 	left: 50%;
 	margin-left: -174px;

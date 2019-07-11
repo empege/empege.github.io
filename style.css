@@ -310,19 +310,19 @@ nav ul li a:hover{
 }
 
 .mobileMenu {
-	position: fixed;
-	top: 75px;
-	left: 25px;
 	z-index: 1;
 	width: 60px;
 	height: 60px;
 	cursor: url("hand.png"), pointer;
 }
 #hamburger {
+	position: fixed;
 	width: 70px;
 	height: 70px;
+	top: 75px;
+	left: 25px;
 }
-#x {left: 30px;}
+#x {left: 50%; }
 #hamburger, #x {display:none; z-index:2}
 #mobileMenu {
 	display: none;
@@ -356,7 +356,6 @@ nav ul li a:hover{
 	width: 100%;
 	display: block;
 }
-.homePageForM {margin-top: 105px;}
 .MobileMenuOptionsSub {
 	margin: 10px auto;
 	width: 100%;
@@ -516,14 +515,13 @@ nav ul {
 	left: 25%;
 	margin-left: -35px;
 }
-#x {left: 10px;}
 }
 
 
 @media only screen and (max-width: 440px) {
 nav {width: 10px;}
 #mobileMenu {
-	font-size: 0.6em;
+	font-size: 0.8em;
 	
 }
 #mainPageText{
@@ -549,8 +547,8 @@ nav ul li{
 }
 .mobileMenuTopMenu {
 	left: 25%;
-	top: 80px;
-	margin-left: -15px;
+	top: 70px;
+	margin-left: -25px;
 }
 }
 @media only screen and (max-width: 320px) {
@@ -581,6 +579,11 @@ nav ul li{
 }
 #arrowLeft {left: 20%;}
 #arrowRight {right: 20%;}
+.mobileMenuTopMenu {
+	left: 25%;
+	top: 70px;
+	margin-left: -10px;
+}
 	
 	
 }

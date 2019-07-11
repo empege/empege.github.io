@@ -44,7 +44,7 @@ $(document).ready(function(){
 	var divedIn = false;
 	$('.diveInBtn').on('click', diveInFoo);
 	$('#storiesList').on('click', diveInFoo);
-	if(window.location.href == 'https://empege.github.io'){
+	if(window.location.href == 'https://empege.github.io/index.html' || window.location.href == 'https://empege.github.io' ){
 	$(document).keypress(function(e) {
 		if(e.which == 13 && divedIn == false) {
 			diveInFoo();
@@ -53,9 +53,9 @@ $(document).ready(function(){
 	});
 	}
 	function diveInFoo(){
-		var lokacija = 'https://empege.github.io';
+		var lokacija = 'https://empege.github.io/index.html';
 		if(window.location.href != lokacija){
-			var destination = 'https://empege.github.io';
+			var destination = 'https://empege.github.io/index.html';
 			zatamnjenjeFoo(destination);
 			toStory = true;
 			localStorage.setItem('toStory', JSON.stringify(toStory));
@@ -113,37 +113,37 @@ $(document).ready(function(){
 	//dropDownMenuItems i ostali linkovi onClick zatamnjenjeFoo
 	$('#arturList').on('click', function(e){
 			e.preventDefault();
-			var destination = 'arthurPage.html';
+			var destination = 'https://empege.github.io/arthurPage.html';
 			zatamnjenjeFoo(destination);
 	});
 	$('#parsifalList').on('click', function(e){
 			e.preventDefault();
-			var destination = 'parsifalPage.html';
+			var destination = 'https://empege.github.io/parsifalPage.html';
 			zatamnjenjeFoo(destination);
 	});
 	$('#ritterList').on('click', function(e){
 			e.preventDefault();
-			var destination = 'ritterPage.html';
+			var destination = 'https://empege.github.io/ritterPage.html';
 			zatamnjenjeFoo(destination);
 	});
 	$('#contactPage').on('click', function(e){
 			e.preventDefault();
-			var destination = 'contact.html';
+			var destination = 'https://empege.github.io/contact.html';
 			zatamnjenjeFoo(destination);
 	});
 	$('#homePage').on('click', function(e){
 			e.preventDefault();
-			var destination = 'index.html';
+			var destination = 'https://empege.github.io/index.html';
 			zatamnjenjeFoo(destination);
 	});
 	$('#logozafon').on('click', function(e){
 			e.preventDefault();
-			var destination = 'index.html';
+			var destination = 'https://empege.github.io/index.html';
 			zatamnjenjeFoo(destination);
 	});
 	$('#prviLogo').on('click', function(e){
 			e.preventDefault();
-			var destination = 'index.html';
+			var destination = 'https://empege.github.io/index.html';
 			zatamnjenjeFoo(destination);
 	});
 	
@@ -222,26 +222,26 @@ $(document).ready(function(){
 	$('.slides').on('click', function(){
 		that = $(this);
 		if($(this).attr('src') == knight1){
-			destination = 'parsifalPage.html';
+			destination = 'https://empege.github.io/parsifalPage.html';
 			zatamnjenjeFoo(destination);
 		}else if($(this).attr('src') == knight2){
-			destination = 'arthurPage.html';
+			destination = 'https://empege.github.io/arthurPage.html';
 			zatamnjenjeFoo(destination);
 		}else if($(this).attr('src') == knight3){
-			destination = 'ritterPage.html';
+			destination = 'https://empege.github.io/ritterPage.html';
 			zatamnjenjeFoo(destination);}
 	});
 	//on bannerButton click redirect to appropriate page with screen fading in black.
 	function btnsClick(){
 		var that = $(this);
 		if($('#mainSlide').attr('src') == knight1){
-			destination = 'parsifalPage.html';
+			destination = 'https://empege.github.io/parsifalPage.html';
 			zatamnjenjeFoo(destination);
 		}else if($('#mainSlide').attr('src') == knight2){
-			destination = 'arthurPage.html';
+			destination = 'https://empege.github.io/arthurPage.html';
 			zatamnjenjeFoo(destination);
 		}else if($('#mainSlide').attr('src') == knight3){
-			destination = 'ritterPage.html';
+			destination = 'https://empege.github.io/ritterPage.html';
 			zatamnjenjeFoo(destination);
 		}
 	}
