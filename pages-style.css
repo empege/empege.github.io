@@ -1121,8 +1121,6 @@ nav{
 
 
 
-
-
 @media only screen and (max-width: 1725px) {
 #arrowLeft {left: 15%;}
 #arrowRight {right: 15%;}
@@ -1184,19 +1182,12 @@ nav{
 @media only screen and (max-width: 1000px) {.slides {margin: 35px;}}
 
 @media only screen and (max-width: 818px) {
+#hamburger {display: block;}
 nav{
 	width: 200px;
 }
 nav ul {
 	display: none;
-}
-.wrapper-pages { 
-	width: 560px;
-}
-.text-pages{
-	width: 540px;
-	margin: 20px 0px 0 0px;
-
 }
 #prviLogo {display: none;}
 #logozafon {display:block; margin-left: 20px;}
@@ -1241,26 +1232,7 @@ nav ul {
 	width: 250px;
 }
 }
-@media only screen and (max-width: 725px) {
-	.wrapper-pages { 
-	width: 540px;
-}
-.text-pages{
-	width: 520px;
-	margin: 20px 30px 0 30px;
-
-}
-}
-
 @media only screen and (max-width: 600px) {
-.wrapper-pages { 
-	width: 560px;
-}
-.text-pages{
-	width: 480px;
-	margin: 20px 30px 0 30px;
-
-}
 #arrowLeft {left: 10%;}
 #arrowRight {right: 10%;}
 #bookNameField {
@@ -1276,13 +1248,8 @@ nav ul {
 }
 
 @media only screen and (max-width: 520px) {
-.wrapper-pages { 
-	width: 480px;
-}
-.text-pages{
-	width: 440px;
-	margin: 20px 30px 0 30px;
-
+#sliderWrapper {
+	margin-top: 100px;
 }
 #mainPageText{
 	left: 50%;
@@ -1297,18 +1264,24 @@ nav ul {
 .diveInBtn{
 	margin-left: -123px;
 }
+.slides {
+	width: 80px;
+	height: 130px;
+	margin: 15px;
+}
+.mobileMenuTopMenu {
+	left: 25%;
+	margin-left: -35px;
+}
+#x {left: 10px;}
 }
 
 
 @media only screen and (max-width: 440px) {
 nav {width: 10px;}
-.wrapper-pages { 
-	width: 400px;
-}
-.text-pages{
-	width: 380px;
-	margin: 20px 30px 0 30px;
-
+#mobileMenu {
+	font-size: 0.6em;
+	
 }
 #mainPageText{
 	left: 50%;
@@ -1323,6 +1296,18 @@ nav {width: 10px;}
 nav ul li{
 	height: 32px;
 	line-height: 32px;
+}
+#arrowLeft {left: 1%;}
+#arrowRight {right: 1%;}
+.slides {
+	width: 60px;
+	height: 100px;
+	margin: 10px;
+}
+.mobileMenuTopMenu {
+	left: 25%;
+	top: 80px;
+	margin-left: -15px;
 }
 }
 @media only screen and (max-width: 320px) {
@@ -1347,10 +1332,15 @@ nav ul li{
 	height: 32px;
 	line-height: 32px;
 }
+.slideArrows {
+	height: 42px;
+	bottom: -60px;
+}
+#arrowLeft {left: 20%;}
+#arrowRight {right: 20%;}
 	
 	
 }
-
 
 
 

@@ -343,7 +343,9 @@ nav ul li a:hover{
 }
 .mobileMenuTopMenu {
 	padding: 10px;
-	margin-left: 10px;
+	left: 25%;
+	margin-left: -52px;
+	top: 65px;
 	position: fixed;
 }
 .MobileMenuOptions {
@@ -354,6 +356,7 @@ nav ul li a:hover{
 	width: 100%;
 	display: block;
 }
+.homePageForM {margin-top: 105px;}
 .MobileMenuOptionsSub {
 	margin: 10px auto;
 	width: 100%;
@@ -488,6 +491,9 @@ nav ul {
 }
 
 @media only screen and (max-width: 520px) {
+#sliderWrapper {
+	margin-top: 100px;
+}
 #mainPageText{
 	left: 50%;
 	margin-left: -216px;
@@ -504,13 +510,22 @@ nav ul {
 .slides {
 	width: 80px;
 	height: 130px;
-	margin: 10px;
+	margin: 15px;
 }
+.mobileMenuTopMenu {
+	left: 25%;
+	margin-left: -35px;
+}
+#x {left: 10px;}
 }
 
 
 @media only screen and (max-width: 440px) {
 nav {width: 10px;}
+#mobileMenu {
+	font-size: 0.6em;
+	
+}
 #mainPageText{
 	left: 50%;
 	margin-left: -174px;
@@ -530,6 +545,12 @@ nav ul li{
 .slides {
 	width: 60px;
 	height: 100px;
+	margin: 10px;
+}
+.mobileMenuTopMenu {
+	left: 25%;
+	top: 80px;
+	margin-left: -15px;
 }
 }
 @media only screen and (max-width: 320px) {
