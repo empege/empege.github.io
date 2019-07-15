@@ -1060,13 +1060,13 @@ nav{
 	width: 500px;
 }
 .wrapper-pages { 
-	width: 500px;
+	width: 818px;
 }
 
 .text-pages{
-	width: 400px;
-	margin: 20px 50px;
-
+	width: 818px;
+	margin: 20px 0px;
+	padding: 0 50px;
 }
 .wrapper-pages { 
 	width: 900px;
@@ -1233,6 +1233,16 @@ nav ul {
 }
 }
 @media only screen and (max-width: 600px) {
+	
+.wrapper-pages { 
+	width: 600px;
+}
+
+.text-pages{
+	width: 600px;
+	margin: 20px 0px;
+	padding: 0 40px;
+}
 #arrowLeft {left: 10%;}
 #arrowRight {right: 10%;}
 #bookNameField {
@@ -1248,6 +1258,16 @@ nav ul {
 }
 
 @media only screen and (max-width: 520px) {
+	
+.wrapper-pages { 
+	width: 520px;
+}
+
+.text-pages{
+	width: 520px;
+	margin: 20px 0px;
+	padding: 0 30px;
+}
 #sliderWrapper {
 	margin-top: 100px;
 }
@@ -1279,6 +1299,15 @@ nav ul {
 
 @media only screen and (max-width: 440px) {
 nav {width: 10px;}
+.wrapper-pages { 
+	width: 440px;
+}
+
+.text-pages{
+	width: 440px;
+	margin: 20px 0px;
+	padding: 0 20px;
+}
 #mainPageText{
 	left: 50%;
 	margin-left: -174px;
@@ -1307,6 +1336,16 @@ nav ul li{
 }
 }
 @media only screen and (max-width: 320px) {
+	
+.wrapper-pages { 
+	width: 320px;
+}
+
+.text-pages{
+	width: 320px;
+	margin: 20px 0px;
+	padding: 0 20px;
+}
 #mainPageText{
 	left: 50%;
 	margin-left: -137px;
