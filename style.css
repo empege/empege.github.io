@@ -3,7 +3,7 @@ html {
 	scroll-behavior: smooth;
 	cursor: url("sword.png"), pointer;
 }
-body{
+body {
 	overflow: hidden;
 	padding: 0px;
 	margin: 0px;
@@ -588,7 +588,51 @@ nav ul li{
 	
 }
 
-
+@media only screen and (max-height: 599px) {
+.diveInBtn {
+	bottom: 20%;
+}
+}
+@media only screen and (max-height: 499px) {
+.diveInBtn {
+	bottom: 10%;
+}
+}
+@media only screen and (max-height: 399px) {
+body {
+	overflow: visible;
+	background-image: url('startPageImg/background.jpg');
+}
+#backgroundImg {
+	background-image: none;
+	background-repeat: repeat;
+	background-position: center;
+    background-attachment: fixed;
+	background-size: cover;
+	position: absolute; /*fixed*/
+	overflow: visible;
+	top: 50.25px;
+	left: 0;
+	right: 0;
+}
+#mainPage {
+    position: absolute;
+    top: 50.25px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+	height: 100vh;
+    color: #eee;
+    text-align: center;
+    font-family: 'Crimson Text', serif;
+    user-select: none;
+}
+}
+@media only screen and (max-height: 359px) {
+.diveInBtn {
+	bottom:-10%;
+}
+}
 
 
 

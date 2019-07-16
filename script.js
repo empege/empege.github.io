@@ -462,21 +462,21 @@ $('#side-btn-1').on('click', function(){
 	arthurShow();
 });
 //arthur
-$('#side-btn-2').on('click', function(){
+$('#side-btn-2-arthur').on('click', function(){
 	$(window).scrollTop(0);
 	$('#anchor-1-arthur').hide();
 	$('#anchor-2-arthur').show();
 	$('#anchor-3-arthur').hide();
 	$('#anchor-4-arthur').hide();
 });
-$('#side-btn-3').on('click', function(){
+$('#side-btn-3-arthur').on('click', function(){
 	$(window).scrollTop(0);
 	$('#anchor-1-arthur').hide();
 	$('#anchor-2-arthur').hide();
 	$('#anchor-3-arthur').show();
 	$('#anchor-4-arthur').hide();
 });
-$('#side-btn-4').on('click', function(){
+$('#side-btn-4-arthur').on('click', function(){
 	$(window).scrollTop(0);
 	$('#anchor-1-arthur').hide();
 	$('#anchor-2-arthur').hide();
