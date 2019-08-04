@@ -754,6 +754,7 @@ nav ul li a:hover{
 	border-right: 2px solid #f3b51e;
 	color: #f3b51e;
 	overflow: scroll;
+	-webkit-overflow-scrolling:touch;
 }
 .MobileMenuOptionsWrapper {
 	margin-top: 8px;
