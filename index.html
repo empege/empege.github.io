@@ -1,118 +1,104 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head profile="http://selenium-ide.openqa.org/profiles/test-case">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="selenium.base" href="" />
-<title>utmBuilder</title>
-</head>
-<body>
-<table cellpadding="1" cellspacing="1" border="1">
-<thead>
-<tr><td rowspan="1" colspan="3">utmBuilder</td></tr>
-</thead><tbody>
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="style.css" rel="stylesheet" type="text/css">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width">
+		<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
+		<link rel="icon" href="logo/logo1.png" type="image/png">
+		<title>Der Letzte Ritter</title>
+		
+	</head>
+	<body>
+		<img id="hamburger" src="otherimg/zutiHamburger.png" class="mobileMenu"/>
+		
+		
+		<div id="header">
+			<div><a id="logozafon"><img id="logo" src="logo/milfara.png" alt="logo"></a></div>
+			<nav>
+				<a id="prviLogo"><img id="logo" src="logo/milfara.png" alt="logo"></a>
+				<ul>
+					<li><a id="homePage" href="https://empege.github.io/index.html">Home</a></li>
+					<li id="storiesListWrap">
+						<a id="storiesList">Stories
+							<ul class="dropDownList storiesList">
+								<li><a id="arturList" href="https://empege.github.io/arthurPage.html">Arthur</a></li>
+								<li><a id="parsifalList" href="https://empege.github.io/parsifalPage.html">Parsifal</a></li>
+								<li><a id="ritterList" href="https://empege.github.io/ritterPage.html">"Der Letzte Ritter"</a></li>
+							</ul>
+						</a>
+					</li>
+					<li><a id="contactPage" href="https://empege.github.io/contact.html">Contact</a></li>
+				</ul>
+				
+			</nav>
+			<div id="social-icons">
+				<img id="fb" src="socialicons/fb.png">
+				<img id="insta" src="socialicons/insta.png">
+			</div>
+			<div></div>
+		</div>
+		
+		<div id="mobileMenu">
+			<div class="MobileMenuOptionsWrapper">
+				<img id="x" src="otherimg/zutoX.png" class="mobileMenu"/>
+				<a id="homePage" href="https://empege.github.io/index.html" class="MobileMenuOptions">Home</a>
+				<a id="storiesList" class="MobileMenuOptions">Stories:</a>
+					<a id="arturList" class="MobileMenuOptionsSub" href="https://empege.github.io/arthurPage.html">Arthur</a>
+					<a id="parsifalList" class="MobileMenuOptionsSub" href="https://empege.github.io/parsifalPage.html">Parsifal</a>
+					<a id="ritterList" class="MobileMenuOptionsSub" href="https://empege.github.io/ritterPage.html">"Der Letzte Ritter"</a>
+				<a id="contactPage" href="https://empege.github.io/contact.html" class="MobileMenuOptions">Contact</a>
+			</div>
+		</div>
+		
+		<div class="blackScreenStart"></div>
 
-      <tr>
-        <td>open</td>
-        <td>https://airtable.com/tblzciPivJgRLpuzr/viw3lX4amfdJ90J45?blocks=hide</td>
-        <td></td>
-      </tr>
-    
-
-      <tr>
-        <td>storeText</td>
-        <td>xpath=//*[@id="dataLeftPane"]/div/div[2]/div[2]</td>
-        <td>link1</td>
-      </tr>
-    
-
-      <tr>
-        <td>echo</td>
-        <td>${link1}</td>
-        <td></td>
-      </tr>
-    
-
-      <tr>
-        <td>selectWindow</td>
-        <td>TAB=OPEN</td>
-        <td>https://www.google.com/</td>
-      </tr>
-    
-
-      <tr>
-        <td>selectWindow</td>
-        <td>TAB=1</td>
-        <td></td>
-      </tr>
-    
-
-      <tr>
-        <td>type</td>
-        <td>name=q</td>
-        <td>Yo whats up bitchezzzzz \n heres the link \n ${link1} \n so long suckers</td>
-      </tr>
-    
-</tbody></table>
-<script>
-(function() {
-  var isExtensionLoaded = function () {
-    const $root = document.documentElement
-    return !!$root && !!$root.getAttribute('data-kantu')
-  }
-  var increaseCountInUrl = function (max) {
-    var url   = new URL(window.location.href)
-    var count = 1 + (url.searchParams.get('reload') || 0)
-
-    url.searchParams.set('reload', count)
-    var nextUrl = url.toString()
-
-    var shouldStop = count > max
-    return [shouldStop, !shouldStop ? nextUrl : null]
-  }
-  var run = function () {
-    try {
-      var evt = new CustomEvent('kantuSaveAndRunMacro', { detail: { html: document.documentElement.outerHTML, storageMode: 'browser' } })
-
-      window.dispatchEvent(evt)
-      setInterval(() => window.dispatchEvent(evt), 1000);
-
-      if (window.location.protocol === 'file:') {
-        var onInvokeSuccess = function () {
-          clearTimeout(timer)
-          clearTimeout(reloadTimer)
-          window.removeEventListener('kantuInvokeSuccess', onInvokeSuccess)
-        }
-        var timer = setTimeout(function () {
-          alert('Error #203: It seems you need to turn on *Allow access to file URLs* for Kantu in your browser extension settings.')
-        }, 8000)
-
-        window.addEventListener('kantuInvokeSuccess', onInvokeSuccess)
-      }
-    } catch (e) {
-      alert('Kantu Bookmarklet error: ' + e.toString());
-    }
-  }
-  var reloadTimer = null
-  var main = function () {
-    if (isExtensionLoaded())  return run()
-
-    var MAX_TRY   = 3
-    var INTERVAL  = 1000
-    var tuple     = increaseCountInUrl(MAX_TRY)
-
-    if (tuple[0]) {
-      return alert('Error #204: It seems Kantu is not installed yet - or you need to turn on *Allow access to file URLs* for Kantu in your browser extension settings.')
-    } else {
-      reloadTimer = setTimeout(function () {
-        window.location.href = tuple[1]
-      }, INTERVAL)
-    }
-  }
-
-  main()
-})();
-</script>
-</body>
+		<div id="backgroundImg"></div>
+		
+		<div id="mainPage">	
+			<div class="wrapper">
+				<div id="mainPageText">
+					<p class="welcome">WELCOME</p>
+					<p class="lineUp"><span>TO THE</span> MEDIEVAL KNIGHT <span>STORIES</span></p>
+					<p class="lineDown"><span>FROM</span> EUROPEAN <span>LORE</span></p>
+				</div>
+				<div class="diveInBtn">DIVE IN</div>
+			</div>
+			
+			<div id="sliderWrapper">
+				<h1>Choose Your Story:</h1>
+				
+				<div class="slidesBackground">
+					<img id="arrowLeft" align='middle' src="strelice/left.png" class="slideArrows">
+					<img id="arrowRight" align='middle' src="strelice/right.png" class="slideArrows">
+					<div id="slides">
+						<!-- bilo a umesto div -->
+						<div><img id="firstSlide" class="slides" src=""></div>
+						<div><img id="mainSlide" class="slides" src=""></div>
+						<div><img id="lastSlide" class="slides" src=""></div>
+					</div>
+				</div>
+				
+				<div id="slideBanner" class="">
+					<a><div id="bookNameField"><span>ARTHUR</span></div></a>
+				</div>
+			</div>
+		</div>
+	
+	<!--<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>-->
+	
+	<script
+		src="https://code.jquery.com/jquery-2.2.4.js"
+		integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+		crossorigin="anonymous">
+	</script>
+	
+	<script src="script.js"></script>
+	<script src="contactscript.js"></script>	
+		
+		
+	
+	</body>
 </html>
-  

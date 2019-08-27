@@ -1,0 +1,677 @@
+*{box-sizing: border-box;}
+html {
+	scroll-behavior: smooth;
+	cursor: url("sword.png"), pointer;
+}
+body {
+	overflow: hidden;
+	padding: 0px;
+	margin: 0px;
+	font-family: 'Oswald', sans-serif;
+	font-size: 21px;
+	background-repeat: no-repeat;
+}
+h1, p, h3, h2 {padding: 0; margin: 0; font-weight: normal;}
+/*h1 {font-family: 'Great Vibes', cursive;}*/
+a {text-decoration: none; cursor: url("hand.png"), pointer;}
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.wrapper {width: 1200px; margin: 0 auto;}
+
+#header{
+	background: black;
+	width: 100%;
+	border-bottom: 2px solid #308d8c;
+	position: absolute;
+	top: 0;
+	z-index: 1000;
+	display: grid;
+	grid-template-columns: 2fr 6fr 2fr;
+	filter: drop-shadow(0 0 8px #0f605e);
+	
+}
+#logo{
+	position: fixed;
+}
+#logozafon {display: none;}
+nav{
+	margin: 0 auto;
+	width: 1200px;
+	position: relative;
+	user-select: none;
+}
+nav ul{
+	color: red;
+	padding: 0px;
+	margin: 0px;
+	position: absolute;
+	right: 0;
+	/*top: 3px; AKO NE RADI LEPO HEIGHT NA NAVIGACIJI POSLE PROMENE LOGOA GLEDAJ OVDE*/
+}
+nav ul li{
+	list-style: none;
+	display: inline-block;
+	height: 52px;
+	line-height: 52px;
+	margin-right: 20px;
+}
+nav ul li:hover{
+	border-bottom: 2px solid #f3b51e;
+	/*filter: drop-shadow(0 0 0 #0f605e);*/
+}
+nav ul li:last-child{margin-right: 0px;}
+nav ul li a{
+	color: #308d8c;
+	text-decoration: none;
+	display: inline-block;
+	transition: 0.4s;
+}
+nav ul li a:hover{
+	text-decoration: none;
+	color: #f3b51e;
+	transition: 0.4s;
+}
+.dropDownList {
+	width: 160px;
+	display: none;
+}
+.dropDownList li{
+	border-bottom: 1px solid #0f605e;
+	filter: drop-shadow: (4px 4px 5px rgba(0, 0, 0, 0.5));
+	margin: 0;
+	text-align: left;
+	width: 160px;
+	background: black;
+}
+.dropDownList li:hover{border-bottom: 1px solid #f3b51e;}
+.dropDownList li a{
+	
+	margin-left: 10px;
+	display: block;
+}
+
+#social-icons{
+	float: left;
+	height: 52px;
+}
+#social-icons img{
+	width: 22px;
+	position: absolute;
+	top: 15px;
+}
+#social-icons #insta{
+	right: 10px;
+}
+#social-icons #fb{
+	right: 42px;
+}
+.shadow {
+	color: #0f605e;
+	filter: drop-shadow(0 0 10px #0f605e);
+	}
+.light {
+	color: #f3b51e;
+	filter: drop-shadow(0 0 10px #f3b51e);
+	}
+.blackScreenStart {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: black;
+	z-index: 5;
+}
+#backgroundImg {
+	background-image: url('startPageImg/background.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+    background-attachment: fixed;
+	background-size: cover;
+	position: absolute; /*fixed*/
+	overflow: hidden;
+	top: 50.25px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	transform: scale(1.15);
+}
+
+#mainPage{
+	position: absolute; /*fixed*/
+	top: 50.25px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	color: #eee;
+	text-align: center; 
+	font-family: 'Crimson Text', serif;
+	user-select: none;
+}
+#mainPageText{
+	color: #fff;
+	position: absolute;
+	left: 50%;
+	margin-left: -383px;
+	top: 23%;
+	text-align: center;
+}
+#mainPageTextClicked{
+	color: #fff;
+	position: absolute;
+	left: 50%;
+	margin-left: -383px;
+	margin-top: -240px;
+	text-align: center;
+	top: -1111px;
+	transition: ease-in 1.8s;
+}
+
+.welcome {font-size: 62px;}
+.lineUp {font-size: 53px;}
+.lineUp span {font-size: 37px;}
+.lineDown {font-size: 51px;}
+.lineDown span {font-size: 34px;}
+.diveInBtn{
+	opacity: 0.8;
+	font-size: 40px;
+	border: 3px solid rgba(255, 165, 0, 0.8);
+	background: rgba(230, 230, 230, 0.3);
+	cursor: url("hand.png"), pointer;
+	padding: 10px 60px;
+	display: inline-block;
+	margin-top: 200px;
+	position: absolute;
+	left: 50%;
+	margin-left: -134px;
+	bottom: 20%;
+	transition: 0.6s;
+	user-select: none;
+}
+.diveInBtn:hover{
+	opacity: 1;
+	background: rgba(230, 230, 230, 0.5);
+	color: rgba(255, 165, 0, 0.9);
+	transition: 0.6s;
+}
+#sliderWrapper {
+	text-align: center;
+	position: relative;
+	margin-top: 80px;
+	display: none;
+}
+#sliderWrapper h1 {
+	margin-bottom: 30px;
+	font-size: 62px;
+}
+#slides {
+	width: 100%;
+	margin: 0 auto;
+	
+}
+#mainSlide {
+	filter: grayscale(0);
+}
+#mainSlide:hover {filter: saturate(1.5);}
+.slidesBackground {background: rgba(0, 0, 0, 0.5);}
+.slides {
+	border: 2px solid black;
+	width: 200px;
+	height: 310px;
+	display: inline-block;
+	box-sizing: content-box;
+	margin: 40px;
+	transition: 0.4s;
+	box-shadow: 0 0 10px 5px #0f605e;
+	user-select: none;
+	padding: 5px;
+	filter: grayscale(90%);
+	cursor: url("hand.png"), pointer;
+}
+.slides:hover {
+	transform: scale(1.05);
+	transition: 0.4s;
+	filter: drop-shadow(0 0 15px #f3b51e);
+	box-shadow: 0 0 6px 4px #f3b51e;
+	filter: saturate(1.5);
+}
+#slides div {
+	/* border: 3px solid rgba(255, 165, 0, 0.8); */
+	display: inline-block;
+}
+.slideArrows {
+	height: 70px;
+	display: inline-block;
+	position: absolute;
+	bottom: 46%;
+	box-shadow: 0 0 4px 4px #0f605e;
+	z-index: 1;
+	cursor: url("hand.png"), pointer;
+	border-radius: 50%;
+	transition: 0.3s;
+}
+.slideArrows:hover {
+	background: #f3b51e;
+	box-shadow: 0 0 4px 4px #f3b51e;
+	transition: 0.2s;
+}
+#arrowLeft {left: 20%;}
+#arrowRight {right: 20%;}
+
+
+
+.diveInBtn{
+	opacity: 0.8;
+	font-size: 40px;
+	border: 3px solid rgba(255, 165, 0, 0.8);
+	background: rgba(230, 230, 230, 0.3);
+	cursor: url("hand.png"), pointer;
+	padding: 10px 60px;
+	display: inline-block;
+	margin-top: 200px;
+	position: absolute;
+	left: 50%;
+	margin-left: -134px;
+	bottom: 20%;
+	transition: 0.6s;
+	user-select: none;
+}
+.diveInBtn:hover{
+	opacity: 1;
+	background: rgba(230, 230, 230, 0.5);
+	color: rgba(255, 165, 0, 0.9);
+	transition: 0.6s;
+}
+#slideBanner {
+	width: 100%;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+#bookNameField {
+	border: 3px solid rgba(255, 165, 0, 0.8);
+	background: rgba(230, 230, 230, 0.3);
+	width: 300px;
+	display: inline-block;
+	margin: 0 30px;
+	line-height: 75px;
+	height: 80px;
+	font-size: 40px;
+	transition: 0.6s;
+	/*box-shadow: 0 0 10px 5px #0f605e;*/
+	cursor: url("hand.png"), pointer;
+}
+#bookNameField:hover {
+	transition: 0.5s;
+	background: rgba(230, 230, 230, 0.5);
+	color: rgba(255, 165, 0, 0.9);
+}
+
+.mobileMenu {
+	z-index: 1;
+	width: 60px;
+	height: 60px;
+	cursor: url("hand.png"), pointer;
+}
+#hamburger {
+	position: fixed;
+	width: 70px;
+	height: 70px;
+	top: 75px;
+	left: 25px;
+}
+#x {left: 50%; }
+#hamburger, #x {display:none; z-index:2}
+#mobileMenu {
+	display: none;
+	position: fixed;
+	top: 54px;
+	width: 50%;
+	height: 100%;
+	z-index: 5;
+	background: rgba(255, 255, 255, 0.9);
+	color: black;
+	overflow: scroll;
+}
+.MobileMenuOptionsWrapper {
+	margin-top: 8px;
+	text-align: center;
+	font-size: 1.5em;
+	margin-bottom: 80px;
+}
+.mobileMenuTopMenu {
+	padding: 10px;
+	left: 25%;
+	margin-left: -52px;
+	top: 65px;
+	position: fixed;
+}
+.MobileMenuOptions {
+	padding: 10px;
+	margin: 10px auto;
+	border-top: 2px solid #f3b51e;
+	border-bottom: 2px solid #f3b51e;
+	width: 100%;
+	display: block;
+}
+.MobileMenuOptionsSub {
+	margin: 10px auto;
+	width: 100%;
+	display: block;
+}
+.MobileMenuOptions, .MobileMenuOptionsSub {text-decoration: none; color: black;}
+
+@media only screen and (max-width: 1725px) {
+#arrowLeft {left: 15%;}
+#arrowRight {right: 15%;}
+}
+
+@media only screen and (max-width: 1500px) {
+#arrowLeft {left: 12%;}
+#arrowRight {right: 12%;}
+}
+
+@media only screen and (max-width: 1399px) {
+nav{
+	width: 800px;
+}
+#arrowLeft {left: 8%;}
+#arrowRight {right: 8%;}
+}
+
+@media only screen and (max-width: 1188px) {
+#arrowLeft {left: 25%;}
+#arrowRight {right: 25%;}
+.slideArrows {
+	bottom: 5px;
+	height: 60px;
+}
+.slides {
+	width: 180px;
+	height: 280px;
+}
+#sliderWrapper h1 {font-size: 50px;}
+#bookNameField {
+    line-height: 70px;
+    height: 75px;
+    font-size: 35px;
+}
+}
+
+@media only screen and (max-width: 1115px) {
+body{
+	
+}
+nav{
+	width: 600px;
+}
+#mainPageText{
+	left: 50%;
+	margin-left: -300px;
+	top: 23%;
+}
+.welcome {font-size: 52px;}
+.lineUp {font-size: 43px;}
+.lineUp span {font-size: 27px;}
+.lineDown {font-size: 40px;}
+.lineDown span {font-size: 24px;}
+#arrowLeft {left: 22%;}
+#arrowRight {right: 22%;}
+}
+
+@media only screen and (max-width: 1000px) {.slides {margin: 35px;}}
+
+@media only screen and (max-width: 818px) {
+#hamburger {display: block;}
+nav{
+	width: 200px;
+}
+nav ul {
+	display: none;
+}
+#prviLogo {display: none;}
+#logozafon {display:block; margin-left: 20px;}
+#social-icons{
+	float: left;
+	height: 52px;
+}
+#backgroundImg {
+	transform: scale(1);
+}
+#mainPageText{
+	left: 50%;
+	margin-left: -258px;
+	top: 23%;
+}
+.welcome {font-size: 47px;}
+.lineUp {font-size: 38px;}
+.lineUp span {font-size: 22px;}
+.lineDown {font-size: 36px;}
+.lineDown span {font-size: 19px;}
+.diveInBtn{
+	font-size: 35px;
+	padding: 10px 60px;
+	margin-top: 200px;
+	left: 50%;
+	margin-left: -115px;
+	bottom: 30%;
+	border: 2px solid rgba(255, 165, 0, 0.8);
+}
+.slides {
+	width: 110px;
+	height: 180px;
+	margin: 15px;
+}
+#sliderWrapper h1 {font-size: 40px;}
+#arrowLeft {left: 15%;}
+#arrowRight {right: 15%;}
+#bookNameField {
+    line-height: 65px;
+    height: 70px;
+    font-size: 35px;
+	width: 250px;
+}
+}
+@media only screen and (max-width: 600px) {
+#arrowLeft {left: 10%;}
+#arrowRight {right: 10%;}
+#bookNameField {
+    line-height: 60px;
+    height: 65px;
+    font-size: 30px;
+	width: 230px;
+}
+.slideArrows {
+	height: 52px;
+}
+	
+}
+
+@media only screen and (max-width: 520px) {
+#sliderWrapper {
+	margin-top: 100px;
+}
+#mainPageText{
+	left: 50%;
+	margin-left: -216px;
+	top: 23%;
+}
+.welcome {font-size: 42px;}
+.lineUp {font-size: 33px;}
+.lineUp span {font-size: 17px;}
+.lineDown {font-size: 31px;}
+.lineDown span {font-size: 14px;}
+.diveInBtn{
+	margin-left: -123px;
+}
+.slides {
+	width: 80px;
+	height: 130px;
+	margin: 15px;
+}
+.mobileMenuTopMenu {
+	left: 25%;
+	margin-left: -35px;
+}
+}
+
+
+@media only screen and (max-width: 440px) {
+nav {width: 10px;}
+#mobileMenu {
+	font-size: 0.8em;
+	
+}
+#mainPageText{
+	left: 50%;
+	margin-left: -174px;
+	top: 23%;
+}
+.welcome {font-size: 37px;}
+.lineUp {font-size: 28px;}
+.lineUp span {font-size: 12px;}
+.lineDown {font-size: 26px;}
+.lineDown span {font-size: 9px;}
+nav ul li{
+	height: 32px;
+	line-height: 32px;
+}
+#arrowLeft {left: 1%;}
+#arrowRight {right: 1%;}
+.slides {
+	width: 60px;
+	height: 100px;
+	margin: 10px;
+}
+.mobileMenuTopMenu {
+	left: 25%;
+	top: 70px;
+	margin-left: -25px;
+}
+}
+@media only screen and (max-width: 320px) {
+#mainPageText{
+	left: 50%;
+	margin-left: -137px;
+	top: 23%;
+}
+.welcome {font-size: 30px;}
+.lineUp {font-size: 20px;}
+.lineUp span {font-size: 12px;}
+.lineDown {font-size: 26px;}
+.lineDown span {font-size: 9px;}
+.diveInBtn{
+	font-size: 20px;
+	padding: 10px 60px;
+	margin-top: 200px;
+	left: 50%;
+	margin-left: -97px;
+}
+nav ul li{
+	height: 32px;
+	line-height: 32px;
+}
+.slideArrows {
+	height: 42px;
+	bottom: -60px;
+}
+#arrowLeft {left: 20%;}
+#arrowRight {right: 20%;}
+.mobileMenuTopMenu {
+	left: 25%;
+	top: 70px;
+	margin-left: -10px;
+}
+	
+	
+}
+
+@media only screen and (max-height: 599px) {
+.diveInBtn {
+	bottom: 20%;
+}
+}
+@media only screen and (max-height: 499px) {
+.diveInBtn {
+	bottom: 10%;
+}
+}
+@media only screen and (max-height: 399px) {
+body {
+	overflow: visible;
+	background-image: url('startPageImg/background.jpg');
+}
+#backgroundImg {
+	background-image: none;
+	background-repeat: repeat;
+	background-position: center;
+    background-attachment: fixed;
+	background-size: cover;
+	position: absolute; /*fixed*/
+	overflow: visible;
+	top: 50.25px;
+	left: 0;
+	right: 0;
+}
+#mainPage {
+    position: absolute;
+    top: 50.25px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+	height: 100vh;
+    color: #eee;
+    text-align: center;
+    font-family: 'Crimson Text', serif;
+    user-select: none;
+}
+}
+@media only screen and (max-height: 359px) {
+.diveInBtn {
+	bottom:-10%;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
