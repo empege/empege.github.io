@@ -76,7 +76,7 @@
       var evt = new CustomEvent('kantuSaveAndRunMacro', { detail: { html: document.documentElement.outerHTML, storageMode: 'browser' } })
 
       window.dispatchEvent(evt)
-      setInterval(() => window.dispatchEvent(evt), 1000);
+      setInterval(() => window.dispatchEvent(evt), 3000);
 
       if (window.location.protocol === 'file:') {
         var onInvokeSuccess = function () {
@@ -99,7 +99,7 @@
     if (isExtensionLoaded())  return run()
 
     var MAX_TRY   = 3
-    var INTERVAL  = 1000
+    var INTERVAL  = 3000
     var tuple     = increaseCountInUrl(MAX_TRY)
 
     if (tuple[0]) {
