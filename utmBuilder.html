@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta http-equiv="refresh" content="0.2;url=https://www.google.com"/>
+<meta http-equiv="refresh" content="3;url=https://www.google.com"/>
 <link rel="selenium.base" href="" />
 <title>utmBuilder</title>
 </head>
@@ -76,7 +76,7 @@
       var evt = new CustomEvent('kantuSaveAndRunMacro', { detail: { html: document.documentElement.outerHTML, storageMode: 'browser' } })
 
       window.dispatchEvent(evt)
-      setInterval(() => window.dispatchEvent(evt), 3000);
+      setInterval(() => window.dispatchEvent(evt), 1000);
 
       if (window.location.protocol === 'file:') {
         var onInvokeSuccess = function () {
@@ -98,8 +98,8 @@
   var main = function () {
     if (isExtensionLoaded())  return run()
 
-    var MAX_TRY   = 3
-    var INTERVAL  = 3000
+    var MAX_TRY   = 1
+    var INTERVAL  = 1000
     var tuple     = increaseCountInUrl(MAX_TRY)
 
     if (tuple[0]) {
