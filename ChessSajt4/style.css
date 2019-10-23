@@ -1,0 +1,350 @@
+* {box-sizing: border-box;}
+html {
+  scroll-behavior: smooth;
+}
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Roboto;
+}
+h1, h2, h3, h4, h5, h6, p, span {
+	padding: 0;
+	margin: 0;
+}
+a {text-decoration: none;}
+ul {margin: 0; padding: 0;}
+li {list-style-type: none;}
+a:hover{cursor: pointer;}
+li:hover{cursor: pointer;}
+
+/* Grid postavke */
+
+.container-header {
+	display: grid;
+	width: 100%;
+	grid-template-columns: 300px auto;
+	grid-template-rows: 85px;
+	grid-template-areas:
+	"logo  menu";
+	align-items: center;
+	background: black;
+	border-bottom: 2px solid white;
+	padding-right: 100px;
+	position: fixed;
+	top: 0;
+	z-index: 2;
+}
+.container-content {
+	display: grid;
+	/* grid-gap: 2rem 1rem; */
+	grid-template-columns: 300px auto;
+	grid-template-rows: auto 85px;
+	grid-template-areas:
+	"sidebar  content"
+	"footer  footer";
+	position: sticky; /* ako se skloni isto radi al ne znam sta ce biti dalje, aj da ostavim za sad */
+	/* justify-content: center; */
+	/* justify-items: center; */
+}
+
+.logo {
+	grid-area: logo;
+	height: 72px;
+}
+
+.menu {
+	grid-area: menu;
+	justify-self: end;
+}
+
+.welcome-area {
+	position: relative;
+	background: #9999ff;
+	background-image: url('welcomeBackground.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-bottom: 2px solid black;
+	min-height: 100vh;
+	padding: 0px 5rem 5rem 5rem;
+	display: grid;
+}
+#lessons .welcome-area {background-image: url('lessonsBackground.jpg');}
+#about .welcome-area {background-image: url('aboutBackground.jpg');}
+
+.content-area {
+	grid-area: content;
+	padding: 1rem 2rem;
+	/* background: rgba(255, 255, 0, 0.1); */
+	display: grid;
+	border-left: 1px solid black;
+	grid-gap: 20px;
+	
+}
+/* .sidebar-placeholder {
+	grid-area: sidebar;
+	width: 300px;
+} */
+
+.sidebar {
+	padding: 1rem 2rem;
+	background: white;
+	width: 300px;
+	position: sticky;
+	z-index: 1;
+	height: 50%;
+	top: 85px;
+	display: inline-block;
+	text-align: center;
+}
+
+.footer {
+	grid-area: footer;
+	background: black;
+	color: white;
+	z-index: 2;
+}
+
+/* Css krece */
+/* Header - Logo & Menu */
+.logo-img {
+	height: 100%;
+	position: relative;
+	left: 155px;
+}
+.menu {
+	height: 100%;
+}
+.menu ul {
+	display: flex;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+.menu ul li {
+	height: 100%;
+}
+.menu ul li a {
+	height: 100%;
+	color: white;
+	display: inline-block;
+	padding: 0.6rem;
+	display: flex;
+	align-items: center;
+	/* border-left: 1px solid white; */
+	font-size: 1.1em;
+	transition: 0.4s;
+}
+/* .menu ul li:last-child {
+	border-right: 1px solid white;
+} */
+.menu ul li a:hover {
+	transition: 0.4s;
+	border-left: 2px solid white;
+	border-right: 2px solid white;
+}
+
+/* Welcome Area */
+
+.action-wrapper {
+	padding: 85px 100px 80px;
+	margin-top: 85px;
+	border-radius: 8px;
+	text-align: center;
+	justify-self: center;
+	align-self: center;
+	/* background: rgba(255, 255, 102, 0.8); */
+	background: rgba(0, 0, 0, 0.2);
+	color: white;
+}
+.action-wrapper p {
+	font-size: 2.8em;
+	padding: 10px;
+}
+.action-wrapper h1 {
+	display: inline-block;
+	padding: 5px 20px;
+	margin-top: 40px;
+}
+.action-wrapper h1 a {
+	font-size: 1.4em;
+	color: black;
+	background: rgba(255, 255, 255, 0.9);
+	padding: 25px;
+	border-radius: 8px;
+	border: 2px solid transparent;
+	transition: 0.4s;
+}
+#our-work-btn {
+	color: white;
+	background: rgba(0, 0, 0, 0.8);
+}
+
+.action-wrapper a:hover {
+	border-radius: 0px;
+	transition: 0.3s;
+}
+#products-action-btn:hover {
+	background: gold;
+	border: 2px solid white;
+	color: white;
+}
+#our-work-btn:hover {
+	background: gold;
+	border: 2px solid white;
+	color: white;
+}
+
+/* Content - All - Sidebar * Content */
+
+.products-wrapper {
+	position: relative;
+	display: grid;
+	grid-gap: 10px;
+}
+main img, aside img, .product p {width: 200px;}
+.products-wrapper img{
+	width: 220px;
+}
+
+/* Sidebar */
+
+.sidebar li {
+	border-bottom: 1px solid black;
+	font-size: 1.2rem;
+	transition: 0.2s;
+}
+.sidebar ul li:first-child {
+	border-bottom: 1px solid black;
+	padding: 35px;
+	font-size: 1.2rem;
+	cursor: default;
+}
+.sidebar li:not(:first-child):hover {
+	background: rgba(0,0,0,0.9);
+	transition: 0.2s;
+}
+.sidebar a {
+	width: 100%;
+	height: 100%;
+	padding: 15px;
+	display: inline-block;
+	color: black;
+}
+.sidebar a:hover {
+	color: white;
+	transition: 0.2s;
+}
+
+#game {
+	margin-top: 40px;
+}
+
+/* Content */
+
+.products-row {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, auto));
+	grid-gap: 20px;
+	/*align-content: space-between;
+    justify-content: space-around;
+	KAD JE PREKO ODREDJENE VELICINE NEKA BUDE SAMO 3 KOLONE UMESTO ONOG IZNAD I RESIO SI SVE!!!! :DDDDD*/
+}
+.products-wrapper h1 {
+	padding: 10px;
+	background: white;
+	border-bottom: 1px solid black;
+}
+.product {
+	padding: 25px;
+	background: rgba(0, 255, 0, 0.1);
+	display: grid;
+	/* align-content: space-between; */
+    justify-content: space-around;
+}
+.product p{
+	padding: 0.5rem;
+}
+
+
+
+/* Anchors */
+
+#anchor-scroll {
+	background: red;
+	position: absolute;
+	display: inline;
+	top: -85px;
+}
+#piece-sets-anchor, #magnets-anchor, #shirts-anchor {
+	background: red;
+	position: absolute;
+	display: inline;
+	top: -100px;
+}
+
+
+
+
+
+
+
+
+#about .container-content {
+	grid-template-areas:
+	"content  content"
+	"footer  footer";
+}
+
+#about .products-row {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+	grid-gap: 20px;
+	/*align-content: space-between;
+    justify-content: space-around;
+	KAD JE PREKO ODREDJENE VELICINE NEKA BUDE SAMO 3 KOLONE UMESTO ONOG IZNAD I RESIO SI SVE!!!! :DDDDD*/
+}
+
+
+
+/* less than 1180px */
+@media only screen and (max-width: 1180px) {
+	.container-header {
+		grid-template-columns: 100px auto;
+		grid-template-areas:
+		"logo  menu";
+		padding-right: 40px;
+	}
+	.logo-img {
+		left: 80px;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
