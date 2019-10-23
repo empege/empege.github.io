@@ -10,14 +10,14 @@ $(document).ready(function(){
 	var homeOrDownBtnClicked = false;
 	var homeOrDownBtnIsOn = false;
 	var windowsWidthOk = true;
-	if($(window).width() < 768){windowsWidthOk = false;}else{windowsWidthOk = true;}
+	if($(window).width() < 768 || $(window).height() < 768){windowsWidthOk = false;}else{windowsWidthOk = true;}
 	
 	//When screen resizes get the values of the screen again
 	$(window).resize(function() {
 		welcomeHeight = welcome.offsetHeight;
 		lastScroll = $(window).scrollTop();
 		newScroll = $(window).scrollTop();
-		if($(window).width() < 768){windowsWidthOk = false;}else{windowsWidthOk = true;}
+		if($(window).width() < 768 || $(window).height() < 768){windowsWidthOk = false;}else{windowsWidthOk = true;}
 	});
 
 	//When Products or Home btn are clicked there's sometimes a bug with scrolling up or down, this fixes it.
