@@ -179,19 +179,22 @@ li:hover{cursor: pointer;}
 	background: rgba(0, 0, 0, 0.8);
 }
 
+/* ako nije fon onda ima ovaj hover */
+@media all and (min-width: 1180px) {
+	#products-action-btn:hover {
+		background: gold;
+		border: 2px solid white;
+		color: white;
+	}
+	#our-work-btn:hover {
+		background: gold;
+		border: 2px solid white;
+		color: white;
+	}
+}
 .action-wrapper a:hover {
 	border-radius: 0px;
 	transition: 0.3s;
-}
-#products-action-btn:hover {
-	background: gold;
-	border: 2px solid white;
-	color: white;
-}
-#our-work-btn:hover {
-	background: gold;
-	border: 2px solid white;
-	color: white;
 }
 
 /* Content - All - Sidebar * Content */
