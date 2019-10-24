@@ -18,6 +18,7 @@ $(document).ready(function(){
 		lastScroll = $(window).scrollTop();
 		newScroll = $(window).scrollTop();
 		if($(window).width() < 768 || $(window).height() < 768){windowsWidthOk = false;}else{windowsWidthOk = true;}
+		console.log($(window).width());
 	});
 
 	//When Products or Home btn are clicked there's sometimes a bug with scrolling up or down, this fixes it.
@@ -28,7 +29,7 @@ $(document).ready(function(){
 			setTimeout(function(){
 				homeOrDownBtnClicked = false;
 				homeOrDownBtnIsOn = false;
-			}, 500);
+			}, 900);
 		}
 	});
 	
@@ -38,13 +39,13 @@ $(document).ready(function(){
 		newScroll = $(window).scrollTop();
 		//going down
 		if(newScroll > lastScroll && homeOrDownBtnClicked == false){
-			if($(document).scrollTop() >= 0 && $(document).scrollTop() <= (welcomeHeight - 85) && scrollingDown == false){
+			if(($(document).scrollTop() >= 0) && $(document).scrollTop() <= (welcomeHeight - 85) && scrollingDown == false){
 				window.scrollTo(0, (welcomeHeight - 85));
 				scrollingDown = true;
 			}
 			lastScroll = newScroll;
-			if($(window).scrollTop() >= (welcomeHeight - 85)){scrollingDown = false;}
-			if($(window).scrollTop() == 0){scrollingDown = false;}
+			if(($(window).scrollTop() >= (welcomeHeight - 85)) && scrollingDown == true){scrollingDown = false;}
+			if(($(window).scrollTop() == 0) && scrollingDown == true){scrollingDown = false;}
 		//going up	
 		}else if(newScroll < lastScroll && homeOrDownBtnClicked == false){
 			if($(document).scrollTop() <= (welcomeHeight - 150) && scrollingUp == false){
@@ -52,7 +53,7 @@ $(document).ready(function(){
 				scrollingUp = true;
 			}
 			lastScroll = newScroll;
-			if($(window).scrollTop() == 0){scrollingUp = false;}
+			if(($(window).scrollTop() == 0) && scrollingUp == true){scrollingUp = false;}
 		}
 	}
 	});
