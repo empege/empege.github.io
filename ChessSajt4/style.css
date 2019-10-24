@@ -16,6 +16,8 @@ ul {margin: 0; padding: 0;}
 li {list-style-type: none;}
 a:hover{cursor: pointer;}
 li:hover{cursor: pointer;}
+.db{display: block;}
+.dn{display: none;}
 
 /* Grid postavke */
 
@@ -34,6 +36,8 @@ li:hover{cursor: pointer;}
 	top: 0;
 	z-index: 2;
 }
+.container-header-phone {display: none;}
+.hamburger-menu {display: none;}
 .container-content {
 	display: grid;
 	/* grid-gap: 2rem 1rem; */
@@ -285,13 +289,6 @@ main img, aside img, .product p {width: 200px;}
 	top: -100px;
 }
 
-
-
-
-
-
-
-
 #about .container-content {
 	grid-template-areas:
 	"content  content"
@@ -307,7 +304,91 @@ main img, aside img, .product p {width: 200px;}
 	KAD JE PREKO ODREDJENE VELICINE NEKA BUDE SAMO 3 KOLONE UMESTO ONOG IZNAD I RESIO SI SVE!!!! :DDDDD*/
 }
 
-
+/* less than 768px POSLE PROMENI */
+@media only screen and (max-width: 980px) {
+	
+	.container-header-phone {
+		display: grid;
+		width: 100%;
+		grid-template-columns: 1fr;
+		grid-template-rows: 115px;
+		grid-template-areas:
+		"menu  menu";
+		align-items: center;
+		background: black;
+		border-bottom: 2px solid white;
+		padding-right: 0;
+		position: fixed;
+		top: auto;
+		bottom: 0;
+		font-size: 1.6em;
+		z-index: 2;
+	}
+	.menu {display: none;}
+	.menu-phone {
+		align-self: center;
+		justify-self: center;
+		height: 100%;
+	}
+	.menu-phone ul {
+		display: flex;
+		margin: 0;
+		padding: 0;
+		height: 100%;
+	}
+	.menu-phone ul li {
+		height: 100%;
+	}
+	.menu-phone ul li a {
+		height: 100%;
+		color: white;
+		display: inline-block;
+		padding: 0.6rem;
+		display: flex;
+		align-items: center;
+		font-size: 1.1em;
+		transition: 0.4s;
+	}
+	.menu-phone ul li a:hover {
+		transition: 0.4s;
+		border-left: 2px solid white;
+		border-right: 2px solid white;
+	}
+	.hamburger-menu {
+		display: block;
+		width: 75px;
+		align-self: right;
+		justify-self: right;
+	}
+	.hamburger-menu img {
+		width: 100%;
+	}
+	.sidebar {
+		display: none;
+		padding: 1rem 2rem;
+		background: white;
+		width: 60vw;
+		position: fixed;
+		height: 100vh;
+		top: 85px;
+		left: 40vw;
+		right: 0;
+		bottom: 0;
+		text-align: center;
+		z-index: 5;
+	}
+	.sidebar li {font-size: 1.6em;}
+	.sidebar ul li:first-child {font-size: 1.6em;}
+	.container-header-phone i {margin-right: 10px;}
+	.container-content {
+		grid-template-columns: 1fr;
+		grid-template-rows: auto 85px;
+		grid-template-areas:
+		"content content"
+		"footer  footer";
+	}
+	
+}
 
 /* less than 1180px */
 @media only screen and (max-width: 1180px) {
@@ -321,15 +402,17 @@ main img, aside img, .product p {width: 200px;}
 		left: 80px;
 	}
 	
-	#products-action-btn:active, #our-work-btn:active {
-		background: gold;
-		border: 2px solid white;
-		color: white;
+	.container-content {
+		grid-template-columns: auto;
+		grid-template-rows: auto 85px;
+		grid-template-areas:
+		"content"
+		"footer";
+		/* justify-content: center; */
+		/* justify-items: center; */
 	}
-	
 
 }
-
 
 
 

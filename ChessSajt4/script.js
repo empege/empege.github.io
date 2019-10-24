@@ -57,4 +57,42 @@ $(document).ready(function(){
 		}
 	}
 	});
+	
+	
+	
+	$('#ham').on('click', function(){
+		$('.sidebar').slideToggle('fast');
+	});
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 });
