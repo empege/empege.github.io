@@ -81,7 +81,7 @@ li:hover{cursor: pointer;}
 	/* background: rgba(255, 255, 0, 0.1); */
 	display: grid;
 	border-left: 1px solid black;
-	grid-gap: 20px;
+	grid-gap: 40px;
 	
 }
 /* .sidebar-placeholder {
@@ -183,8 +183,8 @@ li:hover{cursor: pointer;}
 	background: rgba(0, 0, 0, 0.8);
 }
 
-/* ako nije fon onda ima ovaj hover */
-@media all and (min-width: 1180px) {
+/* ako nije fon onda ima ovaj hover 
+@media all and (min-width: 1180px) {*/
 	#products-action-btn:hover {
 		background: gold;
 		border: 2px solid white;
@@ -195,7 +195,7 @@ li:hover{cursor: pointer;}
 		border: 2px solid white;
 		color: white;
 	}
-}
+/*}*/
 .action-wrapper a:hover {
 	border-radius: 0px;
 	transition: 0.3s;
@@ -262,8 +262,8 @@ main img, aside img, .product p {width: 200px;}
 	border-bottom: 1px solid black;
 }
 .product {
-	padding: 25px;
-	background: rgba(0, 255, 0, 0.1);
+	padding: 35px 0 0 0 ;
+	/* background: rgba(0, 255, 0, 0.1); */
 	display: grid;
 	/* align-content: space-between; */
     justify-content: space-around;
@@ -304,6 +304,15 @@ main img, aside img, .product p {width: 200px;}
 	KAD JE PREKO ODREDJENE VELICINE NEKA BUDE SAMO 3 KOLONE UMESTO ONOG IZNAD I RESIO SI SVE!!!! :DDDDD*/
 }
 
+/* more than 1600px (3 rows only in grid producs-row) AKO HOCES SAMO DA BUDE VECI RAZMAK, ALI NE VECI OD NESTO NE ZNAM NI JA, ONDA SKINI OVO DOLE I SAMO IM STAVI RAZMAK VECI OVDE DOLE*/
+@media only screen and (min-width: 1600px) {
+	.products-row {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(300px, auto));
+		grid-gap: 20px;
+	}
+}
+
 /* less than 768px POSLE PROMENI */
 @media only screen and (max-width: 980px) {
 	
@@ -321,7 +330,7 @@ main img, aside img, .product p {width: 200px;}
 		position: fixed;
 		top: auto;
 		bottom: 0;
-		font-size: 1.6em;
+		font-size: 1.8em;
 		z-index: 2;
 	}
 	.menu {display: none;}
@@ -346,7 +355,6 @@ main img, aside img, .product p {width: 200px;}
 		padding: 0.6rem;
 		display: flex;
 		align-items: center;
-		font-size: 1.1em;
 		transition: 0.4s;
 	}
 	.menu-phone ul li a:hover {
@@ -380,18 +388,6 @@ main img, aside img, .product p {width: 200px;}
 	.sidebar li {font-size: 1.6em;}
 	.sidebar ul li:first-child {font-size: 1.6em;}
 	.container-header-phone i {margin-right: 10px;}
-	.container-content {
-		grid-template-columns: 1fr;
-		grid-template-rows: auto 85px;
-		grid-template-areas:
-		"content content"
-		"footer  footer";
-	}
-	
-}
-
-/* less than 1180px */
-@media only screen and (max-width: 1180px) {
 	.container-header {
 		grid-template-columns: 100px auto;
 		grid-template-areas:
@@ -401,7 +397,6 @@ main img, aside img, .product p {width: 200px;}
 	.logo-img {
 		left: 80px;
 	}
-	
 	.container-content {
 		grid-template-columns: auto;
 		grid-template-rows: auto 85px;
@@ -411,6 +406,11 @@ main img, aside img, .product p {width: 200px;}
 		/* justify-content: center; */
 		/* justify-items: center; */
 	}
+	
+}
+
+/* less than 1180px */
+@media only screen and (max-width: 1180px) {
 
 }
 
@@ -420,6 +420,33 @@ main img, aside img, .product p {width: 200px;}
 
 
 
+
+/* less than 650px HEIGHT*/
+@media only screen and (max-height: 650px) {
+	
+	.container-header-phone {
+		grid-template-rows: 85px;
+		grid-template-areas:
+		"menu  menu";
+		font-size: 1.5em;
+	}
+	.menu-phone ul li a {
+	}
+	.container-header {
+		grid-template-rows: 40px;
+	}
+	.logo {
+		height: 60px;
+	}
+	.logo-img {
+		top: 35%;
+	}
+	.hamburger-menu {
+		width: 65px;
+		position: relative;
+		top: 45%;
+	}
+}
 
 
 
