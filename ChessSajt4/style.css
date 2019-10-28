@@ -35,6 +35,11 @@ li:hover{cursor: pointer;}
 	position: fixed;
 	top: 0;
 	z-index: 2;
+	transition: 0.5s;
+}
+.sticky {
+	grid-template-rows: 35px;
+	transition: 0.5s;
 }
 .container-header-phone {display: none;}
 .hamburger-menu {display: none;}
@@ -67,6 +72,7 @@ li:hover{cursor: pointer;}
 	background-image: url('welcomeBackground.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
+	background-position: center;
 	border-bottom: 2px solid black;
 	min-height: 100vh;
 	padding: 0px 5rem 5rem 5rem;
@@ -146,6 +152,7 @@ li:hover{cursor: pointer;}
 	border-left: 2px solid white;
 	border-right: 2px solid white;
 }
+
 
 /* Welcome Area */
 
@@ -373,17 +380,18 @@ main img, aside img, .product p {width: 200px;}
 	}
 	.sidebar {
 		display: none;
-		padding: 1rem 2rem;
+		padding: 5rem 2rem;
 		background: white;
 		width: 60vw;
 		position: fixed;
 		height: 100vh;
-		top: 85px;
+		top: 0;
 		left: 40vw;
 		right: 0;
 		bottom: 0;
 		text-align: center;
 		z-index: 5;
+		overflow: scroll;
 	}
 	.sidebar li {font-size: 1.6em;}
 	.sidebar ul li:first-child {font-size: 1.6em;}
@@ -422,7 +430,7 @@ main img, aside img, .product p {width: 200px;}
 
 
 /* less than 650px HEIGHT*/
-@media only screen and (max-height: 650px) {
+@media only screen and (max-height: 550px) {
 	
 	.container-header-phone {
 		grid-template-rows: 85px;
