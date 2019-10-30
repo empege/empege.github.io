@@ -6,13 +6,17 @@
 	<link href="style.css" type="text/css" rel="stylesheet">
 	<link rel="stylesheet" href="css/easy-reveal.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
 </head>
 <body id="about">
 
 	<!-- Header -->
-	<div class="container-header">
+	<div class="container-header" id="header">
 		<header class="logo">
-			<a href="#" class="up-down-btn-slide"><img class="logo-img" src="logos/crnobeli.png"></a>
+			<a href="#" class="up-down-btn-slide" id="logo-first-child"><img id="logo-img-big" class="logo-img" src="logos/crnobeli.png"></a>
+			<a href="#" class="up-down-btn-slide" id="logo-second-child"><img id="logo-img-small" class="logo-img" src="logos/belipesakokvir.png"></a>
 		</header>
 		<nav class="menu">
 			<ul>
@@ -39,6 +43,26 @@
 			<p style="font-size:2em;">MI STVARAMO - ZA BOLJE SUTRA xDD</p>
 			<p>Nasi poceci, kraj i vizija</p><br>
 			<h1><a id="our-work-btn" href="#anchor-scroll">Погледај наш рад</a></h1>
+		</div>
+		<!-- Slidershow -->
+		<div class="slideshow-container">
+			<a href="index.html#anchor-scroll"><div class="mySlides w3-animate-right" id="welcome-slide-1">
+			  <div class="text"><p>Otkrijte koje smo sve proizvode spremili za Vas!</p></div>
+			</div></a>
+			<a href="lessons.html#anchor-scroll"><div class="mySlides w3-animate-right" id="welcome-slide-2">
+			   <div class="text"><!-- <h1>sdasdadas!</h1> --><p>Nаuči da igraš kao PRO!</p></div></a>
+			</div>
+			<a href="about.html#anchor-scroll"><div class="mySlides w3-animate-right" id="welcome-slide-3">
+			  <div class="text"><p>Table pravljene po Vašem ukusu.</p></div></a>
+			</div>
+			<a class="next" onclick="plusSlides(1);">&#10095;</a>
+			<a class="prev" onclick="plusSlides(-1);">&#10094;</a>
+		</div>
+		<br>
+		<div class="dots">
+		  <span class="dot" onclick="currentSlide(1);"></span>
+		  <span class="dot" onclick="currentSlide(2);"></span>
+		  <span class="dot" onclick="currentSlide(3);"></span>
 		</div>
 	</section>
 	

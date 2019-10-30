@@ -5,11 +5,13 @@ html {
 body {
 	margin: 0;
 	padding: 0;
-	font-family: Roboto;
+	font-family: 'Roboto Slab', serif;
+	background: white;
 }
 h1, h2, h3, h4, h5, h6, p, span {
 	padding: 0;
 	margin: 0;
+	font-family: 'Roboto Slab', serif;
 }
 a {text-decoration: none;}
 ul {margin: 0; padding: 0;}
@@ -34,12 +36,12 @@ li:hover{cursor: pointer;}
 	padding-right: 100px;
 	position: fixed;
 	top: 0;
-	z-index: 2;
-	transition: 0.5s;
+	z-index: 5;
+	transition: ease all 0.5s;
 }
 .sticky {
-	grid-template-rows: 35px;
-	transition: 0.5s;
+	grid-template-rows: 45px;
+	transition: ease all 0.5s;
 }
 .container-header-phone {display: none;}
 .hamburger-menu {display: none;}
@@ -68,8 +70,8 @@ li:hover{cursor: pointer;}
 
 .welcome-area {
 	position: relative;
-	background: #9999ff;
-	background-image: url('welcomeBackground.jpg');
+	/*background: #9999ff;
+	background-image: url('welcomeBackground.jpg');*/
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
@@ -97,7 +99,6 @@ li:hover{cursor: pointer;}
 
 .sidebar {
 	padding: 1rem 2rem;
-	background: white;
 	width: 300px;
 	position: sticky;
 	z-index: 1;
@@ -116,10 +117,19 @@ li:hover{cursor: pointer;}
 
 /* Css krece */
 /* Header - Logo & Menu */
-.logo-img {
+#logo-img-big {
 	height: 100%;
 	position: relative;
 	left: 155px;
+	transition: 0.5s;
+}
+#logo-img-small {
+	display: none;
+	height: 100%;
+	position: absolute;
+	left: 276px;
+	transition: 0.5s;
+	top:0;
 }
 .menu {
 	height: 100%;
@@ -151,6 +161,7 @@ li:hover{cursor: pointer;}
 	transition: 0.4s;
 	border-left: 2px solid white;
 	border-right: 2px solid white;
+	background: gold;
 }
 
 
@@ -164,12 +175,20 @@ li:hover{cursor: pointer;}
 	justify-self: center;
 	align-self: center;
 	/* background: rgba(255, 255, 102, 0.8); */
-	background: rgba(0, 0, 0, 0.2);
+	background: rgba(0, 0, 0, 0.5);
 	color: white;
+	position: absolute;
+	border: 2px solid white;
+	z-index: 2;
+}
+.action-wrapper p:first-child {
+	font-size: 3.2em;
+	padding: 10px;
 }
 .action-wrapper p {
-	font-size: 2.8em;
+	font-size: 2em;
 	padding: 10px;
+	font-family: 'Roboto Slab', serif;
 }
 .action-wrapper h1 {
 	display: inline-block;
@@ -177,7 +196,7 @@ li:hover{cursor: pointer;}
 	margin-top: 40px;
 }
 .action-wrapper h1 a {
-	font-size: 1.4em;
+	font-size: 0.8em;
 	color: black;
 	background: rgba(255, 255, 255, 0.9);
 	padding: 25px;
@@ -265,7 +284,6 @@ main img, aside img, .product p {width: 200px;}
 }
 .products-wrapper h1 {
 	padding: 10px;
-	background: white;
 	border-bottom: 1px solid black;
 }
 .product {
@@ -381,7 +399,6 @@ main img, aside img, .product p {width: 200px;}
 	.sidebar {
 		display: none;
 		padding: 5rem 2rem;
-		background: white;
 		width: 60vw;
 		position: fixed;
 		height: 100vh;
@@ -458,7 +475,114 @@ main img, aside img, .product p {width: 200px;}
 
 
 
-
+/* SLIDER */
+ .mySlides {
+	display: none;
+	height: 100%;
+}
+#welcome-slide-1 {
+	background: url('welcomeBackground.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+#welcome-slide-2 {
+	background: url('lessonsBackground.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+#welcome-slide-3 {
+	background: url('aboutBackground.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+.dots {
+	position: absolute;
+	bottom: 20px;
+	left: 50%;
+	margin-left: -60px;
+	background: rgba(0, 0, 0, 0.4);
+	padding: 10px;
+	border-radius: 5px;
+	border: 2px solid white;
+}
+/* Slideshow container */
+.slideshow-container {
+  background: black;
+  overflow: hidden;
+  position: absolute;
+  top: 85px; bottom: 0; left:0; right: 0;
+  margin: 0 auto;
+}
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -42px;
+  color: #F1EFEE;
+  font-weight: light;
+  font-size: 35px;
+  transition: 0.5s ease;
+  border-radius: 0 3px 3px 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 2px solid white;
+}
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: gold;
+}
+/* Caption text */
+.text {
+  color: white;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid white;
+  transition: 0.5s ease;
+}
+.text h1 {font-size: 2em; margin-top: 50px;}
+.text p {font-size: 1.8em;}
+.text:hover {background: gold; transition: 0.5s ease; color: white;}
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #F1EFEE;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 8px;
+  background-color: #F1EFEE;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.4s ease;
+}
+.active {
+  background-color: #343C3E;
+}
+.dot:hover {background: gold;}
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
 
 
 

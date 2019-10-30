@@ -26,11 +26,15 @@ $(document).ready(function(){
 	function stickyDown() {
 		if($(window).scrollTop() >= welcomeHeight){
 			header.attr('class', 'container-header sticky');
+			$('#logo-first-child').fadeOut(200);
+			$('#logo-img-small').fadeIn(50);
 		}
 	}
 	function stickyUp() {
 		if($(window).scrollTop() >= welcomeHeight){
 			header.attr('class', 'container-header');
+			$('#logo-first-child').fadeIn(150);
+			$('#logo-img-small').fadeOut(150);
 		}
 	}
 
@@ -93,22 +97,95 @@ $(document).ready(function(){
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 });
+
+
+{
+//slider action page
+	var slideIndex = 0;
+	var test;
+	showSlides(slideIndex, true);
+	//carousel();
+	function plusSlides(n) {
+	  showSlides(slideIndex += n);
+	}
+	function currentSlide(n) {
+	  showSlides(slideIndex = n);
+	}
+	function showSlides(n, carouselArg = false) {
+	  var i;
+	  var slides = document.getElementsByClassName("mySlides");
+	  var dots = document.getElementsByClassName("dot");
+	  if (n > slides.length) {slideIndex = 1}
+	  if (n < 1) {slideIndex = slides.length}
+	  for (i = 0; i < slides.length; i++) {
+		  slides[i].style.display = "none";  
+	  }
+	  for (i = 0; i < dots.length; i++) {
+		  dots[i].className = dots[i].className.replace(" active", "");
+	  }
+	  slides[slideIndex-1].style.display = "block";  
+	  dots[slideIndex-1].className += " active";
+	  clearTimeout(test);
+	  carousel(carouselArg)
+	}
+	var keepGoing = true;
+	var brojac = true;
+	function carousel(param = true) {
+		if(param) {
+			var i;
+			var x = document.getElementsByClassName("mySlides");
+			var dots = document.getElementsByClassName("dot");
+			for (i = 0; i < x.length; i++) {
+			  x[i].style.display = "none"; 
+			}
+			for (i = 0; i < dots.length; i++) {
+			  dots[i].className = dots[i].className.replace(" active", "");
+			}
+			slideIndex++;
+			console.log(slideIndex)
+			if (slideIndex > x.length) {slideIndex = 1} 
+			x[slideIndex-1].style.display = "block";
+			dots[slideIndex-1].className += " active";
+		}
+		test = setTimeout(carousel, 6000);
+	}
+	$(function() {
+	  $(".smoothScroll").click(function() {
+		if (location.pathname.replace(/^\//, "") == this.pathname.replace(/^\//, "") && location.hostname == this.hostname) {
+		  var target = $(this.hash);
+		  target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+		  if (target.length) {
+			$('html,body').animate({
+			  scrollTop: target.offset().top
+			}, 800); // The number here represents the speed of the scroll in milliseconds
+			return false;
+		  }
+		}
+	  });
+	});
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
