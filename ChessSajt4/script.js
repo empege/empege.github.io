@@ -93,14 +93,10 @@ $(document).ready(function(){
 	
 	
 	
-	
-	
-	
-	
 });
 
 
-{
+
 //slider action page
 	var slideIndex = 0;
 	var test;
@@ -164,14 +160,49 @@ $(document).ready(function(){
 		}
 	  });
 	});
-}
 
 
 
-
-
-
-
+//slider products
+	//product 1
+	var slideIndexProduct1 = 1;
+	showSlidesProduct1(slideIndexProduct1, true);
+	function plusSlidesProduct1(n) {showSlidesProduct1(slideIndexProduct1 += n);}
+	function currentSlideProduct1(n) {showSlidesProduct1(slideIndexProduct1 = n);}
+	function showSlidesProduct1(n, carouselArgProduct = false) {
+	  var i;
+	  var slides = document.getElementsByClassName("mySlides-product product1");
+	  if (n > slides.length) {slideIndexProduct1 = 1}
+	  if (n < 1) {slideIndexProduct1 = slides.length}
+	  for (i = 0; i < slides.length; i++) {slides[i].style.display = "none";}
+	  slides[slideIndexProduct1-1].style.display = "block";
+	}
+	//product 2
+	var slideIndexProduct2 = 1;
+	showSlidesProduct2(slideIndexProduct2, true);
+	function plusSlidesProduct2(n) {showSlidesProduct2(slideIndexProduct2 += n);}
+	function currentSlideProduct2(n) {showSlidesProduct2(slideIndexProduct2 = n);}
+	function showSlidesProduct2(n, carouselArgProduct = false) {
+	  var i;
+	  var slides = document.getElementsByClassName("mySlides-product product2");
+	  if (n > slides.length) {slideIndexProduct2 = 1}
+	  if (n < 1) {slideIndexProduct2 = slides.length}
+	  for (i = 0; i < slides.length; i++) {slides[i].style.display = "none";}
+	  slides[slideIndexProduct2-1].style.display = "block";
+	}
+	//product 3
+	var slideIndexProduct3 = 1;
+	showSlidesProduct3(slideIndexProduct3, true);
+	function plusSlidesProduct3(n) {showSlidesProduct3(slideIndexProduct3 += n);}
+	function currentSlideProduct3(n) {showSlidesProduct3(slideIndexProduct3 = n);}
+	function showSlidesProduct3(n, carouselArgProduct = false) {
+	  var i;
+	  var slides = document.getElementsByClassName("mySlides-product product3");
+	  if (n > slides.length) {slideIndexProduct3 = 1}
+	  if (n < 1) {slideIndexProduct3 = slides.length}
+	  for (i = 0; i < slides.length; i++) {slides[i].style.display = "none";}
+	  slides[slideIndexProduct3-1].style.display = "block";
+	}
 
 
 

@@ -236,7 +236,8 @@ li:hover{cursor: pointer;}
 }
 main img, aside img, .product p {width: 200px;}
 .products-wrapper img{
-	width: 220px;
+	width: 250px;
+	height: 250px;
 }
 
 /* Sidebar */
@@ -292,6 +293,10 @@ main img, aside img, .product p {width: 200px;}
 	display: grid;
 	/* align-content: space-between; */
     justify-content: space-around;
+	position: relative;
+}
+.product-pic {
+	position: relative;
 }
 .product p{
 	padding: 0.5rem;
@@ -328,6 +333,181 @@ main img, aside img, .product p {width: 200px;}
     justify-content: space-around;
 	KAD JE PREKO ODREDJENE VELICINE NEKA BUDE SAMO 3 KOLONE UMESTO ONOG IZNAD I RESIO SI SVE!!!! :DDDDD*/
 }
+
+
+/* SLIDER */
+ .mySlides {
+	display: none;
+	height: 100%;
+}
+#welcome-slide-1 {
+	background: url('welcomeBackground.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+#welcome-slide-2 {
+	background: url('lessonsBackground.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+#welcome-slide-3 {
+	background: url('aboutBackground.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+.dots {
+	position: absolute;
+	bottom: 20px;
+	left: 50%;
+	margin-left: -60px;
+	background: rgba(0, 0, 0, 0.4);
+	padding: 10px;
+	border-radius: 5px;
+	border: 2px solid white;
+}
+/* Slideshow container */
+.slideshow-container {
+  background: black;
+  overflow: hidden;
+  position: absolute;
+  top: 85px; bottom: 0; left:0; right: 0;
+  margin: 0 auto;
+}
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -42px;
+  color: #F1EFEE;
+  font-weight: light;
+  font-size: 35px;
+  transition: 0.5s ease;
+  border-radius: 0 3px 3px 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 2px solid white;
+}
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: gold;
+}
+/* Caption text */
+.text {
+  color: white;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid white;
+  transition: 0.5s ease;
+}
+.text h1 {font-size: 2em; margin-top: 50px;}
+.text p {font-size: 1.8em;}
+.text:hover {background: gold; transition: 0.5s ease; color: white;}
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #F1EFEE;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 8px;
+  background-color: #F1EFEE;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.4s ease;
+}
+.active {
+  background-color: #343C3E;
+}
+.dot:hover {background: gold;}
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+
+
+/* SLIDER Products */
+ .mySlides-product {
+	display: none;
+	height: 100%;
+	transition: 0.3s;
+	animation-duration: 0.4s;
+}
+ .mySlides-product:hover {
+	transform: scale(1.1);
+	transition: 0.3s;
+}
+/* Slideshow container */
+.slideshow-container-product {
+  position: relative;
+  top: 0; bottom: 0; left:0; right: 0;
+  margin: 0 auto;
+}
+/* Next & previous buttons */
+.prev-product, .next-product {
+  cursor: pointer;
+  position: absolute;
+  top: 125px;
+  width: auto;
+  padding: 16px;
+  margin-top: -42px;
+  color: #606B6F;
+  font-weight: light;
+  font-size: 35px;
+  transition: 0.5s ease;
+  border-radius: 3px 0 0 3px;
+  border: 2px solid white;
+  left: -68px;
+}
+/* Position the "next button" to the right */
+.next-product {
+  left: 263px;
+  border-radius: 0 3px 3px 0;
+}
+/* On hover, add a black background color with a little bit see-through */
+.prev-product:hover, .next-product:hover {
+  background-color: gold;
+  border: 2px solid black;
+  color: white;
+}
+/* Caption text */
+.text-product {
+  color: black;
+  padding: 10px;
+  position: absolute;
+  bottom: 125px;
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid white;
+  transition: 0.5s ease;
+  background: rgba(255, 255, 255, 0.6);
+}
+.text-product h1 {font-size: 1.8em; margin-top: 50px;}
+.text-product p {font-size: 1.5em;}
+
+
+
+
 
 /* more than 1600px (3 rows only in grid producs-row) AKO HOCES SAMO DA BUDE VECI RAZMAK, ALI NE VECI OD NESTO NE ZNAM NI JA, ONDA SKINI OVO DOLE I SAMO IM STAVI RAZMAK VECI OVDE DOLE*/
 @media only screen and (min-width: 1600px) {
@@ -442,7 +622,36 @@ main img, aside img, .product p {width: 200px;}
 
 
 
-
+/* less than 800px HEIGHT*/
+@media only screen and (max-height: 800px) {
+.text {
+  padding: 10px;
+}
+.text h1 {font-size: 1.8em; margin-top: 50px;}
+.text p {font-size: 1.4em;}
+.action-wrapper {
+	padding: 50px 80px 50px;
+}
+.action-wrapper p:first-child {
+	font-size: 2.8em;
+	padding: 10px;
+}
+.action-wrapper p {
+	font-size: 1.6em;
+	padding: 10px;
+}
+.action-wrapper h1 {
+	padding: 5px 10px;
+	margin-top: 30px;
+}
+.action-wrapper h1 a {
+	font-size: 0.7em;
+	padding: 20px;
+}
+.dots {
+	bottom: 0px;
+}
+}
 
 
 
@@ -471,117 +680,6 @@ main img, aside img, .product p {width: 200px;}
 		position: relative;
 		top: 45%;
 	}
-}
-
-
-
-/* SLIDER */
- .mySlides {
-	display: none;
-	height: 100%;
-}
-#welcome-slide-1 {
-	background: url('welcomeBackground.jpg');
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
-}
-#welcome-slide-2 {
-	background: url('lessonsBackground.jpg');
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
-}
-#welcome-slide-3 {
-	background: url('aboutBackground.jpg');
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
-}
-.dots {
-	position: absolute;
-	bottom: 20px;
-	left: 50%;
-	margin-left: -60px;
-	background: rgba(0, 0, 0, 0.4);
-	padding: 10px;
-	border-radius: 5px;
-	border: 2px solid white;
-}
-/* Slideshow container */
-.slideshow-container {
-  background: black;
-  overflow: hidden;
-  position: absolute;
-  top: 85px; bottom: 0; left:0; right: 0;
-  margin: 0 auto;
-}
-/* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -42px;
-  color: #F1EFEE;
-  font-weight: light;
-  font-size: 35px;
-  transition: 0.5s ease;
-  border-radius: 0 3px 3px 0;
-  background-color: rgba(0, 0, 0, 0.4);
-  border: 2px solid white;
-}
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: gold;
-}
-/* Caption text */
-.text {
-  color: white;
-  padding: 20px;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  text-align: center;
-  background: rgba(0, 0, 0, 0.4);
-  border-bottom: 1px solid white;
-  transition: 0.5s ease;
-}
-.text h1 {font-size: 2em; margin-top: 50px;}
-.text p {font-size: 1.8em;}
-.text:hover {background: gold; transition: 0.5s ease; color: white;}
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #F1EFEE;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-/* The dots/bullets/indicators */
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 8px;
-  background-color: #F1EFEE;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.4s ease;
-}
-.active {
-  background-color: #343C3E;
-}
-.dot:hover {background: gold;}
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 11px}
 }
 
 
