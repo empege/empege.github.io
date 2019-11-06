@@ -171,7 +171,7 @@ $(document).ready(function(){
 	function currentSlideProduct1(n) {showSlidesProduct1(slideIndexProduct1 = n);}
 	function showSlidesProduct1(n, carouselArgProduct = false) {
 	  var i;
-	  var slides = document.getElementsByClassName("mySlides-product product1");
+	  var slides = document.getElementsByClassName("mySlides-product product-1");
 	  if (n > slides.length) {slideIndexProduct1 = 1}
 	  if (n < 1) {slideIndexProduct1 = slides.length}
 	  for (i = 0; i < slides.length; i++) {slides[i].style.display = "none";}
@@ -184,7 +184,7 @@ $(document).ready(function(){
 	function currentSlideProduct2(n) {showSlidesProduct2(slideIndexProduct2 = n);}
 	function showSlidesProduct2(n, carouselArgProduct = false) {
 	  var i;
-	  var slides = document.getElementsByClassName("mySlides-product product2");
+	  var slides = document.getElementsByClassName("mySlides-product product-2");
 	  if (n > slides.length) {slideIndexProduct2 = 1}
 	  if (n < 1) {slideIndexProduct2 = slides.length}
 	  for (i = 0; i < slides.length; i++) {slides[i].style.display = "none";}
@@ -197,13 +197,103 @@ $(document).ready(function(){
 	function currentSlideProduct3(n) {showSlidesProduct3(slideIndexProduct3 = n);}
 	function showSlidesProduct3(n, carouselArgProduct = false) {
 	  var i;
-	  var slides = document.getElementsByClassName("mySlides-product product3");
+	  var slides = document.getElementsByClassName("mySlides-product product-3");
 	  if (n > slides.length) {slideIndexProduct3 = 1}
 	  if (n < 1) {slideIndexProduct3 = slides.length}
 	  for (i = 0; i < slides.length; i++) {slides[i].style.display = "none";}
 	  slides[slideIndexProduct3-1].style.display = "block";
 	}
-
+	//product 4
+	var slideIndexProduct4 = 1;
+	showSlidesProduct4(slideIndexProduct4, true);
+	function plusSlidesProduct4(n) {showSlidesProduct4(slideIndexProduct4 += n);}
+	function currentSlideProduct4(n) {showSlidesProduct4(slideIndexProduct4 = n);}
+	function showSlidesProduct4(n, carouselArgProduct = false) {
+	  var i;
+	  var slides = document.getElementsByClassName("mySlides-product product-4");
+	  if (n > slides.length) {slideIndexProduct4 = 1}
+	  if (n < 1) {slideIndexProduct4 = slides.length}
+	  for (i = 0; i < slides.length; i++) {slides[i].style.display = "none";}
+	  slides[slideIndexProduct4-1].style.display = "block";
+	}
+	//product 5
+	var slideIndexProduct5 = 1;
+	showSlidesProduct5(slideIndexProduct5, true);
+	function plusSlidesProduct5(n) {showSlidesProduct5(slideIndexProduct5 += n);}
+	function currentSlideProduct5(n) {showSlidesProduct5(slideIndexProduct5 = n);}
+	function showSlidesProduct5(n, carouselArgProduct = false) {
+	  var i;
+	  var slides = document.getElementsByClassName("mySlides-product product-5");
+	  if (n > slides.length) {slideIndexProduct5 = 1}
+	  if (n < 1) {slideIndexProduct5 = slides.length}
+	  for (i = 0; i < slides.length; i++) {slides[i].style.display = "none";}
+	  slides[slideIndexProduct5-1].style.display = "block";
+	}
+	//product 6
+	var slideIndexProduct6 = 1;
+	showSlidesProduct6(slideIndexProduct6, true);
+	function plusSlidesProduct6(n) {showSlidesProduct6(slideIndexProduct6 += n);}
+	function currentSlideProduct6(n) {showSlidesProduct6(slideIndexProduct6 = n);}
+	function showSlidesProduct6(n, carouselArgProduct = false) {
+	  var i;
+	  var slides = document.getElementsByClassName("mySlides-product product-6");
+	  if (n > slides.length) {slideIndexProduct6 = 1}
+	  if (n < 1) {slideIndexProduct6 = slides.length}
+	  for (i = 0; i < slides.length; i++) {slides[i].style.display = "none";}
+	  slides[slideIndexProduct6-1].style.display = "block";
+	}
+	//product 7
+	var slideIndexProduct7 = 1;
+	showSlidesProduct7(slideIndexProduct7, true);
+	function plusSlidesProduct7(n) {showSlidesProduct7(slideIndexProduct7 += n);}
+	function currentSlideProduct7(n) {showSlidesProduct7(slideIndexProduct7 = n);}
+	function showSlidesProduct7(n, carouselArgProduct = false) {
+	  var i;
+	  var slides = document.getElementsByClassName("mySlides-product product-7");
+	  if (n > slides.length) {slideIndexProduct7 = 1}
+	  if (n < 1) {slideIndexProduct7 = slides.length}
+	  for (i = 0; i < slides.length; i++) {slides[i].style.display = "none";}
+	  slides[slideIndexProduct7-1].style.display = "block";
+	}
+	//product 8
+	var slideIndexProduct8 = 1;
+	showSlidesProduct8(slideIndexProduct8, true);
+	function plusSlidesProduct8(n) {showSlidesProduct8(slideIndexProduct8 += n);}
+	function currentSlideProduct8(n) {showSlidesProduct8(slideIndexProduct8 = n);}
+	function showSlidesProduct8(n, carouselArgProduct = false) {
+	  var i;
+	  var slides = document.getElementsByClassName("mySlides-product product-8");
+	  if (n > slides.length) {slideIndexProduct8 = 1}
+	  if (n < 1) {slideIndexProduct8 = slides.length}
+	  for (i = 0; i < slides.length; i++) {slides[i].style.display = "none";}
+	  slides[slideIndexProduct8-1].style.display = "block";
+	}
+	//product 9
+	var slideIndexProduct9 = 1;
+	showSlidesProduct9(slideIndexProduct9, true);
+	function plusSlidesProduct9(n) {showSlidesProduct9(slideIndexProduct9 += n);}
+	function currentSlideProduct9(n) {showSlidesProduct9(slideIndexProduct9 = n);}
+	function showSlidesProduct9(n, carouselArgProduct = false) {
+	  var i;
+	  var slides = document.getElementsByClassName("mySlides-product product-9");
+	  if (n > slides.length) {slideIndexProduct9 = 1}
+	  if (n < 1) {slideIndexProduct9 = slides.length}
+	  for (i = 0; i < slides.length; i++) {slides[i].style.display = "none";}
+	  slides[slideIndexProduct9-1].style.display = "block";
+	}
+	//product 10
+	var slideIndexProduct10 = 1;
+	showSlidesProduct10(slideIndexProduct10, true);
+	function plusSlidesProduct10(n) {showSlidesProduct10(slideIndexProduct10 += n);}
+	function currentSlideProduct10(n) {showSlidesProduct10(slideIndexProduct10 = n);}
+	function showSlidesProduct10(n, carouselArgProduct = false) {
+	  var i;
+	  var slides = document.getElementsByClassName("mySlides-product product-10");
+	  if (n > slides.length) {slideIndexProduct10 = 1}
+	  if (n < 1) {slideIndexProduct10 = slides.length}
+	  for (i = 0; i < slides.length; i++) {slides[i].style.display = "none";}
+	  slides[slideIndexProduct10-1].style.display = "block";
+	}
 
 
 
