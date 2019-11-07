@@ -78,16 +78,14 @@ $(document).ready(function(){
 	}
 	});
 	
-	
-	
 	$('#ham').on('click', function(){
 		$('.sidebar').slideToggle('fast');
 	});
 	
 	
-	
-	
-	
+	//show sidebar-submenu
+	$('.boards-menu').on('mouseenter', function(){$('.sidebar-submenu').fadeIn(159);});
+	$('.boards-menu').on('mouseleave', function(){$('.sidebar-submenu').fadeOut(159);});
 	
 	
 	
