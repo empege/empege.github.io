@@ -106,6 +106,8 @@ li:hover{cursor: pointer;}
 	top: 85px;
 	display: inline-block;
 	text-align: center;
+	transform-style: preserve-3d;
+	transform: perspective(500px);
 }
 
 .footer {
@@ -297,9 +299,17 @@ aside img, .product p {width: 200px;}
 	display: inline-block;
 	color: black;
 }
-
 #game {
 	margin-top: 40px;
+}
+.hidden {
+	opacity: 0;
+	transition: 0.4s;
+	transform: translate3d(0, 0, 300px) rotateY(-160deg);
+}
+.shown {
+	opacity: 1;
+	transition: 0.4s;
 }
 
 /* Content */

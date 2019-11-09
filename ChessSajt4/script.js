@@ -76,12 +76,24 @@ $(document).ready(function(){
 			if(($(window).scrollTop() == 0) && scrollingUp == true){scrollingUp = false;}
 		}
 	}
+	
 	});
 	
 	$('#ham').on('click', function(){
 		$('.sidebar').slideToggle('fast');
 	});
 	
+	//show sidebar on scroll
+	(function(){
+		if($(window).scrollTop() > 300){$('.sidebar').addClass('shown').removeClass('hidden');}
+		$(window).scroll(function(){
+		if($(window).scrollTop() > 300){
+			$('.sidebar').addClass('shown').removeClass('hidden');
+					$('.mySlides-product').addClass('shown').removeClass('hidden');
+		}else{$('.sidebar').addClass('hidden').removeClass('shown');
+					$('.mySlides-product').addClass('hidden').removeClass('shown');}
+		});
+	})();
 	
 	//show sidebar-submenu
 	$('.boards-menu').on('mouseenter', function(){$('.sidebar-submenu').fadeIn(159);});
