@@ -660,6 +660,7 @@ aside img, .product p {width: 200px;}
 	.container-header-phone i {margin-right: 10px;}
 	.container-header {
 		grid-template-columns: 100px auto;
+		/*grid-template-rows: 115px;*/
 		grid-template-areas:
 		"logo  menu";
 		padding-right: 40px;
