@@ -647,9 +647,8 @@ aside img, .product p {width: 200px;}
 	.sidebar-submenu li {font-size: 45px;}
 	.sidebar-submenu li:first-child {border-top: none; font-size: 45px;}
 	.sidebar-submenu li:last-child {border-bottom: none;}
-	.sidebar-submenu li a:hover {
-		background: white;
-		transition: 0.3s;
+	.sidebar-menu > li:not(:first-child):hover {
+		background: none;
 		color: black;
 	}
 	.logo-img {
