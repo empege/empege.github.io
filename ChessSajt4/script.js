@@ -100,8 +100,8 @@ $(document).ready(function(){
 	})();
 	
 	//show sidebar-submenu
-	$('.boards-menu').on('mouseenter', function(){$('.sidebar-submenu').fadeIn(159);});
-	$('.boards-menu').on('mouseleave', function(){$('.sidebar-submenu').fadeOut(159);});
+	$('.boards-menu').on('mouseenter', function(){if($(window).width() > 980){$('.sidebar-submenu').fadeIn(159);}});
+	$('.boards-menu').on('mouseleave', function(){if($(window).width() > 980){$('.sidebar-submenu').fadeOut(159);}});
 	
 	
 	
