@@ -277,6 +277,7 @@ aside img, .product p {width: 200px;}
 	z-index: 1;
 	top: -1px;
 	left: 100%;
+	background: white;
 	text-align: center;
 	border-left: 1px solid black;
 	border-right: 1px solid black; 
@@ -639,13 +640,18 @@ aside img, .product p {width: 200px;}
 		z-index: 1;
 		top: -1px;
 		left: 25%;
+		background: none;
 		border-left: none;
 		border-right: none; 
 	}
 	.sidebar-submenu li {font-size: 45px;}
 	.sidebar-submenu li:first-child {border-top: none; font-size: 45px;}
 	.sidebar-submenu li:last-child {border-bottom: none;}
-	
+	.sidebar-submenu li a:hover {
+		background: white;
+		transition: 0.3s;
+		color: black;
+	}
 	.logo-img {
 		left: 80px;
 	}
