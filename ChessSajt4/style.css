@@ -244,7 +244,6 @@ aside img, .product p {width: 200px;}
 }
 
 /* Sidebar */
-@media only screen and (min-width: 980px) {
 .sidebar-menu > li {
 	border-bottom: 1px solid black;
 	font-size: 1.2rem;
@@ -312,7 +311,7 @@ aside img, .product p {width: 200px;}
 	opacity: 1;
 	transition: 0.4s;
 }
-}
+
 /* Content */
 
 .products-row {
@@ -648,6 +647,10 @@ aside img, .product p {width: 200px;}
 	.sidebar-submenu li:first-child {border-top: none; font-size: 45px;}
 	.sidebar-submenu li:last-child {border-bottom: none;}
 	.sidebar-menu > li:not(:first-child):hover {
+		background: none;
+		color: black;
+	}
+	.sidebar-submenu li a:hover {
 		background: none;
 		color: black;
 	}
