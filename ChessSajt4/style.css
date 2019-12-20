@@ -723,7 +723,7 @@ aside img, .product p {width: 200px;}
 
 
 
-/* less than 650px HEIGHT*/
+/* less than 650px HEIGHT
 @media only screen and (max-height: 550px) {
 	
 	.container-header-phone {
@@ -749,7 +749,7 @@ aside img, .product p {width: 200px;}
 		top: 45%;
 	}
 }
-
+*/
 
 
 

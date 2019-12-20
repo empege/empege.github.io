@@ -81,9 +81,11 @@ $(document).ready(function(){
 	
 	$('#ham').on('click', function(){
 		//$('.sidebar').slideToggle('fast');
-		if($('.sidebar').hasClass('hidden')){$('.sidebar').show().removeClass('hidden').addClass('shown');
+		if($('.sidebar').hasClass('hidden')){
+			$('.sidebar').show();
+			setTimeout(function(){$('.sidebar').removeClass('hidden').addClass('shown');}, 1);
 		}else{$('.sidebar').removeClass('shown').addClass('hidden');
-			setTimeout(function(){$('.sidebar').hide();}, 200);
+			setTimeout(function(){$('.sidebar').hide();}, 300);
 		}
 	});
 	
