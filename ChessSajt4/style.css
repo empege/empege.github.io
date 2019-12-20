@@ -576,6 +576,10 @@ aside img, .product p {width: 200px;}
 		z-index: 2;
 	}
 	.menu {display: none;}
+	.sticky {
+		grid-template-rows: 85px;
+		transition: 0s;
+	}
 	.menu-phone {
 		align-self: center;
 		justify-self: center;
@@ -614,6 +618,7 @@ aside img, .product p {width: 200px;}
 		width: 100%;
 	}
 	.sidebar {
+		display: none;
 		padding: 5rem 2rem;
 		width: 60vw;
 		position: fixed;
@@ -730,7 +735,7 @@ aside img, .product p {width: 200px;}
 	.menu-phone ul li a {
 	}
 	.container-header {
-		grid-template-rows: 40px;
+		grid-template-rows: 45px;
 	}
 	.logo {
 		height: 60px;

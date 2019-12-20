@@ -81,8 +81,10 @@ $(document).ready(function(){
 	
 	$('#ham').on('click', function(){
 		//$('.sidebar').slideToggle('fast');
-		if($('.sidebar').hasClass('hidden')){$('.sidebar').removeClass('hidden').addClass('shown');
-		}else{$('.sidebar').removeClass('shown').addClass('hidden');}
+		if($('.sidebar').hasClass('hidden')){$('.sidebar').show().removeClass('hidden').addClass('shown');
+		}else{$('.sidebar').removeClass('shown').addClass('hidden');
+			setTimeout(function(){$('.sidebar').hide();}, 200);
+		}
 	});
 	
 	//show sidebar on scroll
