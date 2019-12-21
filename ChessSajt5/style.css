@@ -109,6 +109,7 @@ li:hover{cursor: pointer;}
 	text-align: center;
 	transform-style: preserve-3d;
 	transform: perspective(500px);
+	z-index: 5;
 }
 
 .footer {
@@ -237,11 +238,10 @@ li:hover{cursor: pointer;}
 	display: grid;
 	grid-gap: 10px;
 }
-aside img, .product > p {width: 250px;}
+aside img {width: 250px;}
 .products-wrapper img{
 	width: 250px;
 	height: 250px;
-	border: 2px solid black;
 	position: relative;
 	top: 50%;
 	margin-top: -125px;
@@ -342,7 +342,11 @@ aside img, .product > p {width: 250px;}
 	position: relative;
 }
 .product p{
-	padding: 0.5rem;
+	padding-top: 0.5rem;
+	width: 250px;
+	position: relative;
+	left: 50%;
+	margin-left: -125px;
 }
 
 
@@ -490,6 +494,12 @@ aside img, .product > p {width: 250px;}
 
 
 /* SLIDER Products */
+/* Slideshow container */
+.slideshow-container-product {
+  position: relative;
+  top: 0; bottom: 0; left:0; right: 0;
+  margin: 0 auto;
+}
 .swiper-container {
     width: 340px;
     height: 280px;
@@ -500,12 +510,6 @@ aside img, .product > p {width: 250px;}
 	transform: scale(1.1);
 	transition: 0.3s;
 }
-/* Slideshow container */
-.slideshow-container-product {
-  position: relative;
-  top: 0; bottom: 0; left:0; right: 0;
-  margin: 0 auto;
-}
 .swiper-button-prev {left: 0px !important; color: #606B6F !important;}
 .swiper-button-next {right: 0px !important; color: #606B6F !important;}
 /* Caption text */
@@ -513,14 +517,15 @@ aside img, .product > p {width: 250px;}
   position: absolute;
   color: black;
   padding: 10px;
-  bottom: 125px;
+  top: 106px;
   left: 50%;
   margin-left: -125px;
   width: 250px;
   text-align: center;
   border-bottom: 1px solid black;
+  border-top: 1px solid black;
   transition: 0.5s ease;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.8);
 }
 .text-product h1 {font-size: 1.8em; margin-top: 50px;}
 .text-product p {font-size: 1.5em;}
