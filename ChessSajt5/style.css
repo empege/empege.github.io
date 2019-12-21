@@ -237,10 +237,14 @@ li:hover{cursor: pointer;}
 	display: grid;
 	grid-gap: 10px;
 }
-aside img, .product p {width: 200px;}
+aside img, .product > p {width: 250px;}
 .products-wrapper img{
 	width: 250px;
 	height: 250px;
+	border: 2px solid black;
+	position: relative;
+	top: 50%;
+	margin-top: -125px;
 }
 
 /* Sidebar */
@@ -486,13 +490,13 @@ aside img, .product p {width: 200px;}
 
 
 /* SLIDER Products */
- .mySlides-product {
-	display: none;
-	height: 100%;
-	transition: 0.3s;
-	animation-duration: 0.4s;
+.swiper-container {
+    width: 340px;
+    height: 280px;
+	text-align: center;
 }
- .mySlides-product:hover {
+.swiper-slide {transition: 0.3s;}
+.swiper-slide:hover {
 	transform: scale(1.1);
 	transition: 0.3s;
 }
@@ -502,40 +506,19 @@ aside img, .product p {width: 200px;}
   top: 0; bottom: 0; left:0; right: 0;
   margin: 0 auto;
 }
-/* Next & previous buttons */
-.prev-product, .next-product {
-  cursor: pointer;
-  position: absolute;
-  top: 125px;
-  width: auto;
-  padding: 10px;
-  margin-top: -42px;
-  color: #606B6F;
-  font-weight: light;
-  font-size: 35px;
-  transition: 0.3s ease;
-  border-radius: 3px 0 0 3px;
-  left: -47px;
-  user-select: none;
-}
-/* Position the "next button" to the right */
-.next-product {
-  left: 262px;
-  border-radius: 0 3px 3px 0;
-}
-/* On hover, add a black background color with a little bit see-through */
-.prev-product:hover, .next-product:hover {
-  color: gold;
-}
+.swiper-button-prev {left: 0px !important; color: #606B6F !important;}
+.swiper-button-next {right: 0px !important; color: #606B6F !important;}
 /* Caption text */
 .text-product {
+  position: absolute;
   color: black;
   padding: 10px;
-  position: absolute;
   bottom: 125px;
-  width: 100%;
+  left: 50%;
+  margin-left: -125px;
+  width: 250px;
   text-align: center;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid black;
   transition: 0.5s ease;
   background: rgba(255, 255, 255, 0.6);
 }
@@ -750,19 +733,3 @@ aside img, .product p {width: 200px;}
 	}
 }
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
