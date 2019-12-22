@@ -671,7 +671,7 @@ aside img {width: 250px;}
 }
 
 /* less than 768px (tablet)*/
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 980px) {
 	.products-row {
 		display: grid;
 		grid-template-columns: 1fr;
