@@ -545,12 +545,11 @@ aside img {width: 250px;}
 
 /* less than 768px POSLE PROMENI */
 @media only screen and (max-width: 980px) {
-	
 	.container-header-phone {
 		display: grid;
 		width: 100%;
 		grid-template-columns: 1fr;
-		grid-template-rows: 115px;
+		grid-template-rows: 65px;
 		grid-template-areas:
 		"menu  menu";
 		align-items: center;
@@ -560,7 +559,7 @@ aside img {width: 250px;}
 		position: fixed;
 		top: auto;
 		bottom: 0;
-		font-size: 1.8em;
+		font-size: 1em;
 		z-index: 2;
 	}
 	.menu {display: none;}
@@ -657,7 +656,9 @@ aside img {width: 250px;}
 		grid-template-areas:
 		"logo  menu";
 		padding-right: 40px;
+		padding-left: 40px;
 	}
+	#logo-img-big {left: 0;}
 	.container-content {
 		grid-template-columns: auto;
 		grid-template-rows: auto 85px;
@@ -672,6 +673,35 @@ aside img {width: 250px;}
 
 /* less than 768px (tablet)*/
 @media only screen and (max-width: 768px) {
+	.text {
+	  padding: 10px;
+	}
+	.text h1 {font-size: 1.3em; margin-top: 50px;}
+	.text p {font-size: 1em;}
+	.action-wrapper {
+		padding: 20px 20px 40px;
+	}
+	.action-wrapper p:first-child {
+		font-size: 1.8em;
+		padding: 10px;
+	}
+	.action-wrapper p {
+		font-size: 1.5em;
+		padding: 10px;
+	}
+	.action-wrapper h1 {
+		padding: 5px 10px;
+		margin-top: 30px;
+	}
+	.action-wrapper h1 a {
+		font-size: 0.6em;
+		padding: 20px;
+	}
+	.dots {
+		bottom: 0px;
+	}
+	
+	
 	/*.products-row {
 		display: grid;
 		grid-template-columns: 1fr;
@@ -720,16 +750,13 @@ aside img {width: 250px;}
 
 
 
-/* less than 800px HEIGHT*/
+/* less than 800px HEIGHT
 @media only screen and (max-height: 800px) {
 .text {
   padding: 10px;
 }
 .text h1 {font-size: 1.8em; margin-top: 50px;}
 .text p {font-size: 1.4em;}
-.action-wrapper {
-	padding: 50px 80px 50px;
-}
 .action-wrapper p:first-child {
 	font-size: 2.8em;
 	padding: 10px;
@@ -750,7 +777,7 @@ aside img {width: 250px;}
 	bottom: 0px;
 }
 }
-
+*/
 
 
 /* less than 650px HEIGHT
