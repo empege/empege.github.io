@@ -672,7 +672,7 @@ aside img {width: 250px;}
 
 /* less than 768px (tablet)*/
 @media only screen and (max-width: 768px) {
-	.products-row {
+	/*.products-row {
 		display: grid;
 		grid-template-columns: 1fr;
 		grid-gap: 20px;
@@ -709,7 +709,7 @@ aside img {width: 250px;}
 	}
 	:root {
     --swiper-navigation-size: 64px !important;
-	}
+	}*/
 }
 
 /* less than 1180px */
