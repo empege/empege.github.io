@@ -167,7 +167,7 @@ li:hover{cursor: pointer;}
 	border-right: 2px solid white;
 	background: gold;
 }
-
+#logo-img-big-phone {display: none;}
 
 /* Welcome Area */
 
@@ -595,10 +595,10 @@ aside img {width: 250px;}
 		border-left: 2px solid white;
 		border-right: 2px solid white;
 	}
-	.logo {height: 55px;}
+	.logo {height: 65px;}
 	.hamburger-menu {
 		display: block;
-		width: 55px;
+		width: 75px;
 		align-self: right;
 		justify-self: right;
 	}
@@ -752,6 +752,12 @@ aside img {width: 250px;}
 
 /* less than 560px */
 @media only screen and (max-width: 560px) {
+	#logo-img-big {content:url("logos/verlogobeli.png")}
+	.logo {height: 75px;}
+	.hamburger-menu {
+		width: 65px;
+	}
+	
 	.next {display: none;}
 	.prev {display: none;}
 }
