@@ -549,7 +549,7 @@ aside img {width: 250px;}
 		display: grid;
 		width: 100%;
 		grid-template-columns: 1fr;
-		grid-template-rows: 65px;
+		grid-template-rows: 85px;
 		grid-template-areas:
 		"menu  menu";
 		align-items: center;
@@ -559,7 +559,7 @@ aside img {width: 250px;}
 		position: fixed;
 		top: auto;
 		bottom: 0;
-		font-size: 1em;
+		font-size: 1.4em;
 		z-index: 2;
 	}
 	.menu {display: none;}
@@ -653,7 +653,6 @@ aside img {width: 250px;}
 	.container-header-phone i {margin-right: 10px;}
 	.container-header {
 		grid-template-columns: 100px auto;
-		grid-template-rows: 65px;
 		grid-template-areas:
 		"logo  menu";
 		padding-right: 40px;
@@ -674,7 +673,11 @@ aside img {width: 250px;}
 
 /* less than 768px (tablet)*/
 @media only screen and (max-width: 768px) {
-	.welcome-area {top: -18px;}
+	.container-header-phone {
+		grid-template-rows: 65px;
+		font-size: 1em;
+	}
+	.welcome-area {top: 0px;}
 	.text {
 	  padding: 10px;
 	}
