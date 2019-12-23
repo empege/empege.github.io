@@ -595,9 +595,10 @@ aside img {width: 250px;}
 		border-left: 2px solid white;
 		border-right: 2px solid white;
 	}
+	.logo {height: 55px;}
 	.hamburger-menu {
 		display: block;
-		width: 75px;
+		width: 55px;
 		align-self: right;
 		justify-self: right;
 	}
@@ -652,7 +653,7 @@ aside img {width: 250px;}
 	.container-header-phone i {margin-right: 10px;}
 	.container-header {
 		grid-template-columns: 100px auto;
-		/*grid-template-rows: 115px;*/
+		grid-template-rows: 65px;
 		grid-template-areas:
 		"logo  menu";
 		padding-right: 40px;
@@ -673,6 +674,7 @@ aside img {width: 250px;}
 
 /* less than 768px (tablet)*/
 @media only screen and (max-width: 768px) {
+	.welcome-area {top: -18px;}
 	.text {
 	  padding: 10px;
 	}
@@ -680,6 +682,9 @@ aside img {width: 250px;}
 	.text p {font-size: 1em;}
 	.action-wrapper {
 		padding: 20px 20px 40px;
+		margin-top: 55px;
+		border-radius: 0px;
+		background: rgba(0, 0, 0, 0.3);
 	}
 	.action-wrapper p:first-child {
 		font-size: 2em;
@@ -752,7 +757,7 @@ aside img {width: 250px;}
 	.container-header-phone {
 		grid-template-rows: 65px;
 		border-bottom: 2px solid white;
-		font-size: 0.8em;
+		font-size: 1em;
 	}
 }
 
