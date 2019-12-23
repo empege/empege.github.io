@@ -11,6 +11,7 @@ $(document).ready(function(){
 	var homeOrDownBtnIsOn = false;
 	var windowsWidthOk = true;
 	if($(window).width() < 768 || $(window).height() < 768){windowsWidthOk = false;}else{windowsWidthOk = true;}
+	if($(window).width() < 560){$('#logo-img-big').attr('src', 'logos/verlogobeli.png');}else{$('#logo-img-big').attr('src', 'logos/crnobeli.png');}
 	
 	//When screen resizes get the values of the screen again
 	$(window).resize(function() {
@@ -19,6 +20,7 @@ $(document).ready(function(){
 		newScroll = $(window).scrollTop();
 		if($(window).width() < 768 || $(window).height() < 550){windowsWidthOk = false;}else{windowsWidthOk = true;}
 		console.log($(window).width());
+		if($(window).width() < 560){$('#logo-img-big').attr('src', 'logos/verlogobeli.png');}else{$('#logo-img-big').attr('src', 'logos/crnobeli.png');}
 	});
 	
 	//Sticky header :D
