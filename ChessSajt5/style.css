@@ -754,14 +754,18 @@ aside img {width: 250px;}
 /* less than 560px */
 @media only screen and (max-width: 560px) {
 	/* #logo-first-child {background: url("logos/verlogobeli.png");} */
-	#logo-img-big {content:url("logos/verlogobeli.png")}
-	.logo {height: 75px;}
+	#logo-img-big {content:url("logos/nin2.jpg")}
+	.logo {height: 50px;}
 	.hamburger-menu {
 		width: 65px;
 	}
 	.products-row {
 		grid-template-columns: repeat(auto-fill, minmax(200px, auto));
 		grid-gap: 20px;
+	}
+	.container-header {
+		padding-left: 20px;
+		padding-left: 30px;
 	}
 	
 	.next {display: none;}
