@@ -11,7 +11,7 @@ $(document).ready(function(){
 	var homeOrDownBtnIsOn = false;
 	var windowsWidthOk = true;
 	if($(window).width() < 768 || $(window).height() < 768){windowsWidthOk = false;}else{windowsWidthOk = true;}
-	if($(window).width() < 560){$('#logo-img-big').attr('src', 'logos/nin2.jpg');}else{$('#logo-img-big').attr('src', 'logos/crnobeli.png');}
+	if($(window).width() < 560){$('#logo-img-big').attr('src', 'logos/crnobeli.png');}else{$('#logo-img-big').attr('src', 'logos/crnobeli.png');}
 	
 	//When screen resizes get the values of the screen again
 	$(window).resize(function() {
