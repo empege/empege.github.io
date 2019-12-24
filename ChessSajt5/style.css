@@ -755,7 +755,7 @@ aside img {width: 250px;}
 @media only screen and (max-width: 560px) {
 	/* #logo-first-child {background: url("logos/verlogobeli.png");} */
 	#logo-img-big {content:url("logos/nin2.jpg")}
-	.logo {height: 50px;}
+	.logo {height: 51px;}
 	.hamburger-menu {
 		width: 65px;
 	}
