@@ -122,21 +122,22 @@ li:hover{cursor: pointer;}
 	padding: 1rem 2rem;
 	width: 300px;
 	position: sticky;
-	z-index: 1;
+	z-index: 10;
 	height: 15%;
 	top: 85px;
 	display: inline-block;
 	text-align: center;
 	transform-style: preserve-3d;
 	transform: perspective(500px);
-	z-index: 5;
 }
 
 .footer {
 	grid-area: footer;
 	background: black;
 	color: white;
-	z-index: 2;
+	z-index: 8;
+	text-align: center;
+		padding: 20px;
 }
 
 /* Css krece */
@@ -650,14 +651,13 @@ aside img {width: 220px;}
 		right: 0;
 		bottom: 0;
 		text-align: center;
-		z-index: 5;
 		overflow: scroll;
 		background: white;
 		border-left: 1px solid black;
 		font-size: 1.3em;
 	}
 	.sidebar-menu li {font-size: 1.1em;}
-	.sidebar-menu > li:first-child {font-size: 1em; margin: 10px 0 0; border-bottom:none; padding: 15px 24px;}
+	.sidebar-menu > li:first-child {font-size: 1em; margin: 10px 0 0; border-bottom:none; padding: 20px 24px 15px;}
 	.boards-menu > a {border-bottom: 1px solid black; border-top: 1px solid black; left:0px;}
 	#boardsMenuArrow {
 		display: none;
@@ -701,7 +701,7 @@ aside img {width: 220px;}
 	#logo-img-big {left: 0;}
 	.container-content {
 		grid-template-columns: auto;
-		grid-template-rows: auto 85px;
+		grid-template-rows: auto auto;
 		grid-template-areas:
 		"content"
 		"footer";
@@ -710,6 +710,9 @@ aside img {width: 220px;}
 	}
 	aside img {width: 120px; margin-bottom: 100px;}
 	.dot {height: 10px; width: 10px;}
+	.footer {
+		margin-bottom: 67px;
+	}
 }
 
 /* less than 768px (tablet)*/
