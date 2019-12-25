@@ -363,7 +363,7 @@ aside img {width: 220px;}
 	position: relative;
 }
 .product p{
-	padding: 0.5rem;
+	padding: 5px;
 	width: 250px;
 	position: relative;
 	left: 50%;
@@ -542,7 +542,7 @@ aside img {width: 220px;}
   position: absolute;
   color: black;
   padding: 10px;
-  top: 106px;
+  top: 107px;
   left: 50%;
   margin-left: -125px;
   width: 250px;
