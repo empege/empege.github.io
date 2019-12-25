@@ -293,6 +293,13 @@ aside img {width: 220px;}
 }
 /* sidemenu */
 .boards-menu {position: relative;}
+.boards-menu > a {position: relative; left: 5px;}
+#boardsMenuArrow {
+	width:25px;
+	position: relative;
+	top: -4px;
+	left: 0;
+}
 .sidebar-submenu {
 	display: none;
 	width: 250px;
@@ -651,7 +658,10 @@ aside img {width: 220px;}
 	}
 	.sidebar-menu li {font-size: 1.1em;}
 	.sidebar-menu > li:first-child {font-size: 1em; margin: 10px 0 0; border-bottom:none; padding: 15px 24px;}
-	.boards-menu > a {border-bottom: 1px solid black; border-top: 1px solid black;}
+	.boards-menu > a {border-bottom: 1px solid black; border-top: 1px solid black; left:0px;}
+	#boardsMenuArrow {
+		display: none;
+	}
 	.sidebar-submenu {
 		display: block;
 		width: 50%;
@@ -699,6 +709,7 @@ aside img {width: 220px;}
 		/* justify-items: center; */
 	}
 	aside img {width: 120px; margin-bottom: 100px;}
+	.dot {height: 10px; width: 10px;}
 }
 
 /* less than 768px (tablet)*/
@@ -738,6 +749,7 @@ aside img {width: 220px;}
 	}
 	.dots {
 		bottom: 0px;
+		margin-left: -52px;
 	}
 	.products-wrapper h1 {text-align: center;}
 	
@@ -786,7 +798,7 @@ aside img {width: 220px;}
 @media only screen and (max-width: 560px) {
 	/* #logo-first-child {background: url("logos/verlogobeli.png");} */
 	#logo-img-big {content:url("logos/crnobeli.png")}
-	.logo {height: 51px;}
+	.logo {height: 52px;}
 	.hamburger-menu {
 		width: 65px;
 	}

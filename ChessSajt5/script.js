@@ -20,20 +20,20 @@ $(document).ready(function(){
 		newScroll = $(window).scrollTop();
 		if($(window).width() < 768 || $(window).height() < 550){windowsWidthOk = false;}else{windowsWidthOk = true;}
 		console.log($(window).width());
-		if($(window).width() < 560){$('#logo-img-big').attr('src', 'logos/verlogobeli.png');}else{$('#logo-img-big').attr('src', 'logos/crnobeli.png');}
+		if($(window).width() < 560){$('#logo-img-big').attr('src', 'logos/crnobeli.png');}else{$('#logo-img-big').attr('src', 'logos/crnobeli.png');}
 	});
 	
 	//Sticky header :D
 	var header = $('#header');
 	function stickyDown() {
-		if($(window).scrollTop() >= welcomeHeight){
+		if($(window).scrollTop() >= welcomeHeight /*OVO PAZI I IZBRISI AKO NECES SMOOTH SCROLL NA FONU SA ACTION NA DOLE I GORE*/&& windowsWidthOk == true){
 			header.attr('class', 'container-header sticky');
 			$('#logo-first-child').fadeOut(200);
 			$('#logo-img-small').fadeIn(50);
 		}
 	}
 	function stickyUp() {
-		if($(window).scrollTop() >= welcomeHeight){
+		if($(window).scrollTop() >= welcomeHeight /*OVO PAZI I IZBRISI AKO NECES SMOOTH SCROLL NA FONU SA ACTION NA DOLE I GORE*/&& windowsWidthOk == true){
 			header.attr('class', 'container-header');
 			$('#logo-first-child').fadeIn(150);
 			$('#logo-img-small').fadeOut(150);
@@ -55,7 +55,7 @@ $(document).ready(function(){
 	
 	//Full page scroll from and to welcome page
 	$(window).scroll(function(){
-	if(windowsWidthOk == true){//kad se resize da nema taj efekat da skloni ceo ekran - ovo mozda izbrisi ako lepo radi na fonu, videces vec
+	if(/* windowsWidthOk ==  */true){//kad se resize da nema taj efekat da skloni ceo ekran - ovo mozda izbrisi ako lepo radi na fonu, videces vec
 		newScroll = $(window).scrollTop();
 		//going down
 		if(newScroll > lastScroll){
