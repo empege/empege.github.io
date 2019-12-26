@@ -12,6 +12,7 @@ $(document).ready(function(){
 	var windowsWidthOk = true;
 	if($(window).width() < 768 || $(window).height() < 768){windowsWidthOk = false;}else{windowsWidthOk = true;}
 	if($(window).width() < 560){$('#logo-img-big').attr('src', 'logos/crnobeli.png');}else{$('#logo-img-big').attr('src', 'logos/crnobeli.png');}
+	var sidebarPhoneCountDone = true;
 	
 	//When screen resizes get the values of the screen again
 	$(window).resize(function() {
@@ -81,13 +82,32 @@ $(document).ready(function(){
 	
 	});
 	
-	$('#ham').on('click', function(){
+	//hamburger menu show/hide i sidebar(sidemeni) show/hide
+	$('.hamburger-menu').on('click', function(){
+		if(sidebarPhoneCountDone == true){
+			sidebarPhoneCountDone = false;
 		//$('.sidebar').slideToggle('fast');
 		if($('.sidebar').hasClass('hidden')){
 			$('.sidebar').show();
-			setTimeout(function(){$('.sidebar').removeClass('hidden').addClass('shown');}, 1);
-		}else{$('.sidebar').removeClass('shown').addClass('hidden');
-			setTimeout(function(){$('.sidebar').hide();}, 300);
+			setTimeout(function(){$('.sidebar').removeClass('hidden').addClass('shown');}, 10);
+			$('#ham').removeClass('shown').addClass('hidden');
+			setTimeout(function(){
+				$('#ham').hide();
+				$('#hamx').show();
+				setTimeout(function(){$('#hamx').removeClass('hidden').addClass('shown');}, 10);
+			}, 200);
+			setTimeout(function(){sidebarPhoneCountDone = true;}, 600);
+		}else{
+			$('.sidebar').removeClass('shown').addClass('hidden');
+			setTimeout(function(){$('.sidebar').hide();}, 400);
+			$('#hamx').removeClass('shown').addClass('hidden');
+			setTimeout(function(){
+				$('#hamx').hide();
+				$('#ham').show();
+				setTimeout(function(){$('#ham').removeClass('hidden').addClass('shown');}, 10);
+			}, 200);
+			setTimeout(function(){sidebarPhoneCountDone = true;}, 600);
+		}
 		}
 	});
 	
@@ -194,13 +214,12 @@ $(document).ready(function(){
 		  if (target.length) {
 			$('html,body').animate({
 			  scrollTop: target.offset().top
-			}, 800); // The number here represents the speed of the scroll in milliseconds
+			}, 100); // The number here represents the speed of the scroll in milliseconds
 			return false;
 		  }
 		}
 	  });
 	});
-
 
 
 	
