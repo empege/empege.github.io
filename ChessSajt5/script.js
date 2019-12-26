@@ -83,11 +83,15 @@ $(document).ready(function(){
 	});
 	
 	//hamburger menu show/hide i sidebar(sidemeni) show/hide
-	$('.hamburger-menu').on('click', function(){
+	$('.hamburger-menu').on('click', hamburger);
+	$('#invisibleClickOutsidePhone').on('click', hamburger);
+	
+	function hamburger(){
 		if(sidebarPhoneCountDone == true){
 			sidebarPhoneCountDone = false;
 		//$('.sidebar').slideToggle('fast');
 		if($('.sidebar').hasClass('hidden')){
+			$('#invisibleClickOutsidePhone').fadeIn();
 			$('.sidebar').show();
 			setTimeout(function(){$('.sidebar').removeClass('hidden').addClass('shown');}, 10);
 			$('#ham').removeClass('shown').addClass('hidden');
@@ -98,6 +102,7 @@ $(document).ready(function(){
 			}, 200);
 			setTimeout(function(){sidebarPhoneCountDone = true;}, 600);
 		}else{
+			$('#invisibleClickOutsidePhone').fadeOut();
 			$('.sidebar').removeClass('shown').addClass('hidden');
 			setTimeout(function(){$('.sidebar').hide();}, 400);
 			$('#hamx').removeClass('shown').addClass('hidden');
@@ -109,7 +114,7 @@ $(document).ready(function(){
 			setTimeout(function(){sidebarPhoneCountDone = true;}, 600);
 		}
 		}
-	});
+	}
 	
 	//show sidebar on scroll
 	(function(){
