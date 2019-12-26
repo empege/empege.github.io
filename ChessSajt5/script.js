@@ -10,7 +10,7 @@ $(document).ready(function(){
 	var homeOrDownBtnClicked = false;
 	var homeOrDownBtnIsOn = false;
 	var windowsWidthOk = true;
-	if($(window).width() < 768 || $(window).height() < 768){windowsWidthOk = false;}else{windowsWidthOk = true;}
+	if($(window).width() < 980 || $(window).height() < 550){windowsWidthOk = false;}else{windowsWidthOk = true;}
 	if($(window).width() < 560){$('#logo-img-big').attr('src', 'logos/crnobeli.png');}else{$('#logo-img-big').attr('src', 'logos/crnobeli.png');}
 	var sidebarPhoneCountDone = true;
 	
@@ -83,14 +83,18 @@ $(document).ready(function(){
 	});
 	
 	//hamburger menu show/hide i sidebar(sidemeni) show/hide
-	$('.hamburger-menu').on('click', hamburger);
-	$('#invisibleClickOutsidePhone').on('click', hamburger);
+	$('.ham-btn').on('click', hamburger);
+	$('aside a').on('click', hamburger);
+	$('.container-header-phone a').on('click', hamburger);
+	$('.logo').on('click', hamburger);
 	
-	function hamburger(){
-		if(sidebarPhoneCountDone == true){
+	
+	function hamburger(e){
+		console.log($(e.target).hasClass('no-appear-menu-btn'));
+		if(sidebarPhoneCountDone == true && windowsWidthOk == false){
 			sidebarPhoneCountDone = false;
 		//$('.sidebar').slideToggle('fast');
-		if($('.sidebar').hasClass('hidden')){
+		if($('.sidebar').hasClass('hidden') && !$(e.target).hasClass('no-appear-menu-btn')){
 			$('#invisibleClickOutsidePhone').fadeIn();
 			$('.sidebar').show();
 			setTimeout(function(){$('.sidebar').removeClass('hidden').addClass('shown');}, 10);
@@ -101,7 +105,7 @@ $(document).ready(function(){
 				setTimeout(function(){$('#hamx').removeClass('hidden').addClass('shown');}, 10);
 			}, 200);
 			setTimeout(function(){sidebarPhoneCountDone = true;}, 600);
-		}else{
+		}else if(windowsWidthOk == false){
 			$('#invisibleClickOutsidePhone').fadeOut();
 			$('.sidebar').removeClass('shown').addClass('hidden');
 			setTimeout(function(){$('.sidebar').hide();}, 400);

@@ -592,6 +592,7 @@ aside img {width: 220px;}
 		align-items: center;
 		background: black;
 		border-bottom: 2px solid white;
+		border-top: 2px solid white;
 		padding-right: 0;
 		position: fixed;
 		top: auto;
