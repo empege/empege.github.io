@@ -1,4 +1,7 @@
 * {box-sizing: border-box;}
+html {
+  scroll-behavior: smooth;
+}
 @font-face{
 	font-family: Harbour;
 	src: url("fonts/Harbour-Medium.ttf");
@@ -18,9 +21,6 @@
 @font-face{
 	font-family: PlatanI;
 	src: url("fonts/PlatanBG-Italic.otf");
-}
-html {
-  scroll-behavior: smooth;
 }
 body {
 	margin: 0;
@@ -66,6 +66,13 @@ li:hover{cursor: pointer;}
 .container-header-phone {display: none;}
 .hamburger-menu {display: none;}
 #hamx {display: none;}
+#invisibleClickOutsidePhone {
+	position: fixed;
+	top:0;bottom:0;left:0;right:0;
+	background: rgba(0,0,0, 0.5);
+	z-index: 2;
+	display: none;
+}
 .container-content {
 	display: grid;
 	/* grid-gap: 2rem 1rem; */
@@ -338,12 +345,12 @@ aside img {width: 220px;}
 }
 .hidden {
 	opacity: 0;
-	transition: 0.5s;
+	transition: 0.4s;
 	transform: translate3d(0, 0, 300px) rotateY(-160deg);
 }
 .shown {
 	opacity: 1;
-	transition: 0.6s;
+	transition: 0.4s;
 }
 
 /* Content */
@@ -582,6 +589,9 @@ aside img {width: 220px;}
 
 /* less than 768px POSLE PROMENI */
 @media only screen and (max-width: 980px) {
+html {
+ /*  scroll-behavior: auto; */
+}
 	.container-header-phone {
 		display: grid;
 		width: 100%;
@@ -601,17 +611,12 @@ aside img {width: 220px;}
 		z-index: 2;
 	}
 	.menu {display: none;}
-	#invisibleClickOutsidePhone {
-		position: fixed;
-		top:0;bottom:0;left:0;right:0;
-		background: rgba(0,0,0, 0.5);
-		z-index: 2;
-		display: none;
-	}
 	.sticky {
 		grid-template-rows: 85px;
 		transition: 0s;
 	}
+	.hidden {transition: 0.5s;}
+	.shown {transition: 0.6s;}
 	.menu-phone {
 		align-self: center;
 		justify-self: center;

@@ -53,6 +53,18 @@ $(document).ready(function(){
 			}, 900);
 		}
 	});
+	/* window.addEventListener('mousewheel', function(e) {
+		e.preventDefault();
+	}, { passive: false });
+	
+	window.addEventListener('mousewheel', function(e) {return true;});
+	
+	*/
+	/* if new last scroll stickydown();
+						if >=0 i <= wh-85 { mousewheel touch itd itd PREVENT DEFAULT i scroll top 0 wh -85 } i last = new 
+	else if new last scroll sticky up();
+						if st <= wh-150 { sve PREVENT DEFAULT} i scroll top 0 0 i last = new */
+	
 	
 	//Full page scroll from and to welcome page
 	$(window).scroll(function(){
@@ -88,7 +100,6 @@ $(document).ready(function(){
 	$('.container-header-phone a').on('click', hamburger);
 	$('.logo').on('click', hamburger);
 	
-	
 	function hamburger(e){
 		console.log($(e.target).hasClass('no-appear-menu-btn'));
 		if(sidebarPhoneCountDone == true && windowsWidthOk == false){
@@ -97,12 +108,12 @@ $(document).ready(function(){
 		if($('.sidebar').hasClass('hidden') && !$(e.target).hasClass('no-appear-menu-btn')){
 			$('#invisibleClickOutsidePhone').fadeIn();
 			$('.sidebar').show();
-			setTimeout(function(){$('.sidebar').removeClass('hidden').addClass('shown');}, 10);
+			setTimeout(function(){$('.sidebar').removeClass('hidden').addClass('shown');}, 50);
 			$('#ham').removeClass('shown').addClass('hidden');
 			setTimeout(function(){
 				$('#ham').hide();
 				$('#hamx').show();
-				setTimeout(function(){$('#hamx').removeClass('hidden').addClass('shown');}, 10);
+				setTimeout(function(){$('#hamx').removeClass('hidden').addClass('shown');}, 50);
 			}, 200);
 			setTimeout(function(){sidebarPhoneCountDone = true;}, 600);
 		}else if(windowsWidthOk == false){
@@ -113,7 +124,7 @@ $(document).ready(function(){
 			setTimeout(function(){
 				$('#hamx').hide();
 				$('#ham').show();
-				setTimeout(function(){$('#ham').removeClass('hidden').addClass('shown');}, 10);
+				setTimeout(function(){$('#ham').removeClass('hidden').addClass('shown');}, 50);
 			}, 200);
 			setTimeout(function(){sidebarPhoneCountDone = true;}, 600);
 		}
