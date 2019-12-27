@@ -14,6 +14,16 @@ $(document).ready(function(){
 	if($(window).width() < 560){$('#logo-img-big').attr('src', 'logos/crnobeli.png');}else{$('#logo-img-big').attr('src', 'logos/crnobeli.png');}
 	var sidebarPhoneCountDone = true;
 	
+	(function banner(){
+		setTimeout(function(){
+			$('.text').addClass('textA');
+			setTimeout(function(){
+				$('.text').removeClass('textA').css('opacity', '1');
+			},750);
+		},100);
+	})();
+	
+	
 	//When screen resizes get the values of the screen again
 	$(window).resize(function() {
 		welcomeHeight = welcome.offsetHeight;
