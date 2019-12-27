@@ -57,7 +57,7 @@ $(document).ready(function(){
 		e.preventDefault();
 	}, { passive: false });
 	
-	window.addEventListener('mousewheel', function(e) {return true;});
+	window.addEventListener('mousewheel', function(e) {return false;});
 	
 	*/
 	/* if new last scroll stickydown();
@@ -91,7 +91,6 @@ $(document).ready(function(){
 			if(($(window).scrollTop() == 0) && scrollingUp == true){scrollingUp = false;}
 		}
 	}
-	
 	});
 	
 	//hamburger menu show/hide i sidebar(sidemeni) show/hide
