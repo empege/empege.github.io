@@ -50,7 +50,32 @@
 	}
 	console.log(titles);
 	
+	//     /(\sseo\s)/gi
+	
 	// change original title to cutTitle
+	var cutTitle;
+	function cutTitleFoo(){
+		var input = $('#jobTitle').val();
+		for(var i = 0; i < titles.length; i++){
+			var current = titles[i];
+			var regex = new RegExp('\(\\s'+current+'\\s\)', 'gi');
+			var rez = input.match(regex);
+			if(input.match(regex) != null && input.match(regex) != 'undefined') {
+				cutTitle = titles[i];
+				break;
+			} else {
+				cutTitle = titles[titles.length-1];
+			}
+		}
+		$('#cutTitle').val(cutTitle);
+	}
+	$('#cutTitleButton').on('click', cutTitleFoo);
+	$(window).on('keydown', function(e){
+		if(e.keyCode === 13){
+			e.preventDefault();
+			cutTitleFoo();
+		}
+	});
 	
 	
 	
@@ -71,8 +96,7 @@
 	
 	
 	
-	
-	
+			//var str = input.match(/(\sFacebook\s)/gi);
 	
 	
 	
