@@ -56,25 +56,25 @@ textarea {
 	top: -19px;
 	line-height: 10px;
 }
-.cutTitleButton {
+#cutTitleButton {
 	background: green;
 }
-.customSentenceButton {
+#customSentenceButton {
 	background: rgba(0, 0, 255, 0.8);
 	top: 0px;
 	border: 3px solid red;
 }
 
-.customSentenceArea {
+#customSentenceArea {
 	margin-top: 150px;
 }
-.customSentenceArea > * {
+#customSentenceArea > * {
 	display: block;
 	width: 500px;
 	margin: 10px auto;
 }
 
-.fullBody {
+#fullBody {
 	height: 300px;
 	max-height: 500px;
 }
