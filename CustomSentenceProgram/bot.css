@@ -1,0 +1,111 @@
+* {box-sizing: border-box;}
+html {
+  scroll-behavior: smooth;
+}
+body {
+	margin: 0;
+	padding: 0;
+	background: black;
+	text-align: center;
+	width: 100wv;
+	height: 100vh;
+}
+h1, h2, h3, h4, h5, h6, p, span {
+	padding: 0;
+	margin: 0;
+}
+a {text-decoration: none;}
+ul {margin: 0; padding: 0;}
+li {list-style-type: none;}
+a:hover{cursor: pointer;}
+li:hover{cursor: pointer;}
+.db{display: block;}
+.dn{display: none;}
+.tac{text-align: center;}
+
+
+
+
+.area {
+	margin-top: 50px;
+	height: 50px;
+	text-align: center;
+}
+.area > * {
+	display: inline-block;
+}
+textarea {
+	border: 3px solid green;
+	min-width: 500px;
+	min-height: 50px;
+	height: 50px;
+	max-height: 150px;
+	resize:vertical;
+	font-size: 1.3em;
+	color: red;
+}
+.button {
+	width: 300px;
+	height: 100%;
+	padding: 20px;
+	text-align: center;
+	font-weight: bold;
+	color: white;
+	cursor: pointer;
+	position: relative;
+	top: -19px;
+	line-height: 10px;
+}
+.cutTitleButton {
+	background: green;
+}
+.customSentenceButton {
+	background: rgba(0, 0, 255, 0.8);
+	top: 0px;
+	border: 3px solid red;
+}
+
+.customSentenceArea {
+	margin-top: 150px;
+}
+.customSentenceArea > * {
+	display: block;
+	width: 500px;
+	margin: 10px auto;
+}
+
+.fullBody {
+	height: 300px;
+	max-height: 500px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
