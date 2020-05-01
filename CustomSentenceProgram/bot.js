@@ -63,11 +63,16 @@
 	function cutTitleFoo(){
 		var jobTitle = $('#jobTitle').val();
 		for(var i = 0; i < titles.length; i++){
+			//check what is current word in our list
 			var current = titles[i];
+			//make a temporary string regex out of it so before can be space or nothing and behind space or nothing or dot.
 			var regexTemp1 = '\(\(\^\|\[\\s\]\)'+current+'\(\$\|\[\\s.\]\)\)';
+			//with global and case-insensitive
 			var regex = new RegExp(regexTemp1, 'gi');
+			//check if it exists inside the whole title we took from Feeder
 			var rez = jobTitle.match(regex);
 			console.log(regex);
+			//if found put current our word as cutTitle (part that we use in cover letter)
 			if(rez != null && rez != 'undefined') {
 				cutTitle = titles[i];
 				break;
@@ -75,6 +80,7 @@
 				cutTitle = titles[titles.length-1];
 			}
 		}
+		//put it in field so UI can take it as variable (storeValue, not storeText btw)
 		$('#cutTitle').val(cutTitle);
 	}
 	$('#cutTitleButton').on('click', cutTitleFoo);
@@ -98,25 +104,22 @@
 	}
 	//console.log(foarr);
 	
-	// cut our found sentence into customSentence
+	// make customSentence out of fullBodyText (whole job description)
 	var customSentence;
 	function customSentenceFoo(){
+		//get value of job description (taken from UI) and search it for needed sentence (c1, c2...)
 		var fullBodyText = $('#fullBody').val();
 		
-		// looking for PRVI. looking for DRUGI
-		//fullBodyText.match(/(LOOKING FOR[^.]*)/i);
-		//fullBodyText.match(/(LOOKING FOR[^.\n]*)/i); sa tackom i nju line
-		
-		//(${customCheck}[0]).replace(/(LOOKING FOR\s)/i, '')+'.'
-		//\('+current+'\[\^\.\\n\]\*\)
-		//var regex2 = new RegExp('\(\[\^\\s\]\{0\}'+current+'\[\^\.\\n\]\*\)', 'gi');
-		
 		for(var j = 0; j < foarr.length; j++){
+			//check what is current word in our list
 			var current = foarr[j];
+			//make a temporary string regex out of it so that it starts either with space or nothing and ends with either dot or new line (so that it doesn't take 10 new line texts if there is no dot)
 			var regexTemp2 = '\(\[\^\\s\]\{0\}'+current+'\[\^.\\n\]\*)';
+			//with global and case-insensitive
 			var regex2 = new RegExp(regexTemp2, 'gi');
+			//check if it exists inside the whole fullBodyText we took from Feeder
 			var rez = fullBodyText.match(regex2);
-
+			//if found take out that sentence, delete our start occurence (with replace LOOKING FOR with empty string) and save it as customSentence
 			if(rez != null && rez != 'undefined') {
 				var regexTemp3 = new RegExp(current, 'i');
 				customeSentence = rez[0].replace(regexTemp3, '') + '.';
@@ -126,9 +129,7 @@
 				customeSentence = foarr[foarr.length-1];
 			}
 		}
-		
-		//asdal;s looking for asdlkajs I asdask jh
-		
+		//chage personal pronouns
 		// I, ME, US, WE to YOU
 		regexTempYOU = new RegExp('\(\[\\s.\]I\\s\)\|\(\[\\s.\]ME\\s\)\|\(\[\\s.\]US\\s\)\|\(\[\\s.\]WE\\s\)', 'gi');
 		var customeSentence = customeSentence.replace(regexTempYOU, ' you ');
@@ -139,7 +140,7 @@
 		var customeSentence = customeSentence.replace(regexTempYOUR, ' your ');
 		console.log(regexTempYOUR)
 		
-		// DELETE YOUR
+		// DELETE YOUR if it's at start (i need your help with ---> you are looking for help with...)
 		regexTempDELETE = new RegExp('\^\(\[\\s\]?YOUR\\s\)', 'gi');
 		var customeSentence = customeSentence.replace(regexTempDELETE, '');
 		console.log(regexTempDELETE)
@@ -167,6 +168,13 @@
 	
 	
 	
+		// looking for PRVI. looking for DRUGI
+		//fullBodyText.match(/(LOOKING FOR[^.]*)/i);
+		//fullBodyText.match(/(LOOKING FOR[^.\n]*)/i); sa tackom i nju line
+		
+		//(${customCheck}[0]).replace(/(LOOKING FOR\s)/i, '')+'.'
+		//\('+current+'\[\^\.\\n\]\*\)
+		//var regex2 = new RegExp('\(\[\^\\s\]\{0\}'+current+'\[\^\.\\n\]\*\)', 'gi');
 	
 	
 	
