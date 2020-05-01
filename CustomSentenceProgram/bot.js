@@ -64,7 +64,7 @@
 		var jobTitle = $('#jobTitle').val();
 		for(var i = 0; i < titles.length; i++){
 			var current = titles[i];
-			var regexTemp1 = '(\\s'+current+'\\s)';
+			var regexTemp1 = '\(\(\^\|\[\\s\]\)'+current+'\(\$\|\[\\s.\]\)\)';
 			var regex = new RegExp(regexTemp1, 'gi');
 			var rez = jobTitle.match(regex);
 			console.log(regex);
