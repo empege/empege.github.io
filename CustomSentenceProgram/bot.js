@@ -19,9 +19,9 @@
 	var t11 = 'Google';
 	var t12 = l;
 	var t13 = l;
-	var t14 = l;
-	var t15 = l;
-	var t16 = l;
+	var t14 = 'Sales Funnel';
+	var t15 = 'Click Funnels';
+	var t16 = 'Click Funnel';
 	var t17 = l;
 	var t18 = l;
 	var t19 = 'Conversion Rate Optimization';
@@ -37,13 +37,13 @@
 	var t29 = l;
 	var t30 = l;
 	var t31 = l;
-	var t32 = l;
+	var t32 = 'Process Optimization';
 	var t33 = l;
 	var t34 = l;
-	var t35 = l;
+	var t35 = 'Tracking';
 	var t36 = l;
 	var t37 = l;
-	var t38 = l;
+	var t38 = 'Marketing Assistant';
 	var t39 = l;
 	var t40 = l;
 	var t41 = 'DEFAULT TITLE';
@@ -96,7 +96,7 @@
 	var c4 = 'LOOKING TO';
 	var c5 = 'SEEKING FOR';
 	var c6 = 'SEEKING';
-	var c7 = 'HASTALAVISTABABY';
+	var c7 = 'NEED HELP';
 	var c8 = 'HASTALAVISTABABY';
 	var c9 = 'HASTALAVISTABABY';
 	var c10 = 'HASTALAVISTABABY';
@@ -109,64 +109,66 @@
 	var c17 = 'HASTALAVISTABABY';
 	var c18 = 'I WOULD LIKE';
 	var c19 = 'I\'D LIKE';
-	var c20 = 'HASTALAVISTABABY';
+	var c20 = 'WE WOULD LIKE';
 	var c21 = 'DEFAULT CUSTOM SENTENCE';
 	// first occurence array
 	var foarr = [];
 	for(var i = 1; i<22; i++){
 		foarr[(i-1)] = eval('c' + i);
 	}
-	//console.log(foarr);
-	
 	// make customSentence out of fullBodyText (whole job description)
 	var customSentence;
+	
+	// customSentence function
 	function customSentenceFoo(){
 		//get value of job description (taken from UI) and search it for needed sentence (c1, c2...)
 		var fullBodyText = $('#fullBody').val();
-		
 		for(var j = 0; j < foarr.length; j++){
-			//check what is current word in our list
 			var current = foarr[j];
-			//make a temporary string regex out of it so that it starts either with space or nothing and ends with either dot or new line (so that it doesn't take 10 new line texts if there is no dot)
-			var regexTemp2 = '\(\[\^\\s\]\{0\}'+current+'\[\^.\\n\]\*)';
-			//with global and case-insensitive
+			var regexTemp2 =
+				'\(\[\^\\s\]\{0\}'+current+'\(\:\| \:\|\: \| \: \)\*\(\[\\s\]\*\(\?\=\[\^\\s\]\)\)\[\^.\\n\]\*)';
 			var regex2 = new RegExp(regexTemp2, 'gi');
-			//check if it exists inside the whole fullBodyText we took from Feeder
 			var rez = fullBodyText.match(regex2);
-			//if found take out that sentence, delete our start occurence (with replace LOOKING FOR with empty string) and save it as customSentence
+				console.log(rez)
 			if(rez != null && rez != 'undefined') {
-				var regexTemp3 = new RegExp(current, 'i');
-				customeSentence = rez[0].replace(regexTemp3, '') + '.';
-				console.log(regexTemp3)
+				rez = rez[0].toString();
+				var regexTemp3 = new RegExp(current, 'gi');
+				customSentence = rez.replace(regexTemp3, '') + '.';
+				var customSentence = customSentence.replace(':','');
+				console.log(customSentence);
+				var customSentence = customSentence.trim();
 				break;
 			} else {
-				customeSentence = foarr[foarr.length-1];
+				customSentence = foarr[foarr.length-1];
 			}
 		}
+		
 		//chage personal pronouns
 		// I, ME, US, WE to YOU
 		regexTempYOU = new RegExp('\(\[\\s.\]I\\s\)\|\(\[\\s.\]ME\\s\)\|\(\[\\s.\]US\\s\)\|\(\[\\s.\]WE\\s\)', 'gi');
-		var customeSentence = customeSentence.replace(regexTempYOU, ' you ');
-		console.log(regexTempYOU)
+		var customSentence = customSentence.replace(regexTempYOU, ' you ');
 		
 		// MY, OUR to YOUR
 		regexTempYOUR = new RegExp('\(\[\\s.\]MY\\s\)\|\(\[\\s.\]OUR\\s\)', 'gi');
-		var customeSentence = customeSentence.replace(regexTempYOUR, ' your ');
-		console.log(regexTempYOUR)
+		var customSentence = customSentence.replace(regexTempYOUR, ' your ');
 		
 		// DELETE YOUR, YOU if it's at start (i need your help with ---> you are looking for help with...)
 		regexTempDELETE = new RegExp('\^\(\[\\s\]?(YOUR|YOU)\\s\)', 'gi');
-		var customeSentence = customeSentence.replace(regexTempDELETE, '');
-		console.log(regexTempDELETE)
+		var customSentence = customSentence.replace(regexTempDELETE, '');
 		
 		// DELETE PLEASE (looking for someone to please help me... ---> what you're looking for is someone to help you...)
 		regexTempDELETE = new RegExp('\(\[\^\\s\]\{0\}(PLEASE|HE|SHE)\[\\s.\]\)', 'gi');
-		var customeSentence = customeSentence.replace(regexTempDELETE, '');
-		console.log(regexTempDELETE)
+		var customSentence = customSentence.replace(regexTempDELETE, '');
 		
-		$('#customSentence').val(customeSentence);
+		$('#customSentence').val(customSentence);
 	}
 	$('#customSentenceButton').on('click', customSentenceFoo);
+	/* $(window).on('keydown', function(e){
+		if(e.keyCode === 13){
+			e.preventDefault();
+			customSentenceFoo();
+		}
+	}); */
 	
 	
 	
@@ -174,7 +176,28 @@
 	
 	
 	
-	
+/* 	// If no occurence with ' : ' is found, then do the normal search
+		if(checkingDoubles == false){
+			for(var j = 0; j < foarr.length; j++){
+				//check what is current word in our list
+				var current = foarr[j];
+				//make a temporary string regex out of it so that it starts either with space or nothing and ends with either dot or new line (so that it doesn't take 10 new line texts if there is no dot)
+				var regexTemp2 = '\(\[\^\\s\]\{0\}'+current+'\[\^.\\n\]\*)';
+				//with global and case-insensitive
+				var regex2 = new RegExp(regexTemp2, 'gi');
+				//check if it exists inside the whole fullBodyText we took from Feeder
+				var rez = fullBodyText.match(regex2);
+				console.log(rez)
+				//if found take out that sentence, delete our start occurence (with replace LOOKING FOR with empty string) and save it as customSentence
+				if(rez != null && rez != 'undefined') {
+					var regexTemp3 = new RegExp(current, 'i');
+					customSentence = rez[0].replace(regexTemp3, '') + '.';
+					break;
+				} else {
+					customSentence = foarr[foarr.length-1];
+				}
+			}
+		} */
 	
 	
 	
