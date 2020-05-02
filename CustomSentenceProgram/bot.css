@@ -36,9 +36,9 @@ li:hover{cursor: pointer;}
 textarea {
 	border: 3px solid green;
 	min-width: 500px;
-	min-height: 100px;
-	height: 100px;
-	max-height: 150px;
+	min-height: 150px;
+	height: 150px;
+	max-height: 250px;
 	resize:vertical;
 	font-size: 1.3em;
 	color: red;
@@ -77,14 +77,18 @@ textarea {
 #customSentenceArea > * {
 	display: block;
 	width: 500px;
-	margin: 10px;
+	margin: 10px 10px 10px 0;
 }
 
 #fullBody {
 	height: 300px;
 	max-height: 500px;
 }
-
+#customSentence {
+	min-height: 250px;
+	height: 250px;
+	max-height: 300px;
+}
 
 
 

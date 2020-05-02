@@ -4,7 +4,7 @@
 	// ALWAYS USE ESCAPE CHARACTERS WHEN YOU MAKE IT, STRING OR NEW REGEXP
 	// DONT USE VARNAME = VARNAME.REPLACE(REGEX, NEW) - DOESNT FREKIN WORK - USE VAR VARNAME = VARNAME.REPLACE(REGEX, NEW)
 	
-	var l = ' ';
+	var l = 'HASTALAVISTABABY';
 	// 40 vars for title
 	var t1 = 'Facebook Ads';
 	var t2 = 'Facebook Ad';
@@ -14,7 +14,7 @@
 	var t6 = l;
 	var t7 = l;
 	var t8 = l;
-	var t9 = l;
+	var t9 = 'Google Tag Manager';
 	var t10 = 'Google Ads';
 	var t11 = 'Google';
 	var t12 = l;
@@ -55,9 +55,6 @@
 	}
 	//console.log(titles);
 	
-	//     /(\sseo\s)/gi
-	//var regex = new RegExp('\(\\s'+current+'\\s\)', 'gi');
-	
 	// change original title to cutTitle
 	var cutTitle;
 	function cutTitleFoo(){
@@ -66,7 +63,7 @@
 			//check what is current word in our list
 			var current = titles[i];
 			//make a temporary string regex out of it so before can be space or nothing and behind space or nothing or dot.
-			var regexTemp1 = '\(\(\^\|\[\\s\]\)'+current+'\(\$\|\[\\s.\]\)\)';
+			var regexTemp1 = '\(\(\^\|\[\\s\+\(\]\)'+current+'\(\$\|\[\\s.\+\)\]\)\)';
 			//with global and case-insensitive
 			var regex = new RegExp(regexTemp1, 'gi');
 			//check if it exists inside the whole title we took from Feeder
@@ -96,10 +93,27 @@
 	var c1 = 'I NEED';
 	var c2 = 'WE NEED';
 	var c3 = 'LOOKING FOR';
-	var c4 = 'DEFAULT CUSTOM SENTENCE';
+	var c4 = 'LOOKING TO';
+	var c5 = 'SEEKING FOR';
+	var c6 = 'SEEKING';
+	var c7 = 'HASTALAVISTABABY';
+	var c8 = 'HASTALAVISTABABY';
+	var c9 = 'HASTALAVISTABABY';
+	var c10 = 'HASTALAVISTABABY';
+	var c11 = 'HASTALAVISTABABY';
+	var c12 = 'HASTALAVISTABABY';
+	var c13 = 'HASTALAVISTABABY';
+	var c14 = 'HASTALAVISTABABY';
+	var c15 = 'HASTALAVISTABABY';
+	var c16 = 'HASTALAVISTABABY';
+	var c17 = 'HASTALAVISTABABY';
+	var c18 = 'I WOULD LIKE';
+	var c19 = 'I\'D LIKE';
+	var c20 = 'HASTALAVISTABABY';
+	var c21 = 'DEFAULT CUSTOM SENTENCE';
 	// first occurence array
 	var foarr = [];
-	for(var i = 1; i<5; i++){
+	for(var i = 1; i<22; i++){
 		foarr[(i-1)] = eval('c' + i);
 	}
 	//console.log(foarr);
@@ -140,20 +154,19 @@
 		var customeSentence = customeSentence.replace(regexTempYOUR, ' your ');
 		console.log(regexTempYOUR)
 		
-		// DELETE YOUR if it's at start (i need your help with ---> you are looking for help with...)
-		regexTempDELETE = new RegExp('\^\(\[\\s\]?YOUR\\s\)', 'gi');
+		// DELETE YOUR, YOU if it's at start (i need your help with ---> you are looking for help with...)
+		regexTempDELETE = new RegExp('\^\(\[\\s\]?(YOUR|YOU)\\s\)', 'gi');
+		var customeSentence = customeSentence.replace(regexTempDELETE, '');
+		console.log(regexTempDELETE)
+		
+		// DELETE PLEASE (looking for someone to please help me... ---> what you're looking for is someone to help you...)
+		regexTempDELETE = new RegExp('\(\[\^\\s\]\{0\}(PLEASE|HE|SHE)\[\\s.\]\)', 'gi');
 		var customeSentence = customeSentence.replace(regexTempDELETE, '');
 		console.log(regexTempDELETE)
 		
 		$('#customSentence').val(customeSentence);
 	}
 	$('#customSentenceButton').on('click', customSentenceFoo);
-	$(window).on('keydown', function(e){
-		/* if(e.shiftKey){
-			e.preventDefault();
-			customSentenceFoo();
-		} */
-	});
 	
 	
 	
