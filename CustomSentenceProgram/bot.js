@@ -14,16 +14,16 @@
 	var t6 = l;
 	var t7 = l;
 	var t8 = l;
-	var t9 = 'Google Tag Manager';
-	var t10 = 'Google Ads';
+	var t9 = 'Google Ads';
+	var t10 = 'Google Tag Manager';
 	var t11 = 'Google';
 	var t12 = l;
-	var t13 = l;
+	var t13 = 'Sales Funnels';
 	var t14 = 'Sales Funnel';
 	var t15 = 'Click Funnels';
 	var t16 = 'Click Funnel';
-	var t17 = l;
-	var t18 = l;
+	var t17 = 'ClickFunnels';
+	var t18 = 'ClickFunnel';
 	var t19 = 'Conversion Rate Optimization';
 	var t20 = 'CRO';
 	var t21 = l;
@@ -44,8 +44,8 @@
 	var t36 = l;
 	var t37 = l;
 	var t38 = 'Marketing Assistant';
-	var t39 = l;
-	var t40 = l;
+	var t39 = 'Marketing';
+	var t40 = 'Development';
 	var t41 = 'DEFAULT TITLE';
 	
 	// titles array
@@ -126,7 +126,7 @@
 		for(var j = 0; j < foarr.length; j++){
 			var current = foarr[j];
 			var regexTemp2 =
-				'\(\[\^\\s\]\{0\}'+current+'\(\:\| \:\|\: \| \: \)\*\(\[\\s\]\*\(\?\=\[\^\\s\]\)\)\[\^.\\n\]\*)';
+				'\(\[\^\\s\]\{0\}'+current+'\(\:\| \:\|\: \| \: \)\*\(\[\\s\]\*\(\?\=\[\^\\s\]\)\)\)\(\(.\*\[e\]\[.\]\?\[g\]\[.\]\?\)\|\(.\*https\?\:\/\/\(www\.\)\?\[\-a\-zA\-Z0\-9\@\:\%.\_\\\+\~\#\=\]\{1,256\}\\.\[a\-zA\-Z0\-9\(\)\]\{1,6\}\\b\(\[\-a\-zA\-Z0\-9\(\)\@\:\%\_\\\+.\~\#\?\&\/\/\=\]\*\)\)\[\^.\\n\]\)\*\[\^.\\n\]\*';
 			var regex2 = new RegExp(regexTemp2, 'gi');
 			var rez = fullBodyText.match(regex2);
 				console.log(rez)
@@ -145,7 +145,7 @@
 		
 		//chage personal pronouns
 		// I, ME, US, WE to YOU
-		regexTempYOU = new RegExp('\(\[\\s.\]I\\s\)\|\(\[\\s.\]ME\\s\)\|\(\[\\s.\]US\\s\)\|\(\[\\s.\]WE\\s\)', 'gi');
+		regexTempYOU = new RegExp('\(\[\\s.\]I\[\\s.\]\)\|\(\[\\s.\]ME\[\\s.\]\)\|\(\[\\s.\]US\[\\s.\]\)\|\(\[\\s.\]WE\[\\s.\]\)', 'gi');
 		var customSentence = customSentence.replace(regexTempYOU, ' you ');
 		
 		// MY, OUR to YOUR
@@ -157,8 +157,10 @@
 		var customSentence = customSentence.replace(regexTempDELETE, '');
 		
 		// DELETE PLEASE (looking for someone to please help me... ---> what you're looking for is someone to help you...)
-		regexTempDELETE = new RegExp('\(\[\^\\s\]\{0\}(PLEASE|HE|SHE)\[\\s.\]\)', 'gi');
+		regexTempDELETE = new RegExp('\(\[\\s\]\(PLEASE|HE|SHE)\[\\s.\]\)', 'gi');
 		var customSentence = customSentence.replace(regexTempDELETE, '');
+		
+		if(customSentence.split('')[customSentence.length-1] != '.'){var customSentence = customSentence.trim() + '.'}
 		
 		$('#customSentence').val(customSentence);
 	}
