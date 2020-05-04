@@ -10,9 +10,9 @@
 	var t2 = 'Facebook Ad';
 	var t3 = 'Facebook';
 	var t4 = l;
-	var t5 = l;
-	var t6 = l;
-	var t7 = l;
+	var t5 = 'Search Engine Optimization';
+	var t6 = 'Search Engine Optimisation';
+	var t7 = 'SEO';
 	var t8 = l;
 	var t9 = 'Google Ads';
 	var t10 = 'Google Tag Manager';
@@ -32,8 +32,8 @@
 	var t24 = 'Conversion';
 	var t25 = l;
 	var t26 = l;
-	var t27 = 'SEO';
-	var t28 = l;
+	var t27 = l;
+	var t28 = 'SAAS';
 	var t29 = l;
 	var t30 = l;
 	var t31 = l;
@@ -125,11 +125,15 @@
 		var fullBodyText = $('#fullBody').val();
 		for(var j = 0; j < foarr.length; j++){
 			var current = foarr[j];
-			console.log(current)
+			//console.log(current)
 			var regexTemp2 =
-				'\(\[\^\\s\]\{0\}'+current+'\(\:\| \:\|\: \| \: \)\*\(\[\\s\]\*\(\?\=\[\^\\s\]\)\)\)\(\(.\*\[e\]\[.\]\?\[g\]\[.\]\?\)\|\(.\*https\?\:\/\/\(www\.\)\?\[\-a\-zA\-Z0\-9\@\:\%.\_\\\+\~\#\=\]\{1,256\}\\.\[a\-zA\-Z0\-9\(\)\]\{1,6\}\\b\(\[\-a\-zA\-Z0\-9\(\)\@\:\%\_\\\+.\~\#\?\&\/\/\=\]\*\)\)\[\^.\\n\]\)\*\[\^.\\n\]\*';
+				'\(\[\^\\s\]\{0\}'+current+'\(\:\| \:\|\: \| \: \)\*\(\[\\s\]\*\(\?\=\[\^\\s\]\)\)\)\(\(.\*\[e\]\[.\]\?\[g\]\[.\]\?\)\|\(.\*\(https\?\:\/\/\)\?(www\.\)\?\[\-a\-zA\-Z0\-9\@\:\%.\_\\\+\~\#\=\]\{1,256\}\\.\[a\-zA\-Z0\-9\(\)\]\{1,6\}\\b\(\[\-a\-zA\-Z0\-9\(\)\@\:\%\_\\\+.\~\#\?\&\/\/\=\]\*\)\)\[\^.\\n\]\)\*\[\^.\\n\]\*';
 			var regex2 = new RegExp(regexTemp2, 'gi');
 			var rez = fullBodyText.match(regex2);
+			if(rez != null && rez != 'undefined') {
+				var rezTemp = rez[0].toString(); //Pazi, ovde trazi sledeci koji ide tako da znas samo!
+				if(rezTemp[rezTemp.length - 1] == ':') {var rez = null;}
+			}
 			if(rez != null && rez != 'undefined') {
 				rez = rez[0].toString();
 				var regexTemp3 = new RegExp(current, 'gi');
@@ -147,6 +151,10 @@
 		regexTempYOU = new RegExp('\(\[\\s.\]I\[\\s.\]\)\|\(\[\\s.\]ME\[\\s.\]\)\|\(\[\\s.\]US\[\\s.\]\)\|\(\[\\s.\]WE\[\\s.\]\)', 'gi');
 		var customSentence = customSentence.replace(regexTempYOU, ' you ');
 		
+		// WE'RE to YOU'RE
+		regexTempYOURE = new RegExp('\(\[\\s.\]WE\(\?\=\(\'\)\)\)', 'gi');
+		var customSentence = customSentence.replace(regexTempYOURE, ' you');
+		
 		// MY, OUR to YOUR
 		regexTempYOUR = new RegExp('\(\[\\s.\]MY\\s\)\|\(\[\\s.\]OUR\\s\)', 'gi');
 		var customSentence = customSentence.replace(regexTempYOUR, ' your ');
@@ -159,7 +167,12 @@
 		regexTempDELETE = new RegExp('\(\[\\s\]\(PLEASE|HE|SHE)\[\\s.\]\)', 'gi');
 		var customSentence = customSentence.replace(regexTempDELETE, '');
 		
+		// &amp;
+		var customSentence = customSentence.replace('&amp;', '&');
+		
 		if(customSentence.split('')[customSentence.length-1] != '.'){var customSentence = customSentence.trim() + '.'}
+		
+		if(customSentence.split('').length < 10) { customSentence = foarr[foarr.length-1]; }
 		
 		$('#customSentence').val(customSentence);
 	}
