@@ -30,7 +30,7 @@
 	var t22 = 'Conversion Rate Optimisation';
 	var t23 = 'Optimisation';
 	var t24 = 'Conversion';
-	var t25 = l;
+	var t25 = 'Funnel';
 	var t26 = l;
 	var t27 = l;
 	var t28 = 'SAAS';
@@ -101,7 +101,7 @@
 	var c9 = 'WE NEED';
 	var c10 = 'I NEED';
 	var c11 = 'NEED HELP';
-	var c12 = 'HASTALAVISTABABY';
+	var c12 = 'HELP WITH';
 	var c13 = 'HASTALAVISTABABY';
 	var c14 = 'HASTALAVISTABABY';
 	var c15 = 'HASTALAVISTABABY';
@@ -132,10 +132,18 @@
 			var rez = fullBodyText.match(regex2);
 			if(rez != null && rez != 'undefined') {
 				var rezTemp = rez[0].toString(); //Pazi, ovde trazi sledeci koji ide tako da znas samo!
+				// if last is : make it null
 				if(rezTemp[rezTemp.length - 1] == ':') {var rez = null;}
+				// if less than 5 chars, look for others in array of first occurances
+				var regexTempLess5 = new RegExp(current, 'gi');
+				var rezTemp = rezTemp.replace(regexTempLess5, '');
+				if(rezTemp.split('').length < 10) { rez = null }
 			}
 			if(rez != null && rez != 'undefined') {
 				rez = rez[0].toString();
+				
+				if(rez.split('')[rez.length-1] == '!' || rez.split('')[rez.length-1] == '?') { var rez = rez.replace(/[!?]/gi, '')}
+		
 				var regexTemp3 = new RegExp(current, 'gi');
 				customSentence = rez.replace(regexTemp3, '') + '.';
 				var customSentence = customSentence.replace(':','');
@@ -171,8 +179,6 @@
 		var customSentence = customSentence.replace('&amp;', '&');
 		
 		if(customSentence.split('')[customSentence.length-1] != '.'){var customSentence = customSentence.trim() + '.'}
-		
-		if(customSentence.split('').length < 10) { customSentence = foarr[foarr.length-1]; }
 		
 		$('#customSentence').val(customSentence);
 	}
