@@ -26,10 +26,10 @@
 	var t18 = 'ClickFunnel';
 	var t19 = 'Conversion Rate Optimization';
 	var t20 = 'CRO';
-	var t21 = l;
-	var t22 = l;
-	var t23 = l;
-	var t24 = l;
+	var t21 = 'Optimization';
+	var t22 = 'Conversion Rate Optimisation';
+	var t23 = 'Optimisation';
+	var t24 = 'Conversion';
 	var t25 = l;
 	var t26 = l;
 	var t27 = 'SEO';
@@ -63,7 +63,7 @@
 			//check what is current word in our list
 			var current = titles[i];
 			//make a temporary string regex out of it so before can be space or nothing and behind space or nothing or dot.
-			var regexTemp1 = '\(\(\^\|\[\\s\+\(\]\)'+current+'\(\$\|\[\\s.\+\)\]\)\)';
+			var regexTemp1 = '\(\(\^\|\[\\s\+\(\/\]\)'+current+'\(\$\|\[\\s.\+\)\/\]\)\)';
 			//with global and case-insensitive
 			var regex = new RegExp(regexTemp1, 'gi');
 			//check if it exists inside the whole title we took from Feeder
@@ -90,17 +90,17 @@
 	
 	/* CUSTOM SENTENCE */
 	
-	var c1 = 'I NEED';
-	var c2 = 'WE NEED';
+	var c1 = 'HASTALAVISTABABY';
+	var c2 = 'LOOKING FOR\\?';
 	var c3 = 'LOOKING FOR';
 	var c4 = 'LOOKING TO';
 	var c5 = 'SEEKING FOR';
 	var c6 = 'SEEKING';
-	var c7 = 'NEED HELP';
-	var c8 = 'HASTALAVISTABABY';
-	var c9 = 'HASTALAVISTABABY';
-	var c10 = 'HASTALAVISTABABY';
-	var c11 = 'HASTALAVISTABABY';
+	var c7 = 'HASTALAVISTABABY';
+	var c8 = 'HASTALAVISTABABY'; // WE NEED YOU TO... ? but then We need you to: -Have experience in the above all 3 and prove it in your application. (which makes no sence)
+	var c9 = 'WE NEED';
+	var c10 = 'I NEED';
+	var c11 = 'NEED HELP';
 	var c12 = 'HASTALAVISTABABY';
 	var c13 = 'HASTALAVISTABABY';
 	var c14 = 'HASTALAVISTABABY';
@@ -125,17 +125,16 @@
 		var fullBodyText = $('#fullBody').val();
 		for(var j = 0; j < foarr.length; j++){
 			var current = foarr[j];
+			console.log(current)
 			var regexTemp2 =
 				'\(\[\^\\s\]\{0\}'+current+'\(\:\| \:\|\: \| \: \)\*\(\[\\s\]\*\(\?\=\[\^\\s\]\)\)\)\(\(.\*\[e\]\[.\]\?\[g\]\[.\]\?\)\|\(.\*https\?\:\/\/\(www\.\)\?\[\-a\-zA\-Z0\-9\@\:\%.\_\\\+\~\#\=\]\{1,256\}\\.\[a\-zA\-Z0\-9\(\)\]\{1,6\}\\b\(\[\-a\-zA\-Z0\-9\(\)\@\:\%\_\\\+.\~\#\?\&\/\/\=\]\*\)\)\[\^.\\n\]\)\*\[\^.\\n\]\*';
 			var regex2 = new RegExp(regexTemp2, 'gi');
 			var rez = fullBodyText.match(regex2);
-				console.log(rez)
 			if(rez != null && rez != 'undefined') {
 				rez = rez[0].toString();
 				var regexTemp3 = new RegExp(current, 'gi');
 				customSentence = rez.replace(regexTemp3, '') + '.';
 				var customSentence = customSentence.replace(':','');
-				console.log(customSentence);
 				var customSentence = customSentence.trim();
 				break;
 			} else {
