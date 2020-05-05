@@ -41,7 +41,7 @@
 	var t33 = l;
 	var t34 = 'E-Commerce';
 	var t35 = 'Tracking';
-	var t36 = l;
+	var t36 = 'Wordpress';
 	var t37 = l;
 	var t38 = 'Marketing Assistant';
 	var t39 = 'Marketing';
@@ -104,7 +104,7 @@
 	var c12 = 'HELP WITH';
 	var c13 = 'WE ARE IN NEED';
 	var c14 = 'HASTALAVISTABABY';
-	var c15 = 'HASTALAVISTABABY';
+	var c15 = 'NEED SOMEONE';
 	var c16 = 'HASTALAVISTABABY';
 	var c17 = 'IN NEED';
 	var c18 = 'I WOULD LIKE';
