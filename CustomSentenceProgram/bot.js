@@ -17,7 +17,7 @@
 	var t9 = 'Google Ads';
 	var t10 = 'Google Tag Manager';
 	var t11 = 'Google';
-	var t12 = l;
+	var t12 = 'GTM';
 	var t13 = 'Sales Funnels';
 	var t14 = 'Sales Funnel';
 	var t15 = 'Click Funnels';
@@ -34,12 +34,12 @@
 	var t26 = l;
 	var t27 = l;
 	var t28 = 'SAAS';
-	var t29 = l;
-	var t30 = l;
+	var t29 = 'Growth Hacker';
+	var t30 = 'Growth Marketer';
 	var t31 = l;
 	var t32 = 'Process Optimization';
 	var t33 = l;
-	var t34 = l;
+	var t34 = 'E-Commerce';
 	var t35 = 'Tracking';
 	var t36 = l;
 	var t37 = l;
@@ -106,7 +106,7 @@
 	var c14 = 'HASTALAVISTABABY';
 	var c15 = 'HASTALAVISTABABY';
 	var c16 = 'HASTALAVISTABABY';
-	var c17 = 'HASTALAVISTABABY';
+	var c17 = 'IN NEED';
 	var c18 = 'I WOULD LIKE';
 	var c19 = 'I\'D LIKE';
 	var c20 = 'WE WOULD LIKE';
@@ -124,7 +124,8 @@
 		//get value of job description (taken from UI) and search it for needed sentence (c1, c2...)
 		var fullBodyText = $('#fullBody').val();
 		// &amp; first change this coz regex will not include ; which is end of this and will screw up & sign which is ok and needed.
-		var fullBodyText = fullBodyText.replace('&amp;', '&');
+		var fullBodyText = fullBodyText.replace(/(&amp;)(?=(.|\s))/gi, '&');
+		var fullBodyText = fullBodyText.replace(/(&quot;)(?=(.|\s))/gi, '"');
 		console.log(fullBodyText);
 		for(var j = 0; j < foarr.length; j++){
 			var current = foarr[j];
@@ -140,7 +141,7 @@
 				// if less than 5 chars, look for others in array of first occurances
 				var regexTempLess5 = new RegExp(current, 'gi');
 				var rezTemp = rezTemp.replace(regexTempLess5, '');
-				if(rezTemp.split('').length < 10) { rez = null }
+				if(rezTemp.split('').length <= 18) { rez = null }
 			}
 			if(rez != null && rez != 'undefined') {
 				rez = rez[0].toString();
