@@ -38,11 +38,11 @@
 	var t30 = 'Growth Marketer';
 	var t31 = l;
 	var t32 = 'Process Optimization';
-	var t33 = l;
+	var t33 = 'Audit';
 	var t34 = 'E-Commerce';
 	var t35 = 'Tracking';
 	var t36 = 'Wordpress';
-	var t37 = l;
+	var t37 = 'Landing Page';
 	var t38 = 'Marketing Assistant';
 	var t39 = 'Marketing';
 	var t40 = 'Development';
@@ -133,7 +133,7 @@
 			var current = fullBodyText.match(regexCurrent);
 			if(current != null && current != 'undefined') { var current = current[0].toUpperCase(); }
 			var regexTemp2 =
-				'\(\[\^\\s\]\{0\}\(\?\<\!not\[\\s\]*\)'+current+'\(\:\| \:\|\: \| \: \)\*\(\[\\s\]\*\(\?\=\[\^\\s\]\)\)\)\(\(.\*\[e\]\[.\]\?\[g\]\[.\]\)\|\(.\*\(https\?\:\/\/\)\?(www\.\)\?\[\-a\-zA\-Z0\-9\@\:\%.\_\\\+\~\#\=\]\{1,256\}\\.\[a\-zA\-Z0\-9\(\)\]\{1,6\}\\b\(\[\-a\-zA\-Z0\-9\(\)\@\:\%\_\\\+.\~\#\?\&\/\/\=\]\*\)\)\[\^.\\n\]\)\*\[\^.\;\\n\]\*';
+				'\(\[\^\\s\]\{0\}\(\?\<\!not\[\\s\]*\)'+current+'\(\:\| \:\|\: \| \: \)\*\(\[\\s\]\*\(\?\=\[\^\\s\]\)\)\)\(\(\[\^.\\n\]\*\[e\]\[.\]\?\[g\]\[.\]\)\|\(\[\^.\\n\]\*\(https\?\:\/\/\)\?(www\.\)\?\[\-a\-zA\-Z0\-9\@\:\%.\_\\\+\~\#\=\]\{1,256\}\\.\[a\-zA\-Z0\-9\(\)\]\{1,6\}\\b\(\[\-a\-zA\-Z0\-9\(\)\@\:\%\_\\\+.\~\#\?\&\/\/\=\]\*\)\)\[\^.\\n\]\)\*\[\^.\;\\n\]\*';
 			var regex2 = new RegExp(regexTemp2, 'gi');
 			var rez = fullBodyText.match(regex2);
 			if(rez != null && rez != 'undefined') {
