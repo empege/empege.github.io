@@ -102,7 +102,7 @@
 	var c10 = 'I NEED';
 	var c11 = 'NEED HELP';
 	var c12 = 'HELP WITH';
-	var c13 = 'HASTALAVISTABABY';
+	var c13 = 'WE ARE IN NEED';
 	var c14 = 'HASTALAVISTABABY';
 	var c15 = 'HASTALAVISTABABY';
 	var c16 = 'HASTALAVISTABABY';
@@ -123,11 +123,14 @@
 	function customSentenceFoo(){
 		//get value of job description (taken from UI) and search it for needed sentence (c1, c2...)
 		var fullBodyText = $('#fullBody').val();
+		// &amp; first change this coz regex will not include ; which is end of this and will screw up & sign which is ok and needed.
+		var fullBodyText = fullBodyText.replace('&amp;', '&');
+		console.log(fullBodyText);
 		for(var j = 0; j < foarr.length; j++){
 			var current = foarr[j];
 			//console.log(current)
 			var regexTemp2 =
-				'\(\[\^\\s\]\{0\}'+current+'\(\:\| \:\|\: \| \: \)\*\(\[\\s\]\*\(\?\=\[\^\\s\]\)\)\)\(\(.\*\[e\]\[.\]\?\[g\]\[.\]\?\)\|\(.\*\(https\?\:\/\/\)\?(www\.\)\?\[\-a\-zA\-Z0\-9\@\:\%.\_\\\+\~\#\=\]\{1,256\}\\.\[a\-zA\-Z0\-9\(\)\]\{1,6\}\\b\(\[\-a\-zA\-Z0\-9\(\)\@\:\%\_\\\+.\~\#\?\&\/\/\=\]\*\)\)\[\^.\\n\]\)\*\[\^.\\n\]\*';
+				'\(\[\^\\s\]\{0\}\(\?\<\!not\[\\s\]*\)'+current+'\(\:\| \:\|\: \| \: \)\*\(\[\\s\]\*\(\?\=\[\^\\s\]\)\)\)\(\(.\*\[e\]\[.\]\?\[g\]\[.\]\)\|\(.\*\(https\?\:\/\/\)\?(www\.\)\?\[\-a\-zA\-Z0\-9\@\:\%.\_\\\+\~\#\=\]\{1,256\}\\.\[a\-zA\-Z0\-9\(\)\]\{1,6\}\\b\(\[\-a\-zA\-Z0\-9\(\)\@\:\%\_\\\+.\~\#\?\&\/\/\=\]\*\)\)\[\^.\\n\]\)\*\[\^.\;\\n\]\*';
 			var regex2 = new RegExp(regexTemp2, 'gi');
 			var rez = fullBodyText.match(regex2);
 			if(rez != null && rez != 'undefined') {
@@ -145,7 +148,12 @@
 				if(rez.split('')[rez.length-1] == '!' || rez.split('')[rez.length-1] == '?') { var rez = rez.replace(/[!?]/gi, '')}
 		
 				var regexTemp3 = new RegExp(current, 'gi');
-				customSentence = rez.replace(regexTemp3, '') + '.';
+				// if looking to, 'to' will need to stay for grammar looking to bring ... what you're lookinf for is TO bring...
+				if(current == 'LOOKING TO'){
+					customSentence = rez.replace(regexTemp3, 'to') + '.';
+				}else{
+					customSentence = rez.replace(regexTemp3, '') + '.';
+				}
 				var customSentence = customSentence.replace(':','');
 				var customSentence = customSentence.trim();
 				break;
@@ -158,6 +166,10 @@
 		// I, ME, US, WE to YOU
 		regexTempYOU = new RegExp('\(\[\\s.\]I\[\\s.\]\)\|\(\[\\s.\]ME\[\\s.\]\)\|\(\[\\s.\]US\[\\s.\]\)\|\(\[\\s.\]WE\[\\s.\]\)', 'gi');
 		var customSentence = customSentence.replace(regexTempYOU, ' you ');
+		
+		// I, ME, US, WE to YOU with ,
+		regexTempYOU = new RegExp('\(\[\\s.\]I\[,\]\)\|\(\[\\s.\]ME\[,\]\)\|\(\[\\s.\]US\[,\]\)\|\(\[\\s.\]WE\[,\]\)', 'gi');
+		var customSentence = customSentence.replace(regexTempYOU, ' you');
 		
 		// WE'RE to YOU'RE
 		regexTempYOURE = new RegExp('\(\[\\s.\]WE\(\?\=\(\'\)\)\)', 'gi');
@@ -172,11 +184,8 @@
 		var customSentence = customSentence.replace(regexTempDELETE, '');
 		
 		// DELETE PLEASE (looking for someone to please help me... ---> what you're looking for is someone to help you...)
-		regexTempDELETE = new RegExp('\(\[\\s\]\(PLEASE|HE|SHE)\[\\s.\]\)', 'gi');
-		var customSentence = customSentence.replace(regexTempDELETE, '');
-		
-		// &amp;
-		var customSentence = customSentence.replace('&amp;', '&');
+		regexTempDELETE = new RegExp('\(\[\\s\]\(PLEASE|HE|SHE|HERE)\[\\s.\]\)', 'gi');
+		var customSentence = customSentence.replace(regexTempDELETE, ' ');
 		
 		if(customSentence.split('')[customSentence.length-1] != '.'){var customSentence = customSentence.trim() + '.'}
 		
