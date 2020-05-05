@@ -127,13 +127,13 @@
 		var fullBodyText = fullBodyText.replace(/(&amp;)(?=(.|\s))/gi, '&');
 		var fullBodyText = fullBodyText.replace(/(&quot;)(?=(.|\s))/gi, '"');
 		console.log(fullBodyText);
-		for(var j = 0; j < foarr.length; j++){
-			var current = foarr[j];
-			//console.log(current)
+		//for(var j = 0; j < foarr.length; j++){
+			var regexCurrentTemp = '(LOOKING FOR\?\|LOOKING FOR\|LOOKING TO\|SEEKING FOR\|SEEKING\|WE NEED\|I NEED\|NEED HELP\|HELP WITH\|IN NEED\|NEED SOMEONE\|I WOULD LIKE\|I\'D LIKE\|WE WOULD LIKE\)';
+			var regexCurrent = new RegExp(regexCurrentTemp, 'gi');
+			var current = fullBodyText.match(regexCurrent);
+			if(current != null && current != 'undefined') { var current = current[0].toUpperCase(); }
 			var regexTemp2 =
-				'\(\[\^\\s\]\{0\}\(\?\<\!not\[\\s\]*\)(LOOKING FOR\?\|LOOKING FOR\|LOOKING TO\|SEEKING FOR\|SEEKING\|WE NEED\|I NEED\|NEED HELP\|HELP WITH\|IN NEED\|NEED SOMEONE\|I WOULD LIKE\|I\'D LIKE\|WE WOULD LIKE\)\(\:\| \:\|\: \| \: \)\*\(\[\\s\]\*\(\?\=\[\^\\s\]\)\)\)\(\(.\*\[e\]\[.\]\?\[g\]\[.\]\)\|\(.\*\(https\?\:\/\/\)\?(www\.\)\?\[\-a\-zA\-Z0\-9\@\:\%.\_\\\+\~\#\=\]\{1,256\}\\.\[a\-zA\-Z0\-9\(\)\]\{1,6\}\\b\(\[\-a\-zA\-Z0\-9\(\)\@\:\%\_\\\+.\~\#\?\&\/\/\=\]\*\)\)\[\^.\\n\]\)\*\[\^.\;\\n\]\*';
-			/* var regexTemp2 =
-				'\(\[\^\\s\]\{0\}\(\?\<\!not\[\\s\]*\)'+current+'\(\:\| \:\|\: \| \: \)\*\(\[\\s\]\*\(\?\=\[\^\\s\]\)\)\)\(\(.\*\[e\]\[.\]\?\[g\]\[.\]\)\|\(.\*\(https\?\:\/\/\)\?(www\.\)\?\[\-a\-zA\-Z0\-9\@\:\%.\_\\\+\~\#\=\]\{1,256\}\\.\[a\-zA\-Z0\-9\(\)\]\{1,6\}\\b\(\[\-a\-zA\-Z0\-9\(\)\@\:\%\_\\\+.\~\#\?\&\/\/\=\]\*\)\)\[\^.\\n\]\)\*\[\^.\;\\n\]\*'; */
+				'\(\[\^\\s\]\{0\}\(\?\<\!not\[\\s\]*\)'+current+'\(\:\| \:\|\: \| \: \)\*\(\[\\s\]\*\(\?\=\[\^\\s\]\)\)\)\(\(.\*\[e\]\[.\]\?\[g\]\[.\]\)\|\(.\*\(https\?\:\/\/\)\?(www\.\)\?\[\-a\-zA\-Z0\-9\@\:\%.\_\\\+\~\#\=\]\{1,256\}\\.\[a\-zA\-Z0\-9\(\)\]\{1,6\}\\b\(\[\-a\-zA\-Z0\-9\(\)\@\:\%\_\\\+.\~\#\?\&\/\/\=\]\*\)\)\[\^.\\n\]\)\*\[\^.\;\\n\]\*';
 			var regex2 = new RegExp(regexTemp2, 'gi');
 			var rez = fullBodyText.match(regex2);
 			if(rez != null && rez != 'undefined') {
@@ -141,6 +141,7 @@
 				// if last is : make it null
 				if(rezTemp[rezTemp.length - 1] == ':') {var rez = null;}
 				// if less than 5 chars, look for others in array of first occurances
+			console.log(current)
 				var regexTempLess5 = new RegExp(current, 'gi');
 				var rezTemp = rezTemp.replace(regexTempLess5, '');
 				if(rezTemp.split('').length <= 18) { rez = null }
@@ -159,11 +160,11 @@
 				}
 				var customSentence = customSentence.replace(':','');
 				var customSentence = customSentence.trim();
-				break;
+				//break;
 			} else {
 				customSentence = foarr[foarr.length-1];
 			}
-		}
+		//}
 		
 		//chage personal pronouns
 		// I, ME, US, WE to YOU
@@ -231,7 +232,87 @@
 			}
 		} */
 	
-	
+
+
+
+
+
+/* function customSentenceFoo(){
+		//get value of job description (taken from UI) and search it for needed sentence (c1, c2...)
+		var fullBodyText = $('#fullBody').val();
+		// &amp; first change this coz regex will not include ; which is end of this and will screw up & sign which is ok and needed.
+		var fullBodyText = fullBodyText.replace(/(&amp;)(?=(.|\s))/gi, '&');
+		var fullBodyText = fullBodyText.replace(/(&quot;)(?=(.|\s))/gi, '"');
+		console.log(fullBodyText);
+		for(var j = 0; j < foarr.length; j++){
+			var current = foarr[j];
+			var regexTemp2 =
+				'\(\[\^\\s\]\{0\}\(\?\<\!not\[\\s\]*\)'+current+'\(\:\| \:\|\: \| \: \)\*\(\[\\s\]\*\(\?\=\[\^\\s\]\)\)\)\(\(.\*\[e\]\[.\]\?\[g\]\[.\]\)\|\(.\*\(https\?\:\/\/\)\?(www\.\)\?\[\-a\-zA\-Z0\-9\@\:\%.\_\\\+\~\#\=\]\{1,256\}\\.\[a\-zA\-Z0\-9\(\)\]\{1,6\}\\b\(\[\-a\-zA\-Z0\-9\(\)\@\:\%\_\\\+.\~\#\?\&\/\/\=\]\*\)\)\[\^.\\n\]\)\*\[\^.\;\\n\]\*';
+			var regex2 = new RegExp(regexTemp2, 'gi');
+			var rez = fullBodyText.match(regex2);
+			if(rez != null && rez != 'undefined') {
+				var rezTemp = rez[0].toString(); //Pazi, ovde trazi sledeci koji ide tako da znas samo!
+				// if last is : make it null
+				if(rezTemp[rezTemp.length - 1] == ':') {var rez = null;}
+				// if less than 5 chars, look for others in array of first occurances
+			console.log(current)
+				var regexTempLess5 = new RegExp(current, 'gi');
+				var rezTemp = rezTemp.replace(regexTempLess5, '');
+				if(rezTemp.split('').length <= 18) { rez = null }
+			}
+			if(rez != null && rez != 'undefined') {
+				rez = rez[0].toString();
+				
+				if(rez.split('')[rez.length-1] == '!' || rez.split('')[rez.length-1] == '?') { var rez = rez.replace(/[!?]/gi, '')}
+		
+				var regexTemp3 = new RegExp(current, 'gi');
+				// if looking to, 'to' will need to stay for grammar looking to bring ... what you're lookinf for is TO bring...
+				if(current == 'LOOKING TO'){
+					customSentence = rez.replace(regexTemp3, 'to') + '.';
+				}else{
+					customSentence = rez.replace(regexTemp3, '') + '.';
+				}
+				var customSentence = customSentence.replace(':','');
+				var customSentence = customSentence.trim();
+				break;
+			} else {
+				customSentence = foarr[foarr.length-1];
+			}
+		}
+		
+		//chage personal pronouns
+		// I, ME, US, WE to YOU
+		regexTempYOU = new RegExp('\(\[\\s.\]I\[\\s.\]\)\|\(\[\\s.\]ME\[\\s.\]\)\|\(\[\\s.\]US\[\\s.\]\)\|\(\[\\s.\]WE\[\\s.\]\)', 'gi');
+		var customSentence = customSentence.replace(regexTempYOU, ' you ');
+		
+		// I, ME, US, WE to YOU with ,
+		regexTempYOU = new RegExp('\(\[\\s.\]I\[,\]\)\|\(\[\\s.\]ME\[,\]\)\|\(\[\\s.\]US\[,\]\)\|\(\[\\s.\]WE\[,\]\)', 'gi');
+		var customSentence = customSentence.replace(regexTempYOU, ' you');
+		
+		// WE'RE to YOU'RE
+		regexTempYOURE = new RegExp('\(\[\\s.\]WE\(\?\=\(\'\)\)\)', 'gi');
+		var customSentence = customSentence.replace(regexTempYOURE, ' you');
+		
+		// MY, OUR to YOUR
+		regexTempYOUR = new RegExp('\(\[\\s.\]MY\\s\)\|\(\[\\s.\]OUR\\s\)', 'gi');
+		var customSentence = customSentence.replace(regexTempYOUR, ' your ');
+		
+		// DELETE YOUR, YOU if it's at start (i need your help with ---> you are looking for help with...)
+		regexTempDELETE = new RegExp('\^\(\[\\s\]?(YOUR|YOU)\\s\)', 'gi');
+		var customSentence = customSentence.replace(regexTempDELETE, '');
+		
+		// DELETE PLEASE (looking for someone to please help me... ---> what you're looking for is someone to help you...)
+		regexTempDELETE = new RegExp('\(\[\\s\]\(PLEASE|HE|SHE|HERE)\[\\s.\]\)', 'gi');
+		var customSentence = customSentence.replace(regexTempDELETE, ' ');
+		
+		if(customSentence.split('')[customSentence.length-1] != '.'){var customSentence = customSentence.trim() + '.'}
+		
+		$('#customSentence').val(customSentence);
+	}
+
+
+
+*/
 	
 	
 	
