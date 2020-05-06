@@ -144,8 +144,8 @@
 				// if last is 'following' (meaning, it will start counting and fck it all up) make it null
 				if(rezTemp.slice(-9) == 'following' || rezTemp.slice(-3) == '...' ) {var rez = null;}
 				
-				// if matches any of the words that refer to the 'above', meaning, it's not mentioned in the sentence, return null just in case  this, those, certain, above, invite you 
-				var regexTempRefer = new RegExp(/(this)|(that)|(those)|(these)|(certain)|(above)|(invite you)|(mentioned)|(bonus)|(partnership)/gi);
+				// if matches any of the words that refer to the 'above', meaning, it's not mentioned in the sentence, return null
+				var regexTempRefer = new RegExp(/(this)|(that)|(those)|(these)|(certain)|(above)|(invite you)|(mentioned)|(bonus)|(partnership)|(i'm)|(I'm)|(I'M)|(Im)|(’)/gi);
 				if(rezTemp.match(regexTempRefer)) {var rez = null;}
 				
 				// if has 3 or more spaces in a row (probably not caring about writting proper offer, return null
@@ -174,6 +174,8 @@
 				// if looking to, 'to' will need to stay for grammar looking to bring ... what you're lookinf for is TO bring...
 				if(current == 'LOOKING TO'){
 					customSentence = rez.replace(regexTemp3, 'to') + '.';
+				}else if(current == 'LOOKING TO'){
+					
 				}else{
 					customSentence = rez.replace(regexTemp3, '') + '.';
 				}
