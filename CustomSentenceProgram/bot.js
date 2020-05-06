@@ -9,7 +9,7 @@
 	var t1 = 'Facebook Ads';
 	var t2 = 'Facebook Ad';
 	var t3 = 'Facebook';
-	var t4 = l;
+	var t4 = 'FB';
 	var t5 = 'Search Engine Optimization';
 	var t6 = 'Search Engine Optimisation';
 	var t7 = 'SEO';
@@ -128,41 +128,46 @@
 		var fullBodyText = fullBodyText.replace(/(&quot;)(?=(.|\s))/gi, '"');
 		//console.log(fullBodyText);
 		//for(var j = 0; j < foarr.length; j++){
-			var regexCurrentTemp = '(LOOKING FOR\?\|LOOKING FOR\|LOOKING TO\|SEEKING FOR\|SEEKING\|WE NEED\|I NEED\|NEED HELP\|HELP WITH\|IN NEED\|NEED SOMEONE\|I WOULD LIKE\|I\'D LIKE\|WE WOULD LIKE\)';
+			var regexCurrentTemp = '(LOOKING FOR\?\|LOOKING FOR\|LOOKING TO\|SEEKING FOR\|SEEKING\|WE NEED\|I NEED\|NEED HELP\|HELP WITH\|IN NEED\|NEED SOMEONE\|WE REQUIRE\|I WOULD LIKE\|I\'D LIKE\|WE WOULD LIKE\)';
 			var regexCurrent = new RegExp(regexCurrentTemp, 'gi');
 			var current = fullBodyText.match(regexCurrent);
 			if(current != null && current != 'undefined') { var current = current[0].toUpperCase(); }
 			var regexTemp2 =
-				'\(\[\^\\s\]\{0\}\(\?\<\!not\[\\s\]*\)'+current+'\(\:\| \:\|\: \| \: \)\*\(\[\\s\]\*\(\?\=\[\^\\s\]\)\)\)\(\(\[\^.\\n\]\*\[e\]\[.\]\?\[g\]\[.\]\)\|\(\[\^.\\n\]\*\(https\?\:\/\/\)\?(www\.\)\?\[\-a\-zA\-Z0\-9\@\:\%.\_\\\+\~\#\=\]\{1,256\}\\.\[a\-zA\-Z0\-9\(\)\]\{1,6\}\\b\(\[\-a\-zA\-Z0\-9\(\)\@\:\%\_\\\+.\~\#\?\&\/\/\=\]\*\)\)\[\^.\\n\]\)\*\[\^.\;\\n\]\*';
+				'\(\[\^\\s\]\{0\}\(\?\<\!not\[\\s\]*\)'+current+'\(\:\| \:\|\: \| \: \)\*\(\[\\s\]\*\(\?\=\[\^\\s\]\)\)\)\(\(\[\^.\\n\]\*\[e\]\[.\]\?\[g\]\[.\]\)\|\(\[\^.\\n\]\*\(https\?\:\/\/\)\?(www\.\)\?\[\-a\-zA\-Z0\-9\@\:\%.\_\\\+\~\#\=\]\{1,256\}\\.\[a\-zA\-Z0\-9\(\)\]\{1,6\}\\b\(\[\-a\-zA\-Z0\-9\(\)\@\:\%\_\\\+.\~\#\?\&\/\/\=\]\*\)\)\[\^.\\n\]\)\*\[\^.\!\?\;\\n\]\*';
 			var regex2 = new RegExp(regexTemp2, 'gi');
 			var rez = fullBodyText.match(regex2);
 			if(rez != null && rez != 'undefined') {
 				var rezTemp = rez[0].toString(); //Pazi, ovde trazi sledeci koji ide tako da znas samo!
 				// if last is : make it null
 				if(rezTemp[rezTemp.length - 1] == ':') {var rez = null;}
+				
 				// if last is 'following' (meaning, it will start counting and fck it all up) make it null
-				console.log(rezTemp);
 				if(rezTemp.slice(-9) == 'following' || rezTemp.slice(-3) == '...' ) {var rez = null;}
+				
 				// if matches any of the words that refer to the 'above', meaning, it's not mentioned in the sentence, return null just in case  this, those, certain, above, invite you 
-				var regexTempRefer = new RegExp(/(this)|(that)|(those)|(certain)|(above)|(invite you)/gi);
+				var regexTempRefer = new RegExp(/(this)|(that)|(those)|(these)|(certain)|(above)|(invite you)|(mentioned)|(bonus)|(partnership)/gi);
 				if(rezTemp.match(regexTempRefer)) {var rez = null;}
+				
 				// if has 3 or more spaces in a row (probably not caring about writting proper offer, return null
 				var regexTempSigns = new RegExp(/( ){3,6}/gi);
 				if(rezTemp.match(regexTempSigns) != null) {var rez = null;}
+				
 				// if more than 150 chars and have no elements like , ; - ( ) then null (means they aren't using any signs to sepparate parts of sentences that make sense.
 				var regexTempSigns = new RegExp(/[;,.\-()]/gi);
 				if((rezTemp.split('').length >= 150) && (rezTemp.match(regexTempSigns) == null)) {var rez = null;}
+				
 				// if less than 5 chars, look for others in array of first occurances
 			console.log(current)
 				var regexTempLess5 = new RegExp(current, 'gi');
 				var rezTemp = rezTemp.replace(regexTempLess5, '');
 				if(rezTemp.split('').length <= 18) { rez = null; }
+				
 				// if all upprCase return null
 				if(rezTemp === rezTemp.toUpperCase()){ rez = null; }
 			}
 			if(rez != null && rez != 'undefined') {
 				rez = rez[0].toString();
-				
+				// ! ?
 				if(rez.split('')[rez.length-1] == '!' || rez.split('')[rez.length-1] == '?') { var rez = rez.replace(/[!?]/gi, '')}
 		
 				var regexTemp3 = new RegExp(current, 'gi');
@@ -172,6 +177,12 @@
 				}else{
 					customSentence = rez.replace(regexTemp3, '') + '.';
 				}
+				
+				// ending with ( ~something~ ) delete (if this makes errors, just null the whole thing outside this if 
+				var regexTempParant = '\(\[\\s\]\?\[\(\].\*\[\)\]\)';
+				var regexParant = new RegExp(regexTempParant, 'gi');
+				if(customSentence.match(regexParant)){var customSentence = customSentence.replace(regexParant, '')}
+				console.log(customSentence);
 				var customSentence = customSentence.replace(':','');
 				var customSentence = customSentence.trim();
 				//break;
