@@ -102,14 +102,14 @@
 	var c10 = 'I NEED';
 	var c11 = 'NEED HELP';
 	var c12 = 'HELP WITH';
-	var c13 = 'WE ARE IN NEED';
+	var c13 = 'HASTALAVISTABABY';
 	var c14 = 'HASTALAVISTABABY';
 	var c15 = 'NEED SOMEONE';
 	var c16 = 'HASTALAVISTABABY';
 	var c17 = 'IN NEED';
-	var c18 = 'I WOULD LIKE';
+	var c18 = 'WOULD LIKE';
 	var c19 = 'I\'D LIKE';
-	var c20 = 'WE WOULD LIKE';
+	var c20 = 'HASTALAVISTABABY';
 	var c21 = 'DEFAULT CUSTOM SENTENCE';
 	// first occurence array
 	var foarr = [];
@@ -128,7 +128,7 @@
 		var fullBodyText = fullBodyText.replace(/(&quot;)(?=(.|\s))/gi, '"');
 		//console.log(fullBodyText);
 		//for(var j = 0; j < foarr.length; j++){
-			var regexCurrentTemp = '(LOOKING FOR\?\|LOOKING FOR\|LOOKING TO\|SEEKING FOR\|SEEKING\|WE NEED\|I NEED\|NEED HELP\|HELP WITH\|IN NEED\|NEED SOMEONE\|WE REQUIRE\|I WOULD LIKE\|I\'D LIKE\|WE WOULD LIKE\)';
+			var regexCurrentTemp = '(LOOKING FOR\?\|LOOKING FOR\|LOOKING TO\|SEEKING FOR\|SEEKING\|WE NEED\|I NEED\|NEED HELP\|HELP WITH\|IN NEED\|NEED SOMEONE\|WE REQUIRE\|I WOULD LIKE\|I\'D LIKE\|WE WOULD LIKE\|SEARCHING\)';
 			var regexCurrent = new RegExp(regexCurrentTemp, 'gi');
 			var current = fullBodyText.match(regexCurrent);
 			if(current != null && current != 'undefined') { var current = current[0].toUpperCase(); }
@@ -145,7 +145,7 @@
 				if(rezTemp.slice(-9) == 'following' || rezTemp.slice(-3) == '...' ) {var rez = null;}
 				
 				// if matches any of the words that refer to the 'above', meaning, it's not mentioned in the sentence, return null
-				var regexTempRefer = new RegExp(/(this)|(that)|(those)|(these)|(certain)|(above)|(invite you)|(mentioned)|(bonus)|(partnership)|(i'm)|(I'm)|(I'M)|(Im)|(’)/gi);
+				var regexTempRefer = new RegExp(/(this)|(that)|(those)|(these)|(certain)|(above)|(invite you)|(mentioned)|(bonus)|(partnership)|(i'm)|(I'm)|(I'M)|(Im)|(’)|(speak)/gi);
 				if(rezTemp.match(regexTempRefer)) {var rez = null;}
 				
 				// if has 3 or more spaces in a row (probably not caring about writting proper offer, return null
@@ -171,11 +171,14 @@
 				if(rez.split('')[rez.length-1] == '!' || rez.split('')[rez.length-1] == '?') { var rez = rez.replace(/[!?]/gi, '')}
 		
 				var regexTemp3 = new RegExp(current, 'gi');
+				var regexHelpWith = new RegExp('(need help with)', 'gi');
 				// if looking to, 'to' will need to stay for grammar looking to bring ... what you're lookinf for is TO bring...
 				if(current == 'LOOKING TO'){
 					customSentence = rez.replace(regexTemp3, 'to') + '.';
-				}else if(current == 'LOOKING TO'){
-					
+				}else if(current == 'NEED SOMEONE'){
+					customSentence = rez.replace(regexTemp3, 'someone') + '.';
+				}else if(rez.match(regexHelpWith)){
+					customSentence = rez.replace(regexTemp3, 'help') + '.';
 				}else{
 					customSentence = rez.replace(regexTemp3, '') + '.';
 				}
