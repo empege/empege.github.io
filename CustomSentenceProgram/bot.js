@@ -126,7 +126,7 @@
 		// &amp; first change this coz regex will not include ; which is end of this and will screw up & sign which is ok and needed.
 		var fullBodyText = fullBodyText.replace(/(&amp;)(?=(.|\s))/gi, '&');
 		var fullBodyText = fullBodyText.replace(/(&quot;)(?=(.|\s))/gi, '"');
-		console.log(fullBodyText);
+		//console.log(fullBodyText);
 		//for(var j = 0; j < foarr.length; j++){
 			var regexCurrentTemp = '(LOOKING FOR\?\|LOOKING FOR\|LOOKING TO\|SEEKING FOR\|SEEKING\|WE NEED\|I NEED\|NEED HELP\|HELP WITH\|IN NEED\|NEED SOMEONE\|I WOULD LIKE\|I\'D LIKE\|WE WOULD LIKE\)';
 			var regexCurrent = new RegExp(regexCurrentTemp, 'gi');
@@ -140,11 +140,25 @@
 				var rezTemp = rez[0].toString(); //Pazi, ovde trazi sledeci koji ide tako da znas samo!
 				// if last is : make it null
 				if(rezTemp[rezTemp.length - 1] == ':') {var rez = null;}
+				// if last is 'following' (meaning, it will start counting and fck it all up) make it null
+				console.log(rezTemp);
+				if(rezTemp.slice(-9) == 'following' || rezTemp.slice(-3) == '...' ) {var rez = null;}
+				// if matches any of the words that refer to the 'above', meaning, it's not mentioned in the sentence, return null just in case  this, those, certain, above, invite you 
+				var regexTempRefer = new RegExp(/(this)|(that)|(those)|(certain)|(above)|(invite you)/gi);
+				if(rezTemp.match(regexTempRefer)) {var rez = null;}
+				// if has 3 or more spaces in a row (probably not caring about writting proper offer, return null
+				var regexTempSigns = new RegExp(/( ){3,6}/gi);
+				if(rezTemp.match(regexTempSigns) != null) {var rez = null;}
+				// if more than 150 chars and have no elements like , ; - ( ) then null (means they aren't using any signs to sepparate parts of sentences that make sense.
+				var regexTempSigns = new RegExp(/[;,.\-()]/gi);
+				if((rezTemp.split('').length >= 150) && (rezTemp.match(regexTempSigns) == null)) {var rez = null;}
 				// if less than 5 chars, look for others in array of first occurances
 			console.log(current)
 				var regexTempLess5 = new RegExp(current, 'gi');
 				var rezTemp = rezTemp.replace(regexTempLess5, '');
-				if(rezTemp.split('').length <= 18) { rez = null }
+				if(rezTemp.split('').length <= 18) { rez = null; }
+				// if all upprCase return null
+				if(rezTemp === rezTemp.toUpperCase()){ rez = null; }
 			}
 			if(rez != null && rez != 'undefined') {
 				rez = rez[0].toString();
@@ -183,6 +197,10 @@
 		regexTempYOUR = new RegExp('\(\[\\s.\]MY\\s\)\|\(\[\\s.\]OUR\\s\)', 'gi');
 		var customSentence = customSentence.replace(regexTempYOUR, ' your ');
 		
+		// THIS to THAT
+		regexTempYOUR = new RegExp('\(\[\\s.\]THIS\\s\)', 'gi');
+		var customSentence = customSentence.replace(regexTempYOUR, ' that ');
+		
 		// DELETE YOUR, YOU if it's at start (i need your help with ---> you are looking for help with...)
 		regexTempDELETE = new RegExp('\^\(\[\\s\]?(YOUR|YOU)\\s\)', 'gi');
 		var customSentence = customSentence.replace(regexTempDELETE, '');
@@ -194,6 +212,7 @@
 		if(customSentence.split('')[customSentence.length-1] != '.'){var customSentence = customSentence.trim() + '.'}
 		
 		$('#customSentence').val(customSentence);
+		console.log('What you\'re looking for is ' + customSentence);
 	}
 	$('#customSentenceButton').on('click', customSentenceFoo);
 	/* $(window).on('keydown', function(e){
