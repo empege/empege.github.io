@@ -124,8 +124,11 @@
 		//get value of job description (taken from UI) and search it for needed sentence (c1, c2...)
 		var fullBodyText = $('#fullBody').val();
 		// &amp; first change this coz regex will not include ; which is end of this and will screw up & sign which is ok and needed.
-		var fullBodyText = fullBodyText.replace(/(&amp;)(?=(.|\s))/gi, '&');
+		var fullBodyText = fullBodyText.replace(/(&amp;)(?=(.|\s))/g, '&');
+		var fullBodyText = fullBodyText.replace(/(&gt;)(?=(.|\s))/gi, '>');
+		var fullBodyText = fullBodyText.replace(/(&lt;)(?=(.|\s))/gi, '<');
 		var fullBodyText = fullBodyText.replace(/(&quot;)(?=(.|\s))/gi, '"');
+		console.log(fullBodyText);
 		//console.log(fullBodyText);
 		//for(var j = 0; j < foarr.length; j++){
 			var regexCurrentTemp = '(LOOKING FOR\?\|LOOKING FOR\|LOOKING TO\|SEEKING FOR\|SEEKING\|WE NEED\|I NEED\|NEED HELP\|HELP WITH\|IN NEED\|NEED SOMEONE\|WE REQUIRE\|I WOULD LIKE\|I\'D LIKE\|WE WOULD LIKE\|SEARCHING\)';
@@ -145,7 +148,7 @@
 				if(rezTemp.slice(-9) == 'following' || rezTemp.slice(-3) == '...' ) {var rez = null;}
 				
 				// if matches any of the words that refer to the 'above', meaning, it's not mentioned in the sentence, return null
-				var regexTempRefer = new RegExp(/(this)|(that)|(those)|(these)|(certain)|(above)|(invite you)|(mentioned)|(bonus)|(partnership)|(i'm)|(I'm)|(I'M)|(Im)|(’)|(speak)/gi);
+				var regexTempRefer = new RegExp(/(this)|(those)|(these)|(certain)|(above)|(invite you)|(mentioned)|(bonus)|(partnership)|(i'm)|(I'm)|(I'M)|(’)|(speak)/gi);
 				if(rezTemp.match(regexTempRefer)) {var rez = null;}
 				
 				// if has 3 or more spaces in a row (probably not caring about writting proper offer, return null
@@ -153,7 +156,7 @@
 				if(rezTemp.match(regexTempSigns) != null) {var rez = null;}
 				
 				// if more than 150 chars and have no elements like , ; - ( ) then null (means they aren't using any signs to sepparate parts of sentences that make sense.
-				var regexTempSigns = new RegExp(/[;,.\-()]/gi);
+				var regexTempSigns = new RegExp(/[;,.&"\-()]/gi);
 				if((rezTemp.split('').length >= 150) && (rezTemp.match(regexTempSigns) == null)) {var rez = null;}
 				
 				// if less than 5 chars, look for others in array of first occurances
