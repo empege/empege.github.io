@@ -131,7 +131,7 @@
 		console.log(fullBodyText);
 		//console.log(fullBodyText);
 		//for(var j = 0; j < foarr.length; j++){
-			var regexCurrentTemp = '(LOOKING FOR\?\|LOOKING FOR\|LOOKING TO\|SEEKING FOR\|SEEKING\|WE NEED\|I NEED\|NEED HELP\|HELP WITH\|IN NEED\|NEED SOMEONE\|WE REQUIRE\|I WOULD LIKE\|I\'D LIKE\|WE WOULD LIKE\|SEARCHING\)';
+			var regexCurrentTemp = '(LOOKING FOR\?\|LOOKING FOR\|LOOKING TO\|SEEKING FOR\|SEEKING\|WE NEED\|I NEED\|NEED HELP\|HELP WITH\|IN NEED OF\|NEED SOMEONE\|WE REQUIRE\|I WOULD LIKE\|I\'D LIKE\|WE WOULD LIKE\|SEARCHING\|I WILL NEED\|I HAVE A NEED FOR\)';
 			var regexCurrent = new RegExp(regexCurrentTemp, 'gi');
 			var current = fullBodyText.match(regexCurrent);
 			if(current != null && current != 'undefined') { var current = current[0].toUpperCase(); }
@@ -223,6 +223,11 @@
 		// DELETE YOUR, YOU if it's at start (i need your help with ---> you are looking for help with...)
 		regexTempDELETE = new RegExp('\^\(\[\\s\]?(YOUR|YOU)\\s\)', 'gi');
 		var customSentence = customSentence.replace(regexTempDELETE, '');
+		
+		// if YOUR HELP is found return default sentence
+		regexTempYOURHELP = new RegExp('\(\[\\s\]?(YOUR HELP)\[\\s.\]\)', 'gi');
+		if(customSentence.match(regexTempYOURHELP)){ var customSentence = foarr[foarr.length-1]; }
+		
 		
 		// DELETE PLEASE (looking for someone to please help me... ---> what you're looking for is someone to help you...)
 		regexTempDELETE = new RegExp('\(\[\\s\]\(PLEASE|HE|SHE|HERE)\[\\s.\]\)', 'gi');
