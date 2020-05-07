@@ -128,7 +128,6 @@
 		var fullBodyText = fullBodyText.replace(/(&gt;)(?=(.|\s))/gi, '>');
 		var fullBodyText = fullBodyText.replace(/(&lt;)(?=(.|\s))/gi, '<');
 		var fullBodyText = fullBodyText.replace(/(&quot;)(?=(.|\s))/gi, '"');
-		console.log(fullBodyText);
 		//console.log(fullBodyText);
 		//for(var j = 0; j < foarr.length; j++){
 			var regexCurrentTemp = '(LOOKING FOR\?\|LOOKING FOR\|LOOKING TO\|SEEKING FOR\|SEEKING\|WE NEED\|I NEED\|NEED HELP\|HELP WITH\|IN NEED OF\|NEED SOMEONE\|WE REQUIRE\|I WOULD LIKE\|I\'D LIKE\|WE WOULD LIKE\|SEARCHING\|I WILL NEED\|I HAVE A NEED FOR\)';
@@ -148,7 +147,8 @@
 				if(rezTemp.slice(-9) == 'following' || rezTemp.slice(-3) == '...' ) {var rez = null;}
 				
 				// if matches any of the words that refer to the 'above', meaning, it's not mentioned in the sentence, return null
-				var regexTempRefer = new RegExp(/(this)|(those)|(these)|(certain)|(above)|(invite you)|(mentioned)|(bonus)|(partnership)|(i'm)|(I'm)|(I'M)|(’)|(speak)/gi);
+				console.log(rezTemp);
+				var regexTempRefer = new RegExp(/(this)|(those)|(these)|(certain)|(above)|(invite you)|(mentioned)|(bonus)|(partnership)|(i'm)|(I'm)|(I'M)|(’)|(speak)|(approx)|([.]com[.])/gi);
 				if(rezTemp.match(regexTempRefer)) {var rez = null;}
 				
 				// if has 3 or more spaces in a row (probably not caring about writting proper offer, return null
@@ -190,7 +190,6 @@
 				var regexTempParant = '\(\[\\s\]\?\[\(\].\*\[\)\]\)';
 				var regexParant = new RegExp(regexTempParant, 'gi');
 				if(customSentence.match(regexParant)){var customSentence = customSentence.replace(regexParant, '')}
-				console.log(customSentence);
 				var customSentence = customSentence.replace(':','');
 				var customSentence = customSentence.trim();
 				//break;
