@@ -135,7 +135,7 @@
 			var current = fullBodyText.match(regexCurrent);
 			if(current != null && current != 'undefined') { var current = current[0].toUpperCase(); }
 			var regexTemp2 =
-				'\(\[\^\\s\]\{0\}\(\?\<\!not\[\\s\]*\)'+current+'\(\:\| \:\|\: \| \: \)\*\(\[\\s\]\*\(\?\=\[\^\\s\]\)\)\)\(\(\[\^.\\n\]\*\[e\]\[.\]\?\[g\]\[.\]\)\|\(\[\^.\\n\]\*\(https\?\:\/\/\)\?(www\.\)\?\[\-a\-zA\-Z0\-9\@\:\%.\_\\\+\~\#\=\]\{1,256\}\\.\[a\-zA\-Z0\-9\(\)\]\{1,6\}\\b\(\[\-a\-zA\-Z0\-9\(\)\@\:\%\_\\\+.\~\#\?\&\/\/\=\]\*\)\)\[\^.\\n\]\)\*\[\^.\!\?\;\\n\]\*';
+				'\(\[\^\\s\]\{0\}\(\?\<\!not\[\\s\]*\)'+current+'\(\:\| \:\|\: \| \: \)\*\(\[\\s\]\*\(\?\=\[\^\\s\]\)\)\)\(\(\[\^.\\n\]\*\[e\]\[.\]\?\[g\]\[.\]\)\|\(\[\^.\\n\]\*\(https\?\:\/\/\)\?(www\.\)\?\[\-a\-zA\-Z0\-9\@\:\%.\_\\\+\~\#\=\]\{1,256\}\\.\?\[a\-zA\-Z0\-9\(\)\]\{1,6\}\\b\(\[\-a\-zA\-Z0\-9\(\)\@\:\%\_\\\+.\~\#\?\&\/\/\=\]\*\)\)\[\^.\\n\]\)\*\[\^.\!\?\;\\n\]\*';
 			var regex2 = new RegExp(regexTemp2, 'gi');
 			var rez = fullBodyText.match(regex2);
 			if(rez != null && rez != 'undefined') {
@@ -148,7 +148,7 @@
 				
 				// if matches any of the words that refer to the 'above', meaning, it's not mentioned in the sentence, return null
 				console.log(rezTemp);
-				var regexTempRefer = new RegExp(/(this)|(those)|(these)|(certain)|(above)|(invite you)|(mentioned)|(bonus)|(partnership)|(i'm)|(I'm)|(I'M)|(’)|(speak)|(approx)|([.]com[.])/gi);
+				var regexTempRefer = new RegExp(/(this)|(those)|(these)|(certain)|(above)|(invite you)|(mentioned)|(bonus)|(partnership)|(i'm)|(I'm)|(I'M)|(’)|(speak)|(approx)|(com[.])|(discuss)|(thanks)|(ask)/gi);
 				if(rezTemp.match(regexTempRefer)) {var rez = null;}
 				
 				// if has 3 or more spaces in a row (probably not caring about writting proper offer, return null
