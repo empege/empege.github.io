@@ -92,7 +92,7 @@ textarea {
 
 
 /* RADI!!!!
-([^\s]{0}(?<!not[\s]*)(LOOKING FOR?|LOOKING FOR|LOOKING TO|I AM LOOKING|SEEKING FOR|SEEKING|WE NEED|I NEED|NEED HELP|HELP WITH|IN NEED|NEED SOMEONE|I WOULD LIKE|I'D LIKE|WE WOULD LIKE)(:| :|: | : )*([\s]*(?=[^\s])))(([^.\n]*[e][.]?[g][.])|([^.\n]*(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\.?[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*))[^.\n])*[^;!?.\n]*
+([^\s]{0}(?<!not[\s]*)(LOOKING FOR?|LOOKING FOR|LOOKING TO|I AM LOOKING|SEEKING FOR|SEEKING|WE NEED|I NEED|NEED HELP|HELP WITH|IN NEED|NEED SOMEONE|I WOULD LIKE|I'D LIKE|WE WOULD LIKE)(:| :|: | : )*([\s]*(?=[^\s])))(([^.\n]*[e][.]?[g][.])|([^.\n]*(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*))[^.\n])*[^;!?.\n]*
 	*/
 
 
