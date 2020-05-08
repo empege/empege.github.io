@@ -147,7 +147,6 @@
 				if(rezTemp.slice(-9) == 'following' || rezTemp.slice(-3) == '...' ) {var rez = null;}
 				
 				// if matches any of the words that refer to the 'above', meaning, it's not mentioned in the sentence, return null
-				console.log(rezTemp);
 				var regexTempRefer = new RegExp(/(this)|(those)|(these)|(certain)|(above)|(invite you)|(mentioned)|(bonus)|(partnership)|(i'm)|(I'm)|(I'M)|(’)|(speak)|(approx)|(com[.])|(discuss)|(thanks)|(below)|(specifically)|(\;)/gi);
 				if(rezTemp.match(regexTempRefer)) {var rez = null;}
 				
@@ -175,15 +174,15 @@
 		
 				var regexTemp3 = new RegExp(current, 'gi');
 				var regexHelpWith = new RegExp('(need help with)|(require help with)', 'gi');
-				var regexHelpWithIME = new RegExp('\s+(I|WE)\s*(need help with)|(require help with)', 'gi');
+				var regexHelpWithIME = new RegExp('\\s\?\(I\|WE\)\\s\*\(need help with\)\|\(require help with\)', 'gi');
 				// if looking to, 'to' will need to stay for grammar looking to bring ... what you're lookinf for is TO bring...
 				if(current == 'LOOKING TO'){
 					customSentence = rez.replace(regexTemp3, 'to') + '.';
 				}else if(current == 'NEED SOMEONE'){
 					customSentence = rez.replace(regexTemp3, 'someone') + '.';
-				}else if(rez.match(regexHelpWith) && regexHelpWithIME.test(customSentence)){
+				}else if(rez.match(regexHelpWith) && !regexHelpWithIME.test(rez)){
 					// i need help with bla bla ... what you're looking for is help with bla bla BUT I need help with is searching for I NEED so it will be (I need) need help with so make sure its not I or WE need!
-					alert(!(regexHelpWithIME.test(rez)));
+					alert((regexHelpWithIME.test(rez)));
 					customSentence = rez.replace(regexTemp3, 'help') + '.';
 				}else{
 					customSentence = rez.replace(regexTemp3, '') + '.';
