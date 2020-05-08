@@ -135,7 +135,7 @@
 			var current = fullBodyText.match(regexCurrent);
 			if(current != null && current != 'undefined') { var current = current[0].toUpperCase(); }
 			var regexTemp2 =
-				'\(\[\^\\s\]\{0\}\(\?\<\!not\[\\s\]*\)'+current+'\(\:\| \:\|\: \| \: \)\*\(\[\\s\]\*\(\?\=\[\^\\s\]\)\)\)\(\(\[\^.\\n\]\*\[e\]\[.\]\?\[g\]\[.\]\)\|\(\[\^.\\n\]\*\(https\?\:\/\/\)\?(www\.\)\?\[\-a\-zA\-Z0\-9\@\:\%.\_\\\+\~\#\=\]\{1,256\}\\.\[a\-zA\-Z0\-9\(\)\]\{1,20\}\\b\(\[\-a\-zA\-Z0\-9\@\:\%\_\\\+.\~\#\?\&\/\/\=\]\*\)\)\[\^.\\n\]\)\*\[\^.\!\?\\n\]\*';
+				'\(\[\^\\s\]\{0\}\(\?\<\!not|do\[\\s\]*\)'+current+'\(\:\| \:\|\: \| \: \)\*\(\[\\s\]\*\(\?\=\[\^\\s\]\)\)\)\(\(\[\^.\\n\]\*\[e\]\[.\]\?\[g\]\[.\]\)\|\(\[\^.\\n\]\*\(https\?\:\/\/\)\?(www\.\)\?\[\-a\-zA\-Z0\-9\@\:\%.\_\\\+\~\#\=\]\{1,256\}\\.\[a\-zA\-Z0\-9\(\)\]\{1,20\}\\b\(\[\-a\-zA\-Z0\-9\@\:\%\_\\\+.\~\#\?\&\/\/\=\]\*\)\)\[\^.\\n\]\)\*\[\^.\!\?\\n\]\*';
 			var regex2 = new RegExp(regexTemp2, 'gi');
 			var rez = fullBodyText.match(regex2);
 			if(rez != null && rez != 'undefined') {
@@ -199,9 +199,12 @@
 			}
 		//}
 		
+		//change all dashes ( — ) with minuses ( - )
+		var customSentence = customSentence.replace(/\—/gi , '-');
+		
 		//chage personal pronouns
 		// I, ME, US, WE to YOU
-		regexTempYOU = new RegExp('\(\[\\s.\]I\[\\s.\\]\)\|\(\[\\s.\]ME\[\\s.\]\)\|\(\[\\s.\]US\[\\s.\]\)\|\(\[\\s.\]WE\[\\s.\]\)', 'gi');
+		regexTempYOU = new RegExp('\(\[\\s.\]I\[\\s.\]\)\|\(\[\\s.\]ME\[\\s.\]\)\|\(\[\\s.\]US\[\\s.\]\)\|\(\[\\s.\]WE\[\\s.\]\)', 'gi');
 		var customSentence = customSentence.replace(regexTempYOU, ' you ');
 		
 		// I, ME, US, WE to YOU with ,
@@ -209,15 +212,19 @@
 		var customSentence = customSentence.replace(regexTempYOU, ' you');
 		
 		// I', WE' to YOU with ' - I've - You've
-		regexTempYOUVE = new RegExp('\(\[\\s.\]I\[\'\]\)\|\(\[\\s.\]WE\[\'\]\)', 'gi');
-		var customSentence = customSentence.replace(regexTempYOUVE, ' you\'');
+		//regexTempYOUVE = new RegExp('\(\[\\s.\]I\[\'\]\)\|\(\[\\s.\]WE\[\'\]\)', 'gi');
+		//var customSentence = customSentence.replace(regexTempYOUVE, ' you\'');
 		
 		// WE'RE to YOU'RE
-		regexTempYOURE = new RegExp('\(\[\\s.\]WE\(\?\=\(\'\)\)\)', 'gi');
+		regexTempYOURE = new RegExp('\(\[\\s.\]WE\(\?\=\(\'\)\)\)\|\(\[\\s.\]I\(\?\=\(\'\)\)\)', 'gi');
 		var customSentence = customSentence.replace(regexTempYOURE, ' you');
 		
+		// MY, OUR with Funny Chars to YOUR - this is only for minus sign, if more, find better solution
+		regexTempYOUR = new RegExp('\(\[-\]MY\[\\s\]\)\|\(\[-\]OUR\[\\s\]\)', 'gi');
+		var customSentence = customSentence.replace(regexTempYOUR, '-your ');
+		
 		// MY, OUR to YOUR
-		regexTempYOUR = new RegExp('\(\[\\s.\]MY\\s\)\|\(\[\\s.\]OUR\\s\)', 'gi');
+		regexTempYOUR = new RegExp('\(\[\\s.\]MY\[\\s\]\)\|\(\[\\s.\]OUR\[\\s\]\)', 'gi');
 		var customSentence = customSentence.replace(regexTempYOUR, ' your ');
 		
 		// THIS to THAT
