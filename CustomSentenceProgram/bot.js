@@ -182,7 +182,6 @@
 					customSentence = rez.replace(regexTemp3, 'someone') + '.';
 				}else if(rez.match(regexHelpWith) && !regexHelpWithIME.test(rez)){
 					// i need help with bla bla ... what you're looking for is help with bla bla BUT I need help with is searching for I NEED so it will be (I need) need help with so make sure its not I or WE need!
-					alert((regexHelpWithIME.test(rez)));
 					customSentence = rez.replace(regexTemp3, 'help') + '.';
 				}else{
 					customSentence = rez.replace(regexTemp3, '') + '.';
