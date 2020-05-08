@@ -135,7 +135,7 @@
 			var current = fullBodyText.match(regexCurrent);
 			if(current != null && current != 'undefined') { var current = current[0].toUpperCase(); }
 			var regexTemp2 =
-				'\(\[\^\\s\]\{0\}\(\?\<\!not\[\\s\]*\)'+current+'\(\:\| \:\|\: \| \: \)\*\(\[\\s\]\*\(\?\=\[\^\\s\]\)\)\)\(\(\[\^.\\n\]\*\[e\]\[.\]\?\[g\]\[.\]\)\|\(\[\^.\\n\]\*\(https\?\:\/\/\)\?(www\.\)\?\[\-a\-zA\-Z0\-9\@\:\%.\_\\\+\~\#\=\]\{1,256\}\\.\[a\-zA\-Z0\-9\(\)\]\{1,6\}\\b\(\[\-a\-zA\-Z0\-9\@\:\%\_\\\+.\~\#\?\&\/\/\=\]\*\)\)\[\^.\\n\]\)\*\[\^.\!\?\\n\]\*';
+				'\(\[\^\\s\]\{0\}\(\?\<\!not\[\\s\]*\)'+current+'\(\:\| \:\|\: \| \: \)\*\(\[\\s\]\*\(\?\=\[\^\\s\]\)\)\)\(\(\[\^.\\n\]\*\[e\]\[.\]\?\[g\]\[.\]\)\|\(\[\^.\\n\]\*\(https\?\:\/\/\)\?(www\.\)\?\[\-a\-zA\-Z0\-9\@\:\%.\_\\\+\~\#\=\]\{1,256\}\\.\[a\-zA\-Z0\-9\(\)\]\{1,20\}\\b\(\[\-a\-zA\-Z0\-9\@\:\%\_\\\+.\~\#\?\&\/\/\=\]\*\)\)\[\^.\\n\]\)\*\[\^.\!\?\\n\]\*';
 			var regex2 = new RegExp(regexTemp2, 'gi');
 			var rez = fullBodyText.match(regex2);
 			if(rez != null && rez != 'undefined') {
@@ -201,12 +201,16 @@
 		
 		//chage personal pronouns
 		// I, ME, US, WE to YOU
-		regexTempYOU = new RegExp('\(\[\\s.\]I\[\\s.\]\)\|\(\[\\s.\]ME\[\\s.\]\)\|\(\[\\s.\]US\[\\s.\]\)\|\(\[\\s.\]WE\[\\s.\]\)', 'gi');
+		regexTempYOU = new RegExp('\(\[\\s.\]I\[\\s.\\]\)\|\(\[\\s.\]ME\[\\s.\]\)\|\(\[\\s.\]US\[\\s.\]\)\|\(\[\\s.\]WE\[\\s.\]\)', 'gi');
 		var customSentence = customSentence.replace(regexTempYOU, ' you ');
 		
 		// I, ME, US, WE to YOU with ,
 		regexTempYOU = new RegExp('\(\[\\s.\]I\[,\]\)\|\(\[\\s.\]ME\[,\]\)\|\(\[\\s.\]US\[,\]\)\|\(\[\\s.\]WE\[,\]\)', 'gi');
 		var customSentence = customSentence.replace(regexTempYOU, ' you');
+		
+		// I', WE' to YOU with ' - I've - You've
+		regexTempYOUVE = new RegExp('\(\[\\s.\]I\[\'\]\)\|\(\[\\s.\]WE\[\'\]\)', 'gi');
+		var customSentence = customSentence.replace(regexTempYOUVE, ' you\'');
 		
 		// WE'RE to YOU'RE
 		regexTempYOURE = new RegExp('\(\[\\s.\]WE\(\?\=\(\'\)\)\)', 'gi');
