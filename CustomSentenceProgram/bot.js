@@ -46,7 +46,7 @@
 	var t38 = 'Marketing Assistant';
 	var t39 = 'Marketing';
 	var t40 = 'Development';
-	var t41 = 'DEFAULT TITLE';
+	var t41 = '';
 	
 	// titles array
 	var titles = [];
@@ -110,7 +110,7 @@
 	var c18 = 'WOULD LIKE';
 	var c19 = 'I\'D LIKE';
 	var c20 = 'HASTALAVISTABABY';
-	var c21 = 'DEFAULT CUSTOM SENTENCE';
+	var c21 = 'an expert to help you with this specific challenge, and along the way have revealed to you other hidden diamonds that you may not even see right now';
 	// first occurence array
 	var foarr = [];
 	for(var i = 1; i<22; i++){
@@ -147,7 +147,7 @@
 				if(rezTemp.slice(-9) == 'following' || rezTemp.slice(-3) == '...' ) {var rez = null;}
 				
 				// if matches any of the words that refer to the 'above', meaning, it's not mentioned in the sentence, return null
-				var regexTempRefer = new RegExp(/(this)|(those)|(these)|(certain)|(above)|(invite you)|(mentioned)|(bonus)|(partnership)|(i'm)|(I'm)|(I'M)|(’)|(speak)|(approx)|(com[.])|(discuss)|(thanks)|(below)|(specifically)|(\;)|(local to)|(if possible)|(\.\.)|(\sit\s)/gi);
+				var regexTempRefer = new RegExp(/(this)|(those)|(these)|(certain)|(above)|(invite you)|(mentioned)|(bonus)|(partnership)|(i'm)|(I'm)|(I'M)|(’)|(speak)|(approx)|(com[.])|(discuss)|(thanks)|(below)|(specifically)|(\;)|(local to)|(if possible)|(\sit\s)|(get your take)|(\.\.)/gi);
 				if(rezTemp.match(regexTempRefer)) {var rez = null;}
 				
 				// if has 3 or more spaces in a row (probably not caring about writting proper offer, return null
