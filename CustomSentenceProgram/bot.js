@@ -110,7 +110,7 @@
 	var c18 = 'WOULD LIKE';
 	var c19 = 'I\'D LIKE';
 	var c20 = 'HASTALAVISTABABY';
-	var c21 = 'an expert to help you with this specific challenge, and along the way have revealed to you other hidden diamonds that you may not even see right now';
+	var c21 = 'DEFAULT SENTENCE';
 	// first occurence array
 	var foarr = [];
 	for(var i = 1; i<22; i++){
@@ -250,6 +250,12 @@
 		var customSentence = customSentence.replace(regexTempDELETE, ' ');
 		
 		if(customSentence.split('')[customSentence.length-1] != '.'){var customSentence = customSentence.trim() + '.'}
+		
+		console.log(customSentence);
+		
+		if(customSentence == 'DEFAULT SENTENCE.') {
+			var customSentence = 'an expert to help you with this specific challenge, and along the way have revealed to you other hidden diamonds that you may not even see right now.';
+		}
 		
 		$('#customSentence').val(customSentence);
 		console.log('What you\'re looking for is ' + customSentence);
