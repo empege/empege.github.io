@@ -173,14 +173,14 @@
 			console.log(regex);
 			//if found put current our word as cutTitle (part that we use in cover letter)
 			if(rez != null && rez != 'undefined') {
-				cutTitle = titles[i];
+				cutTitle = titles[i]+' ';
 				break;
 			} else {
 				cutTitle = titles[titles.length-1];
 			}
 		}
 		//put it in field so UI can take it as variable (storeValue, not storeText btw)
-		$('#cutTitle').val(cutTitle+' ');
+		$('#cutTitle').val(cutTitle);
 	}
 	$('#cutTitleButton').on('click', cutTitleFoo);
 	/* $(window).on('keydown', function(e){
