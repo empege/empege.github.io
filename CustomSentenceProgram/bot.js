@@ -152,7 +152,7 @@
 	
 	// titles array
 	var titles = [];
-	for(var i = 1; i<42; i++){
+	for(var i = 1; i<144; i++){
 		titles[(i-1)] = eval('t' + i);
 	}
 	//console.log(titles);
