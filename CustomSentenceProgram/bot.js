@@ -132,7 +132,7 @@
 	var t124 = 'Google Ads';
 	var t125 = 'Landing Page';
 	var t126 = 'Adwords';
-	var t1127 = 'Google Marketing';
+	var t127 = 'Google Marketing';
 	var t128 = 'PPC';
 	var t129 = 'Facebook Advertising';
 	var t130 = 'Facebook Campaign';
