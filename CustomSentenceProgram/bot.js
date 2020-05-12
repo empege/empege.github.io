@@ -147,7 +147,7 @@
 	var t139 = 'Sales Letter';
 	var t140 = l;
 	var t141 = 'Facebook Ad';
-	var t142 = l;
+	var t142 = 'Facebook';
 	var t143 = '';
 	
 	// titles array
