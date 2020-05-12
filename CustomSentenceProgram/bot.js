@@ -180,7 +180,7 @@
 			}
 		}
 		//put it in field so UI can take it as variable (storeValue, not storeText btw)
-		$('#cutTitle').val(cutTitle);
+		$('#cutTitle').val(cutTitle+' ');
 	}
 	$('#cutTitleButton').on('click', cutTitleFoo);
 	/* $(window).on('keydown', function(e){
