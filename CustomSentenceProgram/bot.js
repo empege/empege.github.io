@@ -45,7 +45,7 @@
 	var t37 = 'HASTALAVISTABABY';
 	var t38 = 'HASTALAVISTABABY';
 	var t39 = 'HASTALAVISTABABY';
-	var t40 = 'HASTALAVISTABABY';
+	var t40 = 'Marketeer';
 	var t41 = 'Marketing Strategy';
 	var t42 = 'Marketing Strategist';
 	var t43 = 'Marketing Consultant';
@@ -69,7 +69,7 @@
 	var t61 = 'CRM Analytics';
 	var t62 = 'Marketing Dashboard';
 	var t63 = 'VSL';
-	var t64 = 'Google Analytics';
+	var t64 = 'Google Ads';
 	var t65 = 'Sales Funnel';
 	var t66 = 'Funnel Optimization';
 	var t67 = 'Marketing Funnel';
@@ -129,7 +129,7 @@
 	var t121 = 'Facebook Marketer';
 	var t122 = 'Facebook Marketing';
 	var t123 = 'Media Buyer';
-	var t124 = 'Google Ads';
+	var t124 = 'Google Analytics';
 	var t125 = 'Landing Page';
 	var t126 = 'Adwords';
 	var t127 = 'Google Marketing';
@@ -145,14 +145,21 @@
 	var t137 = 'CMO';
 	var t138 = 'Copywriting';
 	var t139 = 'Sales Letter';
-	var t140 = l;
+	var t140 = 'E-Commerce';
 	var t141 = 'Facebook Ad';
 	var t142 = 'Facebook';
-	var t143 = '';
+	var t143 = 'Automation';
+	var t144 = 'Data Engineeer';
+	var t145 = 'UX/UI';
+	var t146 = 'UI/UX';
+	var t147 = 'UI';
+	var t148 = 'UX';
+	var t149 = 'Shopify';
+	var t150 = '';
 	
 	// titles array
 	var titles = [];
-	for(var i = 1; i<144; i++){
+	for(var i = 1; i<151; i++){
 		titles[(i-1)] = eval('t' + i);
 	}
 	//console.log(titles);
