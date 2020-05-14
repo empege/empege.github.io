@@ -125,7 +125,7 @@
 	var t117 = 'HASTALAVISTABABY';
 	var t118 = 'HASTALAVISTABABY';
 	var t119 = 'HASTALAVISTABABY';
-	var t120 = 'HASTALAVISTABABY';
+	var t120 = 'Sales Funnels';
 	var t121 = 'HASTALAVISTABABY';
 	var t122 = 'HASTALAVISTABABY';
 	var t123 = l;
@@ -177,7 +177,7 @@
 			//check what is current word in our list
 			var current = titles[i];
 			//make a temporary string regex out of it so before can be space or nothing and behind space or nothing or dot.
-			var regexTemp1 = '\(\(\^\|\[\\s\+\(\/\]\)'+current+'\(\$\|\[\\s.\+\)\/\]\)\)';
+			var regexTemp1 = '\(\(\^\|\[\\s\+\(\/\]\)'+current+'\(\$\|\[\\s.,\+\)\/\]\)\)';
 			//with global and case-insensitive
 			var regex = new RegExp(regexTemp1, 'gi');
 			//check if it exists inside the whole title we took from Feeder
@@ -244,7 +244,7 @@
 		var fullBodyText = fullBodyText.replace(/(&quot;)(?=(.|\s))/gi, '"');
 		//console.log(fullBodyText);
 		//for(var j = 0; j < foarr.length; j++){
-			var regexCurrentTemp = '(LOOKING FOR\?\|LOOKING FOR\|LOOKING TO\|SEEKING FOR\|SEEKING\|WE NEED\|I NEED\|NEED HELP\|HELP WITH\|IN NEED OF\|NEED SOMEONE\|WE REQUIRE\|I WOULD LIKE\|I\'D LIKE\|WE WOULD LIKE\|SEARCHING\|I WILL NEED\|I HAVE A NEED FOR\)';
+			var regexCurrentTemp = '(LOOKING FOR\[\^w\]\|LOOKING TO\|SEEKING FOR\|SEEKING\|WE NEED\|I NEED\|NEED HELP\|HELP WITH\|IN NEED OF\|NEED SOMEONE\|WE REQUIRE\|I WOULD LIKE\|I\'D LIKE\|WE WOULD LIKE\|SEARCHING\|I WILL NEED\|I HAVE A NEED FOR\)';
 			var regexCurrent = new RegExp(regexCurrentTemp, 'gi');
 			var current = fullBodyText.match(regexCurrent);
 			if(current != null && current != 'undefined') { var current = current[0].toUpperCase(); }
