@@ -122,7 +122,7 @@
 	var t114 = 'Shopify';
 	var t115 = 'Marketeer';
 	var t116 = 'Google Ad';
-	var t117 = 'HASTALAVISTABABY';
+	var t117 = 'SEO';
 	var t118 = 'HASTALAVISTABABY';
 	var t119 = 'HASTALAVISTABABY';
 	var t120 = 'Sales Funnels';
