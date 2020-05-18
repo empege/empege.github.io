@@ -244,7 +244,7 @@
 		var fullBodyText = fullBodyText.replace(/(&quot;)(?=(.|\s))/gi, '"');
 		//console.log(fullBodyText);
 		//for(var j = 0; j < foarr.length; j++){
-			var regexCurrentTemp = '(LOOKING FOR\[\^w\]\|LOOKING TO\|WE ARE WANTING\|SEEKING FOR\|SEEKING\|WE NEED\|I NEED\|NEED HELP\|HELP WITH\|IN NEED OF\|NEED SOMEONE\|WE REQUIRE\|I WOULD LIKE\|I\'D LIKE\|WE WOULD LIKE\|SEARCHING\|I WILL NEED\|I HAVE A NEED FOR\)';
+			var regexCurrentTemp = '(LOOKING TO\|WE ARE WANTING\|SEEKING FOR\|SEEKING\|WE NEED\|I NEED\|NEED HELP\|HELP WITH\|IN NEED OF\|NEED SOMEONE\|WE REQUIRE\|I WOULD LIKE\|I\'D LIKE\|WE WOULD LIKE\|SEARCHING\|I WILL NEED\|I HAVE A NEED FOR\)';
 			var regexCurrent = new RegExp(regexCurrentTemp, 'gi');
 			var current = fullBodyText.match(regexCurrent);
 			if(current != null && current != 'undefined') { var current = current[0].toUpperCase(); }
@@ -261,7 +261,7 @@
 				if(rezTemp.slice(-9) == 'following' || rezTemp.slice(-3) == '...' ) {var rez = null;}
 				
 				// if matches any of the words that refer to the 'above', meaning, it's not mentioned in the sentence, return null
-				var regexTempRefer = new RegExp(/(this)|(those)|(these)|(certain)|(above)|(invite you)|(mentioned)|(bonus)|(partnership)|(i'm)|(I'm)|(I'M)|(’)|(speak)|(approx)|(com[.])|(discuss)|(thanks)|(below)|(specifically)|(\;)|(local to)|(if possible)|(\sit\s)|(get your take)|(experience in that)|(bring to market)|(\.\.)/gi);
+				var regexTempRefer = new RegExp(/(this)|(those)|(these)|(certain)|(above)|(invite you)|(mentioned)|(bonus)|(partnership)|(i'm)|(I'm)|(I'M)|(’)|(speak)|(approx)|(com[.])|(discuss)|(thanks)|(below)|(specifically)|(\;)|(local to)|(if possible)|(\sit\s)|(get your take)|(experience in that)|(bring to market)|(the following)|(\.\.)/gi);
 				if(rezTemp.match(regexTempRefer)) {var rez = null;}
 				
 				// if has 3 or more spaces in a row (probably not caring about writting proper offer, return null
