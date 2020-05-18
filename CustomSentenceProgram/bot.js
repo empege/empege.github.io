@@ -117,8 +117,8 @@
 	var t109 = 'Data Engineeer';
 	var t110 = 'UX/UI';
 	var t111 = 'UI/UX';
-	var t112 = 'UI';
-	var t113 = 'UX';
+	var t112 = 'UX / UI';
+	var t113 = 'UI / UX';
 	var t114 = 'Shopify';
 	var t115 = 'Marketeer';
 	var t116 = 'Google Ad';
@@ -131,8 +131,8 @@
 	var t123 = l;
 	var t124 = 'HASTALAVISTABABY';
 	var t125 = 'HASTALAVISTABABY';
-	var t126 = 'HASTALAVISTABABY';
-	var t127 = 'HASTALAVISTABABY';
+	var t126 = 'UI';
+	var t127 = 'UX';
 	var t128 = 'HASTALAVISTABABY';
 	var t129 = 'HASTALAVISTABABY';
 	var t130 = 'HASTALAVISTABABY';
