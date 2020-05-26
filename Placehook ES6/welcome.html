@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome to Placehook!</title>
+  <link rel="stylesheet" href="style.css"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+</head>
+<body id="welcome-page">
+  
+  <nav class="dn">
+		<div class="logo"><a href="#">PLACEHOOK</a></div>
+		<img src="slike/logo.png" alt="">
+		
+		<ul class="menu menu-logged-out dn">
+			<li><a href="#">Log in</a></li>
+			<li><a href="#">Sign up</a></li>
+		</ul>
+		<ul class="menu menu-logged-in">
+			<li>
+				<a href="#"><img class="profile-picture" src="slike/hook.jpg" alt="profile picture">Ivan</a>
+			</li>
+			<li><a href="#">Log out</a></li>
+		</ul>
+  </nav>
+	
+  <form class="welcome-wrapper opacity-effect">
+		<h1>
+			WELCOME<br>
+			TO<br>
+			<span>PLACEHOOK</span><img src="slike/logo.png">
+		</h1>
+		
+		<div class="input-wrapper">
+			<label for="">Username: </label><br><input class="focused" type="text" required><br>
+			<label for="">Password: </label><br><input type="password" required>
+		</div>
+		
+		<button type="submit" class="inline login-btn">Log in</button>
+		<a href="signup.html"><button type="button" class="inline signup-btn">Sign up</button></a>
+	</form>
+  
+<script src="script.js"></script>
+</body>
+</html>

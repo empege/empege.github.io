@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome to Placehook!</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <link rel="stylesheet" href="style.css"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+</head>
+<body id="signup-page">
+	
+  <div class="signup-page">
+		<form action="verification.html" id="signup-form" class="opacity-effect">
+			<a href="welcome.html" class="exit-btn"></a>
+			
+			<h1>Welcome to Placehook!</h1>
+			<h2>A place to which people easily get HOOKED, ha ha :(</h2>
+			<h2>Let's get started...</h2>
+			
+			<div class="profile-picture-wrapper">
+				<img src="slike/avatarmale.png" alt="avatar" width="150">
+				<hr>
+				<p>Choose a profile picture:</p>
+				<p><span class="browse-pc">BROWSE</span> your PC or just drag and drop image to this box!</p>
+			</div>
+			
+			<br>
+			<h2>Now make your unique username:</h2>
+			<h3>(so that everyone can remember you! :)</h3>
+			<input type="text" required placeholder="required"><br>
+			<h3>Username</h3>
+			
+			<br>
+			<br>
+			<br>
+			<h2>Next up is your personal information:</h2>
+			<h3>(Only Email is required in these fields)</h3>
+			<br>
+			<input type="text"><br>
+			<h3>Name</h3>
+			<input type="text"><br>
+			<h3>Surname</h3>
+			<input type="email" required placeholder="required"><br>
+			<h3>Email</h3>
+			<select>
+				<option value="">Serbia</option>
+				<option value="">United States</option>
+				<option value="">Russia</option>
+				<option value="">China</option>
+				<option value="">Japan</option>
+			</select>
+			<br>
+			<h3>Country</h3>
+			<br>
+			<div class="signup-form-radiogroup">
+				<input type="radio" id="male" name="gender" value="male">
+				<label for="male">Male</label>
+				<input type="radio" id="female" name="gender" value="female">
+				<label for="female">Female</label>
+				<input type="radio" id="other" name="gender" value="other" checked>
+				<label for="other">Other</label>
+			</div>
+			<h3>Gender</h3>
+			
+			
+			<br>
+			<br>
+			<h2>At last, your awesome password:</h2>
+			<h3>(Remember it well...)</h3>
+			<input type="password" required><br>
+			<h3>Password</h3>
+			<input type="password" required><br>
+			<h3>One more time please</h3>
+			
+			
+			<br>
+			<br>
+			<button type="submit" class="inline" id="create-profile-btn">Create Profile!</button>
+			
+			
+		</form>
+	</div>
+  
+<script src="script.js"></script>
+</body>
+</html>
