@@ -29,7 +29,7 @@ li {list-style-type: none;}
 a:hover{cursor: pointer;}
 li:hover {cursor: pointer;}
 button {cursor: pointer; border: none;}
-hr {background: white;}
+hr {background: white; color: white;}
 ::placeholder {color: var(--blue); opacity: 0.5;}
 .db {display: block;}
 .dn {display: none;}
@@ -53,6 +53,7 @@ nav {
 .logo {
 	font-size: 1.5em;
 	color: var(--dark-blue);
+	display: flex;
 }
 .logo a {
 	color: var(--dark-blue);
@@ -335,23 +336,62 @@ button:hover {
 
 /* ------------------------------ Media Query -------------------------------- */
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
+
 	.welcome-wrapper {
-		width: 80%;
-		font-size: 1.3em;
+		width: 90%;
+		border-radius: 5px;
+		font-size: 0.9em;
+		padding: 20px 10px;
 	}
-	#signup-form { width: 100%; }
-	#signup-form > * {
+	#signup-form {
+    width: 90%;
+		padding: 40px 20px;
+	}
+	#signup-form > *:not(.exit-btn) {
 		width: 100%;
 	}
+	.exit-btn {
+		top: 10px;
+		right: 10px;
+		opacity: 1;
+	}
+	.profile-picture-wrapper {
+		padding: 20px;
+	}
 	nav {
+		height: 100px;
 		padding: 0 20px;
+		font-size: 0.8em;
+		flex-direction: column;
+		text-align: center;
+		
+	}
+	.logo {
+		display: block;
+		line-height: 40px;
+	}
+	.menu {
+		text-align: center;
+		line-height: 40px;
+	}
+	.menu li {
+		margin: 5px;
 	}
 	.verification-wrapper {
+    width: 90%;
 		padding: 20px 40px;
 		border-radius: 5px;
+		font-size: 0.9em;
+		margin-top: 150px;
+		margin-bottom: 20px;
+	}
+	#verification-page button {
+		margin: 20px 10px;
+		padding: 15px 10px;
 	}
 }
+
 
 
 
