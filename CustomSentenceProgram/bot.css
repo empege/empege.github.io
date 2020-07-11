@@ -35,9 +35,8 @@ li:hover{cursor: pointer;}
 }
 textarea {
 	border: 3px solid green;
-	min-width: 500px;
-	min-height: 150px;
-	height: 150px;
+	min-width: 300px;
+	min-height: 100px;
 	max-height: 250px;
 	resize:vertical;
 	font-size: 1.3em;
@@ -56,6 +55,9 @@ textarea {
 	position: relative;
 	top: -45px;
 	line-height: 10px;
+}
+.button:hover {
+	background: red !important;
 }
 #cutTitleButton {
 	background: green;
@@ -116,12 +118,33 @@ textarea {
 
 /* ([^\s]{0}looking for(:| :|: | : )*([\s]*(?=[^\s]))([^eE][^.][^gG])*([eE][.]?[gG][.]?)*[^.\n]*) */
 
+#error {
+	color: white;
+	font-size: 2em;
+	padding: 100px;
+}
 
+#error input {
+	height: 100px;
+	width: 300px;
+	line-height: 100px;
+	font-size: 1.2em;
+}
 
+.error-btn {
+	background: red;
+	height: 100px;
+	width: 300px;
+	margin: 100px auto;
+	cursor: pointer;
+	line-height: 100px;
+	border-radius: 25px;
+	border: 3px solid white;
+}
 
-
-
-
+.error-btn:hover {
+	background: gold;
+}
 
 
 

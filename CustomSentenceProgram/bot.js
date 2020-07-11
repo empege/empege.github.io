@@ -373,6 +373,31 @@
 		
 		$('#customSentence').val(customSentence);
 		console.log('What you\'re looking for is ' + customSentence);
+		
+		
+		//PROBA
+		
+		
+		/* fetch('sendMail.php', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({customsentence:customSentence}),
+		})
+		.then(data => {
+			console.log('Success:', data);
+		})
+		.catch((error) => {
+			console.error('Error:', error);
+		}); */
+		
+		
+		
+		
+		//PROBA
+		
+		
 	}
 	$('#customSentenceButton').on('click', customSentenceFoo);
 	/* $(window).on('keydown', function(e){
