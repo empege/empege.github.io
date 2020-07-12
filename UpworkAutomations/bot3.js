@@ -4,6 +4,19 @@
 	// ALWAYS USE ESCAPE CHARACTERS WHEN YOU MAKE IT, STRING OR NEW REGEXP
 	// DONT USE VARNAME = VARNAME.REPLACE(REGEX, NEW) - DOESNT FREKIN WORK - USE VAR VARNAME = VARNAME.REPLACE(REGEX, NEW)
 	
+	
+	$('#customEmailButton').on('click', () => {
+		$('#customEmail').html(`<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, amet, obcaecati, cumque id incidunt dolore dolorem unde aperiam et quae labore omnis quam consequatur distinctio nostrum molestiae possimus neque similique!</div>
+		<div>Est possimus dolor distinctio nam molestias repellat itaque laudantium sed! Quo, ipsam, reiciendis, laudantium quas incidunt fugiat soluta cum voluptate omnis animi voluptas quibusdam deleniti dolores optio fuga laborum nam.</div>
+		<div>Saepe, minus vitae ex dolor delectus ratione eum nesciunt voluptas. Reprehenderit, nisi, sunt deserunt maxime quo earum explicabo autem alias optio atque nostrum eligendi a culpa voluptate minima commodi aliquid.</div>
+		<div>Accusantium, eos, quis est corporis eveniet rem laboriosam ad reprehenderit vero excepturi. Assumenda fuga unde ullam laudantium quam! Consequatur, praesentium, repellendus commodi consequuntur nemo odit ullam adipisci earum dolorem eaque.</div>
+		<div>Rem, eos rerum ducimus deserunt culpa obcaecati vero tempore sequi saepe corporis! Commodi, sapiente, quas, nesciunt impedit a incidunt qui enim voluptatibus laudantium quam at temporibus rem suscipit repellat maiores.</div>
+		<div>Beatae, quam, iusto, esse, illo deleniti quod officiis voluptatum cupiditate aperiam odit nostrum numquam repellat provident repellendus iste! Tempore, earum eveniet magni dignissimos repellat eos nisi accusamus inventore distinctio ratione!</div>
+		<div>Error, quisquam, harum, neque porro quaerat provident dicta quibusdam a distinctio fugiat pariatur rerum beatae veritatis. Inventore, qui, mollitia, quasi praesentium nemo natus tempora tenetur ut sapiente quam quia eaque.</div>
+		<div>Sint, quos, aspernatur ab velit sapiente asperiores vero mollitia doloremque perferendis iste accusantium tenetur eveniet ipsa hic nostrum voluptas nesciunt voluptatum. Animi, officia, cumque illum recusandae quae eos neque sunt!</div>`);
+	})
+	
+	
 	var l = 'HASTALAVISTABABY';
 	// 99 vars for title
 	var t1 = 'HASTALAVISTABABY';
