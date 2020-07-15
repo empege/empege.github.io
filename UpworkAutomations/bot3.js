@@ -127,7 +127,6 @@ If you haven't completed it yet, the form link is also here: https://docs.google
 		`;
 		
 		
-		
 		//if... regex parts --->>>
 		//regA, regB, regC...
 		// u zavisnosti od toga sta nadje ovaj regex, pali se odredjeni template
