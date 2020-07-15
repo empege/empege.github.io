@@ -54,7 +54,15 @@ textarea {
 	border: 3px solid green;
 }
 
-
+input {
+	display: block;
+	position: absolute;
+	top: 50px;
+	left: 505px;
+	height: 50px;
+	width: 300px;
+	font-size: 2em;
+}
 
 
 
