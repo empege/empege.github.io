@@ -1,222 +1,141 @@
 (function($) {
 	
 	$('#customEmailButton').on('click', () => {
-		
-		let firstName = $('#firstName').val();
-		
 		//get value of email body (taken from UI) and search it for needed matrix (c1, c2...)
 		let receivedEmail = $('#receivedEmail').val();
+		let customEmailField = $('#customEmail');
+		let firstName = $('#firstName').val();
+		let chosenTemplate;
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		$('#customEmail').html();
-	})
-	
+		// 10 template recenica
+		// TEMPLATE 1
+		let tAfamiliar = 
+		`🔥Hey there ${firstName}, I've reviewed what you put, and I want to give you value and see if we're a good fit to work with each other via a call. There's no benevolent way I can give you the answers you deserve via text. We need to dive way deeper into your situation via a proper call. Does that sound reasonable?
 
-	
-	// titles array
-	var titles = [];
-	for(var i = 1; i<156; i++){
-		titles[(i-1)] = eval('t' + i);
-	}
-	//console.log(titles);
-	
-	// change original title to cutTitle
-	var cutTitle;
-	function cutTitleFoo(){
-		var jobTitle = $('#jobTitle').val();
-		for(var i = 0; i < titles.length; i++){
-			//check what is current word in our list
-			var current = titles[i];
-			//make a temporary string regex out of it so before can be space or nothing and behind space or nothing or dot.
-			var regexTemp1 = '\(\(\^\|\[\\s\+\(\/\]\)'+current+'\(\$\|\[\\s.,\+\)\/\]\)\)';
-			//with global and case-insensitive
-			var regex = new RegExp(regexTemp1, 'gi');
-			//check if it exists inside the whole title we took from Feeder
-			var rez = jobTitle.match(regex);
-			console.log(regex);
-			//if found put current our word as cutTitle (part that we use in cover letter)
-			if(rez != null && rez != 'undefined') {
-				cutTitle = titles[i]+' ';
-				break;
-			} else {
-				cutTitle = titles[titles.length-1];
-			}
-		}
-		//put it in field so UI can take it as variable (storeValue, not storeText btw)
-		$('#cutTitle').val(cutTitle);
-	}
-	$('#cutTitleButton').on('click', cutTitleFoo);
-	/* $(window).on('keydown', function(e){
-		if(e.keyCode === 13){
-			e.preventDefault();
-			cutTitleFoo();
-		}
-	}); */
-	
-	/* CUSTOM SENTENCE */
-	
-	var c1 = 'HASTALAVISTABABY';
-	var c2 = 'LOOKING FOR\\?';
-	var c21 = 'DEFAULT SENTENCE';
-	// first occurence array
-	var foarr = [];
-	for(var i = 1; i<22; i++){
-		foarr[(i-1)] = eval('c' + i);
-	}
-	// make customSentence out of fullBodyText (whole job description)
-	var customSentence;
-	
-	// customSentence function
-	function customSentenceFoo(){
-		//get value of job description (taken from UI) and search it for needed sentence (c1, c2...)
-		var fullBodyText = $('#fullBody').val();
-		// &amp; first change this coz regex will not include ; which is end of this and will screw up & sign which is ok and needed.
-		var fullBodyText = fullBodyText.replace(/(&amp;)(?=(.|\s))/g, '&');
-		var fullBodyText = fullBodyText.replace(/(&gt;)(?=(.|\s))/gi, '>');
-		var fullBodyText = fullBodyText.replace(/(&lt;)(?=(.|\s))/gi, '<');
-		var fullBodyText = fullBodyText.replace(/(&quot;)(?=(.|\s))/gi, '"');
-		//console.log(fullBodyText);
-		//for(var j = 0; j < foarr.length; j++){
-			var regexCurrentTemp = '(LOOKING FOR\|LOOKING TO\|WE ARE WANTING\|SEEKING FOR\|SEEKING\|WE NEED\|I NEED\|NEED HELP\|HELP WITH\|IN NEED OF\|NEED SOMEONE\|WE REQUIRE\|I WOULD LIKE\|I\'D LIKE\|WE WOULD LIKE\|SEARCHING\|I WILL NEED\|I HAVE A NEED FOR\)';
-			var regexCurrent = new RegExp(regexCurrentTemp, 'gi');
-			var current = fullBodyText.match(regexCurrent);
-			if(current != null && current != 'undefined') { var current = current[0].toUpperCase(); }
-			var regexTemp2 =
-				'\(\[\^\\s\]\{0\}\(\?\<\!not|do\[\\s\]*\)\(\?\<\!\(what\|do\)\[\\s\]\*\)'+current+'\(\:\| \:\|\: \| \: \)\*\(\[\\s\]\*\(\?\=\[\^\\s\]\)\)\)\(\(\[\^.\\n\]\*\[e\]\[.\]\?\[g\]\[.\]\)\|\(\[\^.\\n\]\*\(https\?\:\/\/\)\?(www\.\)\?\[\-a\-zA\-Z0\-9\@\:\%.\_\\\+\~\#\=\]\{1,256\}\\.\[a\-zA\-Z0\-9\(\)\]\{1,20\}\\b\(\[\-a\-zA\-Z0\-9\@\:\%\_\\\+.\~\#\?\&\/\/\=\]\*\)\)\[\^.\\n\]\)\*\[\^.\!\?\\n\]\*';
-			var regex2 = new RegExp(regexTemp2, 'gi');
-			var rez = fullBodyText.match(regex2);
-			if(rez != null && rez != 'undefined') {
-				var rezTemp = rez[0].toString(); //Pazi, ovde trazi sledeci koji ide tako da znas samo!
-				// if last is : make it null
-				if(rezTemp[rezTemp.length - 1] == ':') {var rez = null;}
-				
-				// if last is 'following' (meaning, it will start counting and fck it all up) make it null
-				if(rezTemp.slice(-9) == 'following' || rezTemp.slice(-3) == '...' ) {var rez = null;}
-				
-				// if matches any of the words that refer to the 'above', meaning, it's not mentioned in the sentence, return null
-				var regexTempRefer = new RegExp(/(this)|(those)|(these)|(certain)|(above)|(invite you)|(mentioned)|(bonus)|(partnership)|(i'm)|(I'm)|(I'M)|(’)|(speak)|(approx)|(com[.])|(discuss)|(thanks)|(below)|(specifically)|(\;)|(local to)|(if possible)|(\sit\s)|(get your take)|(experience in that)|(bring to market)|(the following)|(\.\.)/gi);
-				if(rezTemp.match(regexTempRefer)) {var rez = null;}
-				
-				// if has 3 or more spaces in a row (probably not caring about writting proper offer, return null
-				var regexTempSigns = new RegExp(/( ){3,6}/gi);
-				if(rezTemp.match(regexTempSigns) != null) {var rez = null;}
-				
-				// if more than 150 chars and have no elements like , ; - ( ) then null (means they aren't using any signs to sepparate parts of sentences that make sense.
-				var regexTempSigns = new RegExp(/[;,.&"\-()]/gi);
-				if((rezTemp.split('').length >= 150) && (rezTemp.match(regexTempSigns) == null)) {var rez = null;}
-				
-				// if less than 5 chars, look for others in array of first occurances
-			console.log(current)
-				var regexTempLess5 = new RegExp(current, 'gi');
-				var rezTemp = rezTemp.replace(regexTempLess5, '');
-				if(rezTemp.split('').length <= 18) { rez = null; }
-				
-				// if all upprCase return null
-				if(rezTemp === rezTemp.toUpperCase()){ rez = null; }
-			}
-			if(rez != null && rez != 'undefined') {
-				rez = rez[0].toString();
-				// ! ?
-				if(rez.split('')[rez.length-1] == '!' || rez.split('')[rez.length-1] == '?') { var rez = rez.replace(/[!?]/gi, '')}
+Let's discover the answers to the above questions of mine, and all your questions about:
+- the investment amount
+- my case studies/experience
+- my expertise
+and more on a call, not via text, to see if we're a good fit for each other and to potentially come to an agreement over the phone. Sound good?
+
+If so, you can lock in a slot over the next 48 hours, you can select one here: https://go.oncehub.com/moreconversions-upwork and you'll immediately get a time confirmed. Please note that due to my 100% Top Rated status here on Upwork, there is very high demand, so time slots are very limited, and actual project slots are even more scarce.
+		`;
+		// TEMPLATE 2
+		let tBexpensive = `🔥Hey there ${firstName}, don't worry about the price, as it's just a placeholder until we have a discussion to see what the true upside is for you.
+
+I guarantee I will show you things on our call that you've never seen before. So let's talk first and see how much more money you can be making before you simply write me off based on my non-binding upwork rate. Does that sound reasonable?
+
+Also, I would do you a disservice if I randomly tell you a price.
+
+If you have 1,000,000 people per month looking at your funnel, wouldn't you want to make sure it's reaaaaaaallllllly done properly?
+
+VS. if you have 10 people per month looking at it?
+
+It's not a simple task, with a simple price!
+
+Another analogy would be, if you are building a bridge, and only 10 cars will drive on it any time, then you need to only build the bridge to a certain specification - BUT - if you know 10,000 cars will drive on it at any time, people will DIE if you build the same bridge as above.
+
+There's no standard price of funnels, just like there is no standard price of a bridge. Does that make sense?
+
+Let's discover the answers to the above questions of mine, and all your questions about:
+- the investment amount
+- my case studies/experience
+- my expertise
+and more on a call, not via text, to see if we're a good fit for each other and to potentially come to an agreement over the phone. Sound good?
+
+If so, you can lock in a slot over the next 48 hours, you can select one here: https://go.oncehub.com/moreconversions-upwork and you'll immediately get a time confirmed. Please note that due to my 100% Top Rated status here on Upwork, there is very high demand, so time slots are very limited, and actual project slots are even more scarce.
 		
-				var regexTemp3 = new RegExp(current, 'gi');
-				var regexHelpWith = new RegExp('(need help with)|(require help with)', 'gi');
-				var regexHelpWithIME = new RegExp('\\s\?\(I\|WE\)\\s\*\(need help with\)\|\(require help with\)', 'gi');
-				// if looking to, 'to' will need to stay for grammar looking to bring ... what you're lookinf for is TO bring...
-				if(current == 'LOOKING TO'){
-					customSentence = rez.replace(regexTemp3, 'to') + '.';
-				}else if(current == 'NEED SOMEONE'){
-					customSentence = rez.replace(regexTemp3, 'someone') + '.';
-				}else if(rez.match(regexHelpWith) && !regexHelpWithIME.test(rez)){
-					// i need help with bla bla ... what you're looking for is help with bla bla BUT I need help with is searching for I NEED so it will be (I need) need help with so make sure its not I or WE need!
-					customSentence = rez.replace(regexTemp3, 'help') + '.';
-				}else{
-					customSentence = rez.replace(regexTemp3, '') + '.';
-				}
-				
-				// ending with ( ~something~ ) delete (if this makes errors, just null the whole thing outside this if 
-				var regexTempParant = '\(\[\\s\]\?\[\(\].\*\[\)\]\)';
-				var regexParant = new RegExp(regexTempParant, 'gi');
-				if(customSentence.match(regexParant)){var customSentence = customSentence.replace(regexParant, '')}
-				var customSentence = customSentence.replace(':','');
-				var customSentence = customSentence.trim();
-				//break;
-			} else {
-				customSentence = foarr[foarr.length-1];
-			}
-		//}
+		`;
+		// TEMPLATE 3
+		let tCprefer = `🔥Hey there ${firstName},
+
+I'm genuinely sorry you got the impression from talking to some other people on upwork and other "freelancing" platforms that it's helpful for you to chat via text instead of getting on a call.
+
+If you want to work with a professional and not a copy-paste freelancer, then let's get on a call to discuss your new project and if you like what you hear, maybe we can work together if we're both suitable for each other.
+
+Otherwise I do suggest that you keep chatting with the copy-paste kids 🙂 which of course is a joke 🙂 , but in all seriousness no one who's an actual professional will chat with you via text, we prefer to talk on the phone, so we can actually provide value, instead of just copy-pasting some replies/screenshots to you and promising that we can do everything you say you need, to get some small payment... and deliver low value...
+
+It's up to you, here is the booking tool, go ahead and fill it in if you wish, I'd be more than happy to try and help you out: https://go.oncehub.com/moreconversions-upwork
+
+PS. We can certainly do the call here in the secured upwork area if you'd like; but please pick a time at the link above so we can handle that without any back and forth messages and resultant lost precious time.
 		
-		//change all dashes ( — ) with minuses ( - )
-		var customSentence = customSentence.replace(/\—/gi , '-');
+		`
+		// TEMPLATE 4
+		let tDnotime = `🔥Hi ${firstName}, respectfully, this isn't an interview for an employee.
+
+If you want to hire a $3/hr person that you give the processes to, you can certainly find those guys on here and I'm not that guy.
+
+However, I've reviewed what you put, and the next normal step of this process is to see if we'd be a great long term fit for eachother, because that is who I'm looking to work with. Guys that wanna make $100K+ in new revenue in the next 3 months, and $1M+ over the next year.
+
+Isn't that worth an hour? Maybe you're more rich than that 😉
+
+If it is not worth an hour, or you would like me to invest a ton more time before we get on a call as part of your screening process, I am kindly not interested, and to be honest, respectfully, people of my caliber won't be interested in that either.
+
+If you're convinced, 😉 let's discover the answers to the above questions of mine, and all your questions about:
+- the investment amount
+- my case studies/experience
+- my expertise
+and more on a call, not via text, to see if we're a good fit for each other and to potentially come to an agreement over the phone.
+
+If so, to find a time we can speak, you can select one here: https://go.oncehub.com/moreconversions-upwork and you'll immediately get a time confirmed. Please note that time slots are very limited due to high demand.
 		
-		//chage personal pronouns
+		`
+		// TEMPLATE 5
+		let tBookingLink = `🔥Hi ${firstName}, I cross referenced my calendar with yours, and at the moment I see some times that match up - but the reason why I would like you to fill in my link is because I need to gather some information first to see if your business qualifies for a call with me. Sound ok?
+
+It only takes 60 seconds to fill in, go ahead and click here: https://https://go.oncehub.com/moreconversions-upwork
 		
-		// AM to ARE
-		regexTempAM = new RegExp('\(\[\\s\]AM\[\\s\]\)', 'gi');
-		var customSentence = customSentence.replace(regexTempAM, ' are ');
+		`
+		// TEMPLATE 6
+		let tSchedule = `🔥 Please go ahead and simply fill in the time and answer the few questions at this automated link: https://go.oncehub.com/moreconversions-upwork
 		
-		// I, ME, US, WE to YOU
-		regexTempYOU = new RegExp('\(\[\\s.\]I\[\\s.\]\)\|\(\[\\s.\]ME\[\\s.\]\)\|\(\[\\s.\]US\[\\s.\]\)\|\(\[\\s.\]WE\[\\s.\]\)', 'gi');
-		var customSentence = customSentence.replace(regexTempYOU, ' you ');
+		`
+		// TEMPLATE 7
+		let tSkypeCallHiDefault = `🔥 Please go ahead and simply fill in the time you want and answer the few questions at this automated link: https://go.oncehub.com/moreconversions-upwork
 		
-		// I, ME, US, WE to YOU with ,
-		regexTempYOU = new RegExp('\(\[\\s.\]I\[,\]\)\|\(\[\\s.\]ME\[,\]\)\|\(\[\\s.\]US\[,\]\)\|\(\[\\s.\]WE\[,\]\)', 'gi');
-		var customSentence = customSentence.replace(regexTempYOU, ' you');
+		`
+		// TEMPLATE 8
+		let tPhoneNow = `🔥It's a high demand day today; if you're sure you don't wanna miss out talking with the 100% Top Rated guy around these parts, go ahead and schedule in a slot sometime in the next 48 hours here: https://go.oncehub.com/moreconversions-upwork
 		
-		// I', WE' to YOU with ' - I've - You've
-		//regexTempYOUVE = new RegExp('\(\[\\s.\]I\[\'\]\)\|\(\[\\s.\]WE\[\'\]\)', 'gi');
-		//var customSentence = customSentence.replace(regexTempYOUVE, ' you\'');
+		`
+		// TEMPLATE 9
+		let tOtherAvail = `🔥Hi [FIRST NAME], what's your phone number so I can call you to find a mutually available time?
 		
-		// WE'RE to YOU'RE
-		regexTempYOURE = new RegExp('\(\[\\s.\]WE\(\?\=\(\'\)\)\)\|\(\[\\s.\]I\(\?\=\(\'\)\)\)', 'gi');
-		var customSentence = customSentence.replace(regexTempYOURE, ' you');
+		`
+		// TEMPLATE 10
+		let tBusy = `🔥What's your phone number?
 		
-		// MY, OUR with Funny Chars to YOUR - this is only for minus sign, if more, find better solution
-		regexTempYOUR = new RegExp('\(\[-\]MY\[\\s\]\)\|\(\[-\]OUR\[\\s\]\)', 'gi');
-		var customSentence = customSentence.replace(regexTempYOUR, '-your ');
+		`
 		
-		// MY, OUR to YOUR
-		regexTempYOUR = new RegExp('\(\[\\s.\]MY\[\\s\]\)\|\(\[\\s.\]OUR\[\\s\]\)', 'gi');
-		var customSentence = customSentence.replace(regexTempYOUR, ' your ');
+		// TEMPLATE 11
+		let tAlreadyBooked = `🔥Hey there ${firstName}, I saw your booking.
+
+I've emailed you a booking confirmation.
+
+We will do the call on Zoom.
+
+Also, I've already emailed you a link to a form that will get you more value on our call because it will give me more details about your business.
+
+It should only take 10 minutes to complete, and it will help you get 2-3X more value on our call compared with not providing any additional data.
+
+Please complete it well in advance of our scheduled call day and time, so that I can give it the proper attention.
+
+Feel free to add a loom.com video to add more information about your funnel, tracking and situation if you want.
+
+If you haven't completed it yet, the form link is also here: https://docs.google.com/forms/d/e/1FAIpQLSe7SkIL16GXGZSRWPYPNed6RnOKpsHSFQRb1JyWqRkqEAmFSQ/viewform?usp=sf_link
 		
-		// THIS to THAT
-		regexTempYOUR = new RegExp('\(\[\\s.\]THIS\\s\)', 'gi');
-		var customSentence = customSentence.replace(regexTempYOUR, ' that ');
-		
-		// DELETE YOUR, YOU if it's at start (i need your help with ---> you are looking for help with...)
-		regexTempDELETE = new RegExp('\^\(\[\\s\]?(YOUR|YOU)\\s\)', 'gi');
-		var customSentence = customSentence.replace(regexTempDELETE, '');
-		
-		// if YOUR HELP is found return default sentence
-		regexTempYOURHELP = new RegExp('\(\[\\s\]?(YOUR HELP)\[\\s.\]\)', 'gi');
-		if(customSentence.match(regexTempYOURHELP)){ var customSentence = foarr[foarr.length-1]; }
+		`;
 		
 		
-		// DELETE PLEASE (looking for someone to please help me... ---> what you're looking for is someone to help you...)
-		regexTempDELETE = new RegExp('\(\[\\s\]\(PLEASE|HE|SHE|HERE)\[\\s.\]\)', 'gi');
-		var customSentence = customSentence.replace(regexTempDELETE, ' ');
 		
-		if(customSentence.split('')[customSentence.length-1] != '.'){var customSentence = customSentence.trim() + '.'}
+		//if... regex parts --->>>
+		//regA, regB, regC...
+		// u zavisnosti od toga sta nadje ovaj regex, pali se odredjeni template
 		
-		console.log(customSentence);
+		customEmailField.val(tAlreadyBooked);
 		
-		if(customSentence == 'DEFAULT SENTENCE.') {
-			var customSentence = 'an expert to help you with this specific challenge, and along the way have revealed to you other hidden diamonds that you may not even see right now.';
-		}
-		
-		$('#customSentence').val(customSentence);
-		console.log('What you\'re looking for is ' + customSentence);
-		
+	});
+
 		
 		//PROBA
 		
