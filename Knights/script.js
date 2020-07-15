@@ -44,7 +44,7 @@ $(document).ready(function(){
 	var divedIn = false;
 	$('.diveInBtn').on('click', diveInFoo);
 	$('#storiesList').on('click', diveInFoo);
-	if(window.location.href == 'https://empege.github.io/Knights/index.html' || window.location.href == 'https://empege.github.io' ){
+	if(window.location.href == 'https://empege.github.io/Knights/index.html' || window.location.href == 'https://empege.github.io/Knights/' ){
 	$(document).keypress(function(e) {
 		if(e.which == 13 && divedIn == false) {
 			diveInFoo();
