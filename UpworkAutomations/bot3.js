@@ -6,10 +6,10 @@
 		let customEmailField = $('#customEmail');
 		let firstName = $('#firstName').val();
 		let chosenTemplate;
-		
+{	
 		// 10 template recenica
 		// TEMPLATE 1
-		let tAfamiliar = 
+		var tAfamiliar = 
 		`🔥Hey there ${firstName}, I've reviewed what you put, and I want to give you value and see if we're a good fit to work with each other via a call. There's no benevolent way I can give you the answers you deserve via text. We need to dive way deeper into your situation via a proper call. Does that sound reasonable?
 
 Let's discover the answers to the above questions of mine, and all your questions about:
@@ -21,9 +21,9 @@ and more on a call, not via text, to see if we're a good fit for each other and 
 If so, you can lock in a slot over the next 48 hours, you can select one here: https://go.oncehub.com/moreconversions-upwork and you'll immediately get a time confirmed. Please note that due to my 100% Top Rated status here on Upwork, there is very high demand, so time slots are very limited, and actual project slots are even more scarce.
 		`;
 		// TEMPLATE 2
-		let tBexpensive = `🔥Hey there ${firstName}, don't worry about the price, as it's just a placeholder until we have a discussion to see what the true upside is for you.
+		var tBexpensive = `🔥Hey there ${firstName}, don't worry about the price, as it's just a placeholder until we have a discussion to see what the true upside is for you.
 
-I guarantee I will show you things on our call that you've never seen before. So let's talk first and see how much more money you can be making before you simply write me off based on my non-binding upwork rate. Does that sound reasonable?
+I guarantee I will show you things on our call that you've never seen before. So var's talk first and see how much more money you can be making before you simply write me off based on my non-binding upwork rate. Does that sound reasonable?
 
 Also, I would do you a disservice if I randomly tell you a price.
 
@@ -47,7 +47,7 @@ If so, you can lock in a slot over the next 48 hours, you can select one here: h
 		
 		`;
 		// TEMPLATE 3
-		let tCprefer = `🔥Hey there ${firstName},
+		var tCprefer = `🔥Hey there ${firstName},
 
 I'm genuinely sorry you got the impression from talking to some other people on upwork and other "freelancing" platforms that it's helpful for you to chat via text instead of getting on a call.
 
@@ -61,7 +61,7 @@ PS. We can certainly do the call here in the secured upwork area if you'd like; 
 		
 		`
 		// TEMPLATE 4
-		let tDnotime = `🔥Hi ${firstName}, respectfully, this isn't an interview for an employee.
+		var tDnotime = `🔥Hi ${firstName}, respectfully, this isn't an interview for an employee.
 
 If you want to hire a $3/hr person that you give the processes to, you can certainly find those guys on here and I'm not that guy.
 
@@ -81,34 +81,34 @@ If so, to find a time we can speak, you can select one here: https://go.oncehub.
 		
 		`
 		// TEMPLATE 5
-		let tBookingLink = `🔥Hi ${firstName}, I cross referenced my calendar with yours, and at the moment I see some times that match up - but the reason why I would like you to fill in my link is because I need to gather some information first to see if your business qualifies for a call with me. Sound ok?
+		var tBookingLink = `🔥Hi ${firstName}, I cross referenced my calendar with yours, and at the moment I see some times that match up - but the reason why I would like you to fill in my link is because I need to gather some information first to see if your business qualifies for a call with me. Sound ok?
 
 It only takes 60 seconds to fill in, go ahead and click here: https://https://go.oncehub.com/moreconversions-upwork
 		
 		`
 		// TEMPLATE 6
-		let tSchedule = `🔥 Please go ahead and simply fill in the time and answer the few questions at this automated link: https://go.oncehub.com/moreconversions-upwork
+		var tSchedule = `🔥 Please go ahead and simply fill in the time and answer the few questions at this automated link: https://go.oncehub.com/moreconversions-upwork
 		
 		`
 		// TEMPLATE 7
-		let tSkypeCallHiDefault = `🔥 Please go ahead and simply fill in the time you want and answer the few questions at this automated link: https://go.oncehub.com/moreconversions-upwork
+		var tSkypeCallHiDefault = `🔥 Please go ahead and simply fill in the time you want and answer the few questions at this automated link: https://go.oncehub.com/moreconversions-upwork
 		
 		`
 		// TEMPLATE 8
-		let tPhoneNow = `🔥It's a high demand day today; if you're sure you don't wanna miss out talking with the 100% Top Rated guy around these parts, go ahead and schedule in a slot sometime in the next 48 hours here: https://go.oncehub.com/moreconversions-upwork
+		var tPhoneNow = `🔥It's a high demand day today; if you're sure you don't wanna miss out talking with the 100% Top Rated guy around these parts, go ahead and schedule in a slot sometime in the next 48 hours here: https://go.oncehub.com/moreconversions-upwork
 		
 		`
 		// TEMPLATE 9
-		let tOtherAvail = `🔥Hi [FIRST NAME], what's your phone number so I can call you to find a mutually available time?
+		var tOtherAvail = `🔥Hi ${firstName}, what's your phone number so I can call you to find a mutually available time?
 		
 		`
 		// TEMPLATE 10
-		let tBusy = `🔥What's your phone number?
+		var tBusy = `🔥What's your phone number?
 		
 		`
 		
 		// TEMPLATE 11
-		let tAlreadyBooked = `🔥Hey there ${firstName}, I saw your booking.
+		var tAlreadyBooked = `🔥Hey there ${firstName}, I saw your booking.
 
 I've emailed you a booking confirmation.
 
@@ -125,13 +125,54 @@ Feel free to add a loom.com video to add more information about your funnel, tra
 If you haven't completed it yet, the form link is also here: https://docs.google.com/forms/d/e/1FAIpQLSe7SkIL16GXGZSRWPYPNed6RnOKpsHSFQRb1JyWqRkqEAmFSQ/viewform?usp=sf_link
 		
 		`;
-		
+}		
 		
 		//if... regex parts --->>>
 		//regA, regB, regC...
 		// u zavisnosti od toga sta nadje ovaj regex, pali se odredjeni template
+		let regAfamiliar = new RegExp(/(?<=[\s]+)(familiar|review|description|specs|specifications|hours|time)(?=[\s]+)/,'gi');
+		let regBexpensive = new RegExp(/(?<=[\s]+)(expensive|budget|quote|cost|price|too high)(?=[\s]+)/,'gi');
+		let regCprefer = new RegExp(/(?<=[\s]+)(prefer)(?=[\s]+)/,'gi');
+		let regDnotime = new RegExp(/(?<=[\s]+)(no time to talk on the phone)(?=[\s]+)/,'gi');
+		let regBookingLink = new RegExp(/(?<=[\s]+)(booking link)(?=[\s]+)/,'gi');
+		let regSchedule = new RegExp(/(?<=[\s]+)(schedule|calendar)(?=[\s]+)/,'gi');
+		let regSkypeCallHiDefault = new RegExp(/(?<=[\s]+)(skype)(?=[\s]+)/,'gi');
+		let regPhoneNow = new RegExp(/(?<=[\s]+)(phone)(?=[\s]+)/,'gi');
+		let regOtherAvail = new RegExp(/(?<=[\s]+)(other availability)(?=[\s]+)/,'gi');
+		let regBusy = new RegExp(/(?<=[\s]+)(busy)(?=[\s]+)/,'gi');
+		let regAlreadyBooked = new RegExp(/(?<=[\s]+)(already booked)(?=[\s]+)/,'gi');
 		
-		customEmailField.val(tAlreadyBooked);
+		let regStopHiredCancelled = new RegExp(/(?<=[\s]+)(stop|hired|cancelled)(?=[\s]+)/,'gi');
+		
+		// check regexes based on received email text
+		if(receivedEmail.match(regAfamiliar)) {
+				chosenTemplate = tAfamiliar;
+		}else if(receivedEmail.match(regBexpensive)){
+				chosenTemplate = tBexpensive;
+		}else if(receivedEmail.match(regCprefer)){
+				chosenTemplate = tCprefer;
+		}else if(receivedEmail.match(regDnotime)){
+				chosenTemplate = tDnotime;
+		}else if(receivedEmail.match(regBookingLink)){
+				chosenTemplate = tBookingLink;
+		}else if(receivedEmail.match(regSchedule)){
+				chosenTemplate = tSchedule;
+		}else if(receivedEmail.match(regSkypeCallHiDefault)){
+				chosenTemplate = tSkypeCallHiDefault;
+		}else if(receivedEmail.match(regPhoneNow)){
+				chosenTemplate = tPhoneNow;
+		}else if(receivedEmail.match(regOtherAvail)){
+				chosenTemplate = tOtherAvail;
+		}else if(receivedEmail.match(regBusy)){
+				chosenTemplate = tBusy;
+		}else if(receivedEmail.match(regAlreadyBooked)){
+				chosenTemplate = tAlreadyBooked;
+		}
+		
+		
+		
+		
+		customEmailField.val(chosenTemplate);
 		
 	});
 
