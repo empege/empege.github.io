@@ -151,14 +151,14 @@ If you haven't completed it yet, the form link is also here: https://docs.google
 		// check regexes based on received email text
 		if(receivedEmail.match(regStopHiredCancelled)){
 				chosenTemplate = stopReply;
-		}else if(receivedEmail.match(regAfamiliar)) {
-				chosenTemplate = tAfamiliar;
+		}else if(receivedEmail.match(regDnotime)) {
+				chosenTemplate = tDnotime;
 		}else if(receivedEmail.match(regBexpensive)){
 				chosenTemplate = tBexpensive;
 		}else if(receivedEmail.match(regCprefer)){
 				chosenTemplate = tCprefer;
-		}else if(receivedEmail.match(regDnotime)){
-				chosenTemplate = tDnotime;
+		}else if(receivedEmail.match(regAfamiliar)){
+				chosenTemplate = tAfamiliar;
 		}else if(receivedEmail.match(regBookingLink)){
 				chosenTemplate = tBookingLink;
 		}else if(receivedEmail.match(regSchedule)){
