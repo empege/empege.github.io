@@ -125,6 +125,9 @@ Feel free to add a loom.com video to add more information about your funnel, tra
 If you haven't completed it yet, the form link is also here: https://docs.google.com/forms/d/e/1FAIpQLSe7SkIL16GXGZSRWPYPNed6RnOKpsHSFQRb1JyWqRkqEAmFSQ/viewform?usp=sf_link
 		
 		`;
+		
+		// TEMPLATE STOP!
+		var stopReply = '';
 }		
 		
 		//if... regex parts --->>>
@@ -145,7 +148,9 @@ If you haven't completed it yet, the form link is also here: https://docs.google
 		let regStopHiredCancelled = new RegExp(/(?<=[\s]+)(stop|hired|cancelled)(?=[\s]+)/,'gi');
 		
 		// check regexes based on received email text
-		if(receivedEmail.match(regAfamiliar)) {
+		if(receivedEmail.match(regStopHiredCancelled)){
+				chosenTemplate = stopReply;
+		}else if(receivedEmail.match(regAfamiliar)) {
 				chosenTemplate = tAfamiliar;
 		}else if(receivedEmail.match(regBexpensive)){
 				chosenTemplate = tBexpensive;
@@ -167,6 +172,8 @@ If you haven't completed it yet, the form link is also here: https://docs.google
 				chosenTemplate = tBusy;
 		}else if(receivedEmail.match(regAlreadyBooked)){
 				chosenTemplate = tAlreadyBooked;
+		}else{
+				chosenTemplate = tSkypeCallHiDefault;
 		}
 		
 		
