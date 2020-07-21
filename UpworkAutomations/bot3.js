@@ -133,19 +133,19 @@ If you haven't completed it yet, the form link is also here: https://docs.google
 		//if... regex parts --->>>
 		//regA, regB, regC...
 		// u zavisnosti od toga sta nadje ovaj regex, pali se odredjeni template
-		let regAfamiliar = new RegExp(/(?<=^|[\s])(familiar|review|description|specs|specifications|hours|time)(?=$|[\s])/,'gi')
-		let regBexpensive = new RegExp(/(?<=^|[\s])(expensive|budget|quote|cost|price|too high)(?=$|[\s])/,'gi')
-		let regCprefer = new RegExp(/(?<=^|[\s])(prefer)(?=$|[\s])/,'gi')
-		let regDnotime = new RegExp(/(?<=^|[\s])(no time to talk on the phone)(?=$|[\s])/,'gi')
-		let regBookingLink = new RegExp(/(?<=^|[\s])(booking link)(?=$|[\s])/,'gi')
-		let regSchedule = new RegExp(/(?<=^|[\s])(schedule|calendar)(?=$|[\s])/,'gi')
-		let regSkypeCallHiDefault = new RegExp(/(?<=^|[\s])(skype)(?=$|[\s])/,'gi')
-		let regPhoneNow = new RegExp(/(?<=^|[\s])(phone)(?=$|[\s])/,'gi')
-		let regOtherAvail = new RegExp(/(?<=^|[\s])(other availability)(?=$|[\s])/,'gi')
-		let regBusy = new RegExp(/(?<=^|[\s])(busy)(?=$|[\s])/,'gi')
-		let regAlreadyBooked = new RegExp(/(?<=^|[\s])(already booked)(?=$|[\s])/,'gi')
+		let regAfamiliar = new RegExp(/(?<=^|[\s])(familiar|review|description|specs|specifications|hours|time|see the report|can you do|I actually just need|not what you mentioned|show me (screenshot[s]?|results of past customers|case studies))(?=$|[\s.!?\-:"'\/])/,'gi')
+		let regBexpensive = new RegExp(/(?<=^|[\s])(expensive|budget|quote|cost|price|too high|how much does it cost)(?=$|[\s.!?\-:"'\/])/,'gi')
+		let regCprefer = new RegExp(/(?<=^|[\s])(prefer|communicating here|Can you answer (([m][y] )?)questions)(?=$|[\s.!?\-:"'\/])/,'gi')
+		let regDnotime = new RegExp(/(?<=^|[\s])(no time to talk on the phone|good at ((the)?)(screening|interview))(?=$|[\s.!?\-:"'\/])/,'gi')
+		let regBookingLink = new RegExp(/(?<=^|[\s])(booking link|can you schedule a call using (.*)link)(?=$|[\s.!?\-:"'\/])/,'gi')
+		let regSchedule = new RegExp(/(?<=^|[\s])(schedule|calendar|can we talk on (.{0,10}) at)(?=$|[\s.!?\-:"'\/])/,'gi')
+		let regSkypeCallHiDefault = new RegExp(/(?<=^|[\s])(skype)(?=$|[\s.!?\-:"'\/])/,'gi')
+		let regPhoneNow = new RegExp(/(?<=^|[\s])(phone)(?=$|[\s.!?\-:"'\/])/,'gi')
+		let regOtherAvail = new RegExp(/(?<=^|[\s])(other availability)(?=$|[\s.!?\-:"'\/])/,'gi')
+		let regBusy = new RegExp(/(?<=^|[\s])(busy)(?=$|[\s.!?\-:"'])/,'gi')
+		let regAlreadyBooked = new RegExp(/(?<=^|[\s])(already booked)(?=$|[\s.!?\-:"'\/])/,'gi')
 		
-		let regStopHiredCancelled = new RegExp(/(?<=^|[\s])(stop|hired|cancelled)(?=$|[\s])/,'gi');
+		let regStopHiredCancelled = new RegExp(/(?<=^|[\s])(stop|hired|cancelled)(?=$|[\s.!?\-:"'\/])/,'gi');
 		//mozda stavi sve regexe kao ovaj za stop...
 		
 		// check regexes based on received email text
@@ -153,12 +153,12 @@ If you haven't completed it yet, the form link is also here: https://docs.google
 				chosenTemplate = stopReply;
 		}else if(receivedEmail.match(regDnotime)) {
 				chosenTemplate = tDnotime;
+		}else if(receivedEmail.match(regAfamiliar)){
+				chosenTemplate = tAfamiliar;
 		}else if(receivedEmail.match(regBexpensive)){
 				chosenTemplate = tBexpensive;
 		}else if(receivedEmail.match(regCprefer)){
 				chosenTemplate = tCprefer;
-		}else if(receivedEmail.match(regAfamiliar)){
-				chosenTemplate = tAfamiliar;
 		}else if(receivedEmail.match(regBookingLink)){
 				chosenTemplate = tBookingLink;
 		}else if(receivedEmail.match(regSchedule)){
