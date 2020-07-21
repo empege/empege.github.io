@@ -244,7 +244,7 @@
 		var fullBodyText = fullBodyText.replace(/(&quot;)(?=(.|\s))/gi, '"');
 		//console.log(fullBodyText);
 		//for(var j = 0; j < foarr.length; j++){
-			var regexCurrentTemp = '(LOOKING FOR\|LOOKING TO\|WE ARE WANTING\|SEEKING FOR\|SEEKING\|WE NEED\|I NEED\|NEED HELP\|HELP WITH\|IN NEED OF\|NEED SOMEONE\|WE REQUIRE\|I WOULD LIKE\|I\'D LIKE\|WE WOULD LIKE\|SEARCHING\|I WILL NEED\|I HAVE A NEED FOR\)';
+			var regexCurrentTemp = '(LOOKING FOR\|LOOKING TO\|WE ARE WANTING\|SEEKING FOR\|SEEKING\|WE NEED\|I NEED\|NEED HELP\|HELP WITH\|IN NEED OF\|NEED SOMEONE\|WE REQUIRE\|I WOULD LIKE\|I\'D LIKE\|WE WOULD LIKE\|SEARCHING FOR\|SEARCHING\|I WILL NEED\|I HAVE A NEED FOR\)';
 			var regexCurrent = new RegExp(regexCurrentTemp, 'gi');
 			var current = fullBodyText.match(regexCurrent);
 			if(current != null && current != 'undefined') { var current = current[0].toUpperCase(); }
