@@ -4,7 +4,7 @@
 	
 	
 	
-	$('#templateNumber').on('click', () => {
+	$('#templateNumberButton').on('click', () => {
 		//get value of email body (taken from UI) and search it for needed matrix (c1, c2...)
 		let receivedEmail = $('#receivedEmail').val();
 		let templateNumber = $('#templateNumber');
@@ -216,7 +216,7 @@ If you haven't completed it yet, the form link is also here: https://docs.google
 		
 		
 		
-		customEmailField.val(chosenTemplate);
+		templateNumber.val(chosenTemplate);
 		
 	});
 	
@@ -224,66 +224,17 @@ If you haven't completed it yet, the form link is also here: https://docs.google
 	
 	
 	// PUT FIRST NAME INTO THE TEMPLATE AND CUT " " IF NEEDED
-	$('#firstName').on('click', () => {
+	$('#customEmailButton').on('click', () => {
 		//get value of email body (taken from UI) and search it for needed matrix (c1, c2...)
 		let receivedEmail = $('#receivedEmail').val();
 		let customEmailField = $('#customEmail');
-		let templateNumber = $('#firstName').val();
 		let fullName = $('#firstName').val();
 		let firstName = fullName.slice(0, fullName.indexOf(' '));
-		let chosenTemplate;
 		
-		//if... regex parts --->>>
-		//regA, regB, regC...
-		// u zavisnosti od toga sta nadje ovaj regex, pali se odredjeni template
-		let regAfamiliar = new RegExp(/(?<=^|[\s])(familiar|review|description|specs|specifications|hours|time|see the report|can you do|I actually just need|not what you mentioned|show me (screenshot[s]?|results of past customers)|case stud(y|ies))(?=$|[\s.!?\-:"'\/])/,'gi')
-		let regBexpensive = new RegExp(/(?<=^|[\s])(expensive|budget|quote|cost|price|too high|how much does it cost)(?=$|[\s.!?\-:"'\/])/,'gi')
-		let regCprefer = new RegExp(/(?<=^|[\s])(prefer|communicating here|Can you answer (([m][y] )?)questions)(?=$|[\s.!?\-:"'\/])/,'gi')
-		let regDnotime = new RegExp(/(?<=^|[\s])(no time to talk on the phone|good at ((the)?)(screening|interview))(?=$|[\s.!?\-:"'\/])/,'gi')
-		let regBookingLink = new RegExp(/(?<=^|[\s])(booking link|can you schedule a call using (.*)link)(?=$|[\s.!?\-:"'\/])/,'gi')
-		let regSchedule = new RegExp(/(?<=^|[\s])(schedule|calendar|can we talk on (.{0,10}) at)(?=$|[\s.!?\-:"'\/])/,'gi')
-		let regSkypeCallHiDefault = new RegExp(/(?<=^|[\s])(skype)(?=$|[\s.!?\-:"'\/])/,'gi')
-		let regPhoneNow = new RegExp(/(?<=^|[\s])(phone)(?=$|[\s.!?\-:"'\/])/,'gi')
-		let regOtherAvail = new RegExp(/(?<=^|[\s])(other availability)(?=$|[\s.!?\-:"'\/])/,'gi')
-		let regBusy = new RegExp(/(?<=^|[\s])(busy)(?=$|[\s.!?\-:"'])/,'gi')
-		let regAlreadyBooked = new RegExp(/(?<=^|[\s])(already booked|signed up on calendar)(?=$|[\s.!?\-:"'\/])/,'gi')
+		let newEmail = receivedEmail.replace("\[FIRST NAME\]", firstName);
+		customEmailField.val(newEmail);
 		
-		let regStopHiredCancelled = new RegExp(/(?<=^|[\s])(stop|already hired|cancelled|found (.{0,25}candidate)|position has been filled|i(.{0,5}hire (him|her))|with (.*)other candidate([s]?))(?=$|[\s.!?\-:"'\/])/,'gi');
-		//mozda stavi sve regexe kao ovaj za stop...
-		
-		// check regexes based on received email text
-		if(receivedEmail.match(regStopHiredCancelled)){
-				chosenTemplate = stopReply;
-		}else if(receivedEmail.match(regAlreadyBooked)){
-				chosenTemplate = tAlreadyBooked;
-		}else if(receivedEmail.match(regDnotime)) {
-				chosenTemplate = tDnotime;
-		}else if(receivedEmail.match(regAfamiliar)){
-				chosenTemplate = tAfamiliar;
-		}else if(receivedEmail.match(regBexpensive)){
-				chosenTemplate = tBexpensive;
-		}else if(receivedEmail.match(regCprefer)){
-				chosenTemplate = tCprefer;
-		}else if(receivedEmail.match(regBookingLink)){
-				chosenTemplate = tBookingLink;
-		}else if(receivedEmail.match(regSchedule)){
-				chosenTemplate = tSchedule;
-		}else if(receivedEmail.match(regSkypeCallHiDefault)){
-				chosenTemplate = tSkypeCallHiDefault;
-		}else if(receivedEmail.match(regPhoneNow)){
-				chosenTemplate = tPhoneNow;
-		}else if(receivedEmail.match(regOtherAvail)){
-				chosenTemplate = tOtherAvail;
-		}else if(receivedEmail.match(regBusy)){
-				chosenTemplate = tBusy;
-		}else{
-				chosenTemplate = tSkypeCallHiDefault;
-		}
-		
-		
-		
-		
-		customEmailField.val(chosenTemplate);
+
 		
 	});
 	
