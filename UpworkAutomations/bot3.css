@@ -9,7 +9,20 @@ body {
 	width: 100wv;
 	height: 100vh;
 	padding-top: 150px;
+	
 }
+/* .background-img {
+	width: 100%;
+	height: 100%;
+	background-image: url('pics/cai.png');
+	background-repeat: repeat-y;
+	filter: invert(100%);
+	position: absolute;
+	margin-top: -150px;
+	z-index: -1;
+} */
+
+
 h1, h2, h3, h4, h5, h6, p, span {
 	padding: 0;
 	margin: 0;
@@ -36,7 +49,7 @@ li:hover{cursor: pointer;}
 	line-height: 10px;
 	margin: 10px auto;
 	display: inline-block;
-	bottom: 300px;
+	bottom: 400px;
 	background: yellow;
 }
 .button:hover {
@@ -57,14 +70,16 @@ textarea {
 input {
 	display: block;
 	position: absolute;
-	top: 50px;
+	top: 150px;
 	left: 505px;
 	height: 50px;
 	width: 300px;
 	font-size: 2em;
 	border: 3px solid green;
 }
-
+#templateNumber {
+	top: 50px;
+}
 
 
 
