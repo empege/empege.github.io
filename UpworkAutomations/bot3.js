@@ -142,23 +142,24 @@ If you haven't completed it yet, the form link is also here: https://docs.google
 		let regDnotime = new RegExp(/(?<=^|[\s])(no time to talk on the phone|good at ((the)?)(screening|interview))(?=$|[\s.!?\-:"'\/])/,'gi')
 		let regBookingLink = new RegExp(/(?<=^|[\s])(booking link|can you schedule a call using (.*)link)(?=$|[\s.!?\-:"'\/])/,'gi')
 		let regSchedule = new RegExp(/(?<=^|[\s])(schedule|calendar|can we talk on (.{0,10}) at)(?=$|[\s.!?\-:"'\/])/,'gi')
-		let regSkypeCallHiDefault = new RegExp(/(?<=^|[\s])(skype)(?=$|[\s.!?\-:"'\/])/,'gi')
-		let regPhoneNow = new RegExp(/(?<=^|[\s])(phone)(?=$|[\s.!?\-:"'\/])/,'gi')
+		let regSkypeCallHiDefault = new RegExp(/(?<=^|[\s])(skype)(?=$|[\s.!?\-:"'\/])/,'gi') // 3 in one here!
+		let regPhone = new RegExp(/(?<=^|[\s])(phone)(?=$|[\s.!?\-:"'\/])/,'gi')
 		let regOtherAvail = new RegExp(/(?<=^|[\s])(other availability)(?=$|[\s.!?\-:"'\/])/,'gi')
+		let regNow = new RegExp(/(?<=^|[\s])(can you talk now)(?=$|[\s.!?\-:"'\/])/,'gi')
 		let regBusy = new RegExp(/(?<=^|[\s])(busy)(?=$|[\s.!?\-:"'])/,'gi')
 		let regAlreadyBooked = new RegExp(/(?<=^|[\s])(already booked|signed up on calendar)(?=$|[\s.!?\-:"'\/])/,'gi')
 		
-		let regStopHiredCancelled = new RegExp(/(?<=^|[\s])(stop|already hired|cancelled|found (.{0,25}candidate)|position has been filled|i(.{0,5}hire (him|her))|with (.*)other candidate([s]?))(?=$|[\s.!?\-:"'\/])/,'gi');
+		let regStopHiredCancelled = new RegExp(/(?<=^|[\s])(stop|already hired|hired|cancelled|found (.{0,25}candidate)|position has been filled|i(.{0,5}hire (him|her))|with (.*)other candidate([s]?))(?=$|[\s.!?\-:"'\/])/,'gi'); // 3 in one here! HIRED ALSO OR???
 		//mozda stavi sve regexe kao ovaj za stop...
 		
 		
 		// GET TEMPLATE NUMBER WHICH YOU'LL USE TO FIND TEMPLATE IN AIRTABLE
 		if(receivedEmail.match(regStopHiredCancelled)){
-				chosenTemplate = 12;
+				chosenTemplate = 17;
 		}else if(receivedEmail.match(regAlreadyBooked)){
-				chosenTemplate = 11;
+				chosenTemplate = 16;
 		}else if(receivedEmail.match(regDnotime)) {
-				chosenTemplate = 4;
+				chosenTemplate = 5;
 		}else if(receivedEmail.match(regAfamiliar)){
 				chosenTemplate = 2;
 		}else if(receivedEmail.match(regBexpensive)){
@@ -171,10 +172,12 @@ If you haven't completed it yet, the form link is also here: https://docs.google
 				chosenTemplate = 7;
 		}else if(receivedEmail.match(regSkypeCallHiDefault)){
 				chosenTemplate = 8;
-		}else if(receivedEmail.match(regPhoneNow)){
+		}else if(receivedEmail.match(regPhone)){
 				chosenTemplate = 10;
 		}else if(receivedEmail.match(regOtherAvail)){
 				chosenTemplate = 11;
+		}else if(receivedEmail.match(regNow)){
+				chosenTemplate = 12;
 		}else if(receivedEmail.match(regBusy)){
 				chosenTemplate = 13;
 		}else{
