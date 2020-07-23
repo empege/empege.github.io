@@ -81,8 +81,17 @@ input {
 	top: 50px;
 }
 
-
-
+#logo {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	color: white;
+	font-size: 2em;
+	text-align: right;
+}
+#logo span {
+	font-size: 5em;
+}
 
 
 
