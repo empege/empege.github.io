@@ -149,7 +149,7 @@ If you haven't completed it yet, the form link is also here: https://docs.google
 		let regBusy = new RegExp(/(?<=^|[\s])(busy)(?=$|[\s.!?\-:"'])/,'gi')
 		let regAlreadyBooked = new RegExp(/(?<=^|[\s])(already booked|signed up on calendar)(?=$|[\s.!?\-:"'\/])/,'gi')
 		
-		let regStopHiredCancelled = new RegExp(/(?<=^|[\s])(stop|already hired|hired|cancelled|found (.{0,25}candidate)|position has been filled|i(.{0,5}hire (him|her))|with (.*)other candidate([s]?))(?=$|[\s.!?\-:"'\/])/,'gi'); // 3 in one here! HIRED ALSO OR???
+		let regStopHiredCancelled = new RegExp(/(?<=^|[\s])(stop|already hired|hired|cancelled|found (.{0,25}candidate)|position has been filled|i(.{0,5} hire (him|her))|with (.*)other candidate([s]?)|found someone else)(?=$|[\s.!?\-:"'\/])/,'gi'); // 3 in one here! HIRED ALSO OR???
 		//mozda stavi sve regexe kao ovaj za stop...
 		
 		
