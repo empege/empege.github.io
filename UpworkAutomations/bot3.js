@@ -136,7 +136,7 @@ If you haven't completed it yet, the form link is also here: https://docs.google
 		//if... regex parts --->>>
 		//regA, regB, regC...
 		// u zavisnosti od toga sta nadje ovaj regex, broj se stavlja u airtable i to je template cell koji se aktivira
-		let regAfamiliar = new RegExp(/(?<=^|[\s])(familiar|review|description|specs|specifications|hours|time|see the report|can you do|I actually just need|not what you mentioned|show me (screenshot[s]?|results of past customers)|case stud(y|ies))(?=$|[\s.!?\-:"'\/])/,'gi')
+		let regAfamiliar = new RegExp(/(?<=^|[\s])(familiar|review|description|specs|specifications|hours|time|see (the|a) report[s]?|can you do|I actually just need|not what you mentioned|show me (screenshot[s]?|results of past customers)|case stud(y|ies))(?=$|[\s.!?\-:"'\/])/,'gi')
 		let regBexpensive = new RegExp(/(?<=^|[\s])(expensive|budget|quote|cost|price|too high|how much does it cost)(?=$|[\s.!?\-:"'\/])/,'gi')
 		let regCprefer = new RegExp(/(?<=^|[\s])(prefer|communicating here|Can you answer (([m][y] )?)questions)(?=$|[\s.!?\-:"'\/])/,'gi')
 		let regDnotime = new RegExp(/(?<=^|[\s])(no time to talk on the phone|good at ((the)?)(screening|interview))(?=$|[\s.!?\-:"'\/])/,'gi')
