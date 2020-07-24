@@ -48,37 +48,37 @@
 		// GET TEMPLATE NUMBER WHICH YOU'LL USE TO FIND TEMPLATE IN AIRTABLE
 		if(reg1.test(receivedEmail)){
 			chosenTemplate = 1;
-		}else if(reg1.test(receivedEmail)){
+		}else if(reg2.test(receivedEmail)){
 				chosenTemplate = 2;
-		}else if(reg2.test(receivedEmail)) {
+		}else if(reg3.test(receivedEmail)) {
 				chosenTemplate = 3;
-		}else if(reg3.test(receivedEmail)){
-				chosenTemplate = 4;
 		}else if(reg4.test(receivedEmail)){
-				chosenTemplate = 5;
+				chosenTemplate = 4;
 		}else if(reg5.test(receivedEmail)){
-				chosenTemplate = 6;
+				chosenTemplate = 5;
 		}else if(reg6.test(receivedEmail)){
-				chosenTemplate = 7;
+				chosenTemplate = 6;
 		}else if(reg7.test(receivedEmail)){
-				chosenTemplate = 8;
+				chosenTemplate = 7;
 		}else if(reg8.test(receivedEmail)){
-				chosenTemplate = 9;
+				chosenTemplate = 8;
 		}else if(reg9.test(receivedEmail)){
-				chosenTemplate = 10;
+				chosenTemplate = 9;
 		}else if(reg10.test(receivedEmail)){
-				chosenTemplate = 11;
+				chosenTemplate = 10;
 		}else if(reg11.test(receivedEmail)){
-				chosenTemplate = 12;
+				chosenTemplate = 11;
 		}else if(reg12.test(receivedEmail)){
-				chosenTemplate = 13;
+				chosenTemplate = 12;
 		}else if(reg13.test(receivedEmail)){
-				chosenTemplate = 14;
+				chosenTemplate = 13;
 		}else if(reg14.test(receivedEmail)){
-				chosenTemplate = 15;
+				chosenTemplate = 14;
 		}else if(reg15.test(receivedEmail)){
-				chosenTemplate = 16;
+				chosenTemplate = 15;
 		}else if(reg16.test(receivedEmail)){
+				chosenTemplate = 16;
+		}else if(reg17.test(receivedEmail)){
 				chosenTemplate = 17;
 		}else{
 				chosenTemplate = 18;
