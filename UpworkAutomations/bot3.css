@@ -67,7 +67,7 @@ textarea {
 	border: 3px solid green;
 }
 
-input {
+#templateNumber, #firstName {
 	display: block;
 	position: absolute;
 	top: 150px;
@@ -83,7 +83,7 @@ input {
 
 #logo {
 	position: fixed;
-	bottom: 20px;
+	bottom: 0px;
 	right: 20px;
 	color: white;
 	font-size: 2em;
@@ -93,11 +93,21 @@ input {
 	font-size: 5em;
 }
 
+#triggers {
+	position: absolute;
+	display: inline-block;
+	top: 20px;
+	right: 20px;
+}
 
+#triggers input {
+	display: block;
+}
 
-
-
-
+#triggersButton {
+	bottom: 0;
+	right: 60px;
+}
 
 
 
