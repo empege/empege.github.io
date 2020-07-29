@@ -9,6 +9,31 @@
 		let receivedEmail = $('#receivedEmail').val();
 		let templateNumber = $('#templateNumber');
 		let chosenTemplate;
+		
+		/* const totalTriggers = 34;
+
+		
+		for(let x = 1; x < totalTriggers; x++){
+			//let tr1, tr2, tr3, tr4... tr34
+			window['tr'+x] = '\(\?\<\=\^\|\[\\\s\]\)\(' + $('.tr' + x + '').val() + '\)\(\?\=\$\|\[\\\s\.\!\?\\\-\:\"\'\\\/\]\)';
+			//let reg1, reg2, reg3, reg4... reg34
+			window['reg'+x] = new RegExp(tr1, 'gi');
+		}
+		console.log(tr1,tr2,tr3,tr4,tr5,tr6)
+		for(let x = 1; x < totalTriggers; x++){
+			console.log(chosenTemplate)
+			if(window['reg'+x].test(receivedEmail)){
+				console.log('Izabrani ' + chosenTemplate)
+				chosenTemplate = x;
+				break;
+			}else{
+				chosenTemplate = totalTriggers + 1;
+				console.log('Default ' + chosenTemplate)
+			}
+		}
+		
+		console.log(tr1, tr2, tr3) */
+		
 		let tr1 = '\(\?\<\=\^\|\[\\\s\]\)\(' + $('.tr1').val() + '\)\(\?\=\$\|\[\\\s\.\!\?\\\-\:\"\'\\\/\]\)';
 		let tr2 = '\(\?\<\=\^\|\[\\\s\]\)\(' + $('.tr2').val() + '\)\(\?\=\$\|\[\\\s\.\!\?\\\-\:\"\'\\\/\]\)';
 		let tr3 = '\(\?\<\=\^\|\[\\\s\]\)\(' + $('.tr3').val() + '\)\(\?\=\$\|\[\\\s\.\!\?\\\-\:\"\'\\\/\]\)';
@@ -26,6 +51,8 @@
 		let tr15 = '\(\?\<\=\^\|\[\\\s\]\)\(' + $('.tr15').val() + '\)\(\?\=\$\|\[\\\s\.\!\?\\\-\:\"\'\\\/\]\)';
 		let tr16 = '\(\?\<\=\^\|\[\\\s\]\)\(' + $('.tr16').val() + '\)\(\?\=\$\|\[\\\s\.\!\?\\\-\:\"\'\\\/\]\)';
 		let tr17 = '\(\?\<\=\^\|\[\\\s\]\)\(' + $('.tr17').val() + '\)\(\?\=\$\|\[\\\s\.\!\?\\\-\:\"\'\\\/\]\)';
+		let tr18 = '\(\?\<\=\^\|\[\\\s\]\)\(' + $('.tr18').val() + '\)\(\?\=\$\|\[\\\s\.\!\?\\\-\:\"\'\\\/\]\)';
+		let tr19 = '\(\?\<\=\^\|\[\\\s\]\)\(' + $('.tr19').val() + '\)\(\?\=\$\|\[\\\s\.\!\?\\\-\:\"\'\\\/\]\)';
 		
 		let reg1 = new RegExp(tr1, 'gi');
 		let reg2 = new RegExp(tr2, 'gi');
@@ -44,6 +71,8 @@
 		let reg15 = new RegExp(tr15, 'gi');
 		let reg16 = new RegExp(tr16, 'gi');
 		let reg17 = new RegExp(tr17, 'gi');
+		let reg18 = new RegExp(tr18, 'gi');
+		let reg19 = new RegExp(tr19, 'gi');
 		
 		// GET TEMPLATE NUMBER WHICH YOU'LL USE TO FIND TEMPLATE IN AIRTABLE
 		if(reg1.test(receivedEmail)){
@@ -80,12 +109,16 @@
 				chosenTemplate = 16;
 		}else if(reg17.test(receivedEmail)){
 				chosenTemplate = 17;
-		}else{
+		}else if(reg18.test(receivedEmail)){
 				chosenTemplate = 18;
+		}else if(reg19.test(receivedEmail)){
+				chosenTemplate = 19;
+		}else{
+				chosenTemplate = 20;
 		}
 		
-		templateNumber.val(chosenTemplate);
 		
+		templateNumber.val(chosenTemplate);
 	});
 	
 	

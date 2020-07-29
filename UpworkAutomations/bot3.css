@@ -100,7 +100,11 @@ textarea {
 	right: 20px;
 }
 
-#triggers input {
+#triggers div {
+	display:inline-block;
+}
+
+#triggers div input {
 	display: block;
 }
 
