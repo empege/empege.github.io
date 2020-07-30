@@ -32,7 +32,7 @@
 		
 		for(let x = 1; x <= totalTriggers; x++){
 			//let tr1, tr2, tr3, tr4... tr34
-			window['tr'+x] = '\(\?\<\=\^\|\[\\\s\]\)\(' + $('.tr' + x + '').val() + '\)\(\?\=\$\|\[\\\s\.\!\?\\\-\:\"\'\\\/\]\)';
+			window['tr'+x] = '\(\?\<\=\^\|\[\\\s\]\)\(' + $('.tr' + x + '').val() + '\)\(\?\=\$\|\[\\\s\.\,\!\?\\\-\:\"\'\\\/\]\)';
 			console.log(x + ' TR: ' + window['tr'+x]);
 			//let reg1, reg2, reg3, reg4... reg34
 			window['reg'+x] = new RegExp(window['tr'+x], 'gi');
