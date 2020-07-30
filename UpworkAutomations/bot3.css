@@ -114,8 +114,23 @@ textarea {
 }
 
 
+#numberOfTriggers {
+	position: fixed;
+	top: 10px;
+	left: 10px;
+}
 
-
+#numberOfTriggers input {
+	width: 140px;
+	height: 70px;
+	font-size: 2em;
+	text-align: center;
+}
+#numberOfTriggers button {
+	width: 140px;
+	top: 0px;
+	padding: 10px;
+}
 
 
 

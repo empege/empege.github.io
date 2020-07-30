@@ -1,40 +1,57 @@
 (function($) {
 	
 	
+	let totalTriggers;
+	const triggersElement = $('#triggers');
 	
+	$('#makeInputsButton').on('click', () => {
+		//delete inputs from before
+		triggersElement.html('');
+		
+		totalTriggers = $('#makeInputsInput').val();
+				
+		//make inputs
+		for(let x = 1; x <= totalTriggers; x++){
+			let trClass = 'tr' + x;
+			let childInput = $("<input>", {"class": trClass, "type":"text"});
+			triggersElement.append(childInput).append("<br>");
+		}
+		
+	});
 	
 	
 	$('#templateNumberButton').on('click', () => {
 		//get value of email body (taken from UI) and search it for needed matrix (c1, c2...)
 		let receivedEmail = $('#receivedEmail').val();
-		let templateNumber = $('#templateNumber');
+		const templateNumber = $('#templateNumber');
 		let chosenTemplate;
 		
-		/* const totalTriggers = 34;
+		
+
 
 		
-		for(let x = 1; x < totalTriggers; x++){
+		for(let x = 1; x <= totalTriggers; x++){
 			//let tr1, tr2, tr3, tr4... tr34
 			window['tr'+x] = '\(\?\<\=\^\|\[\\\s\]\)\(' + $('.tr' + x + '').val() + '\)\(\?\=\$\|\[\\\s\.\!\?\\\-\:\"\'\\\/\]\)';
+			console.log(x + ' TR: ' + window['tr'+x]);
 			//let reg1, reg2, reg3, reg4... reg34
-			window['reg'+x] = new RegExp(tr1, 'gi');
+			window['reg'+x] = new RegExp(window['tr'+x], 'gi');
+			console.log(x + ' REG: ' + window['reg'+x]);
 		}
-		console.log(tr1,tr2,tr3,tr4,tr5,tr6)
-		for(let x = 1; x < totalTriggers; x++){
-			console.log(chosenTemplate)
-			if(window['reg'+x].test(receivedEmail)){
-				console.log('Izabrani ' + chosenTemplate)
+		for(let x = 1; x <= totalTriggers; x++){
+			console.log(window['reg'+x], receivedEmail)
+			if((window['reg'+x]).test(receivedEmail)){
+				//console.log('Izabrani ' + chosenTemplate)
 				chosenTemplate = x;
 				break;
 			}else{
-				chosenTemplate = totalTriggers + 1;
-				console.log('Default ' + chosenTemplate)
+				chosenTemplate = Number(totalTriggers); //+ 1;
 			}
 		}
 		
-		console.log(tr1, tr2, tr3) */
+		//console.log(tr1, tr2, tr3) 
 		
-		let tr1 = '\(\?\<\=\^\|\[\\\s\]\)\(' + $('.tr1').val() + '\)\(\?\=\$\|\[\\\s\.\!\?\\\-\:\"\'\\\/\]\)';
+		/* let tr1 = '\(\?\<\=\^\|\[\\\s\]\)\(' + $('.tr1').val() + '\)\(\?\=\$\|\[\\\s\.\!\?\\\-\:\"\'\\\/\]\)';
 		let tr2 = '\(\?\<\=\^\|\[\\\s\]\)\(' + $('.tr2').val() + '\)\(\?\=\$\|\[\\\s\.\!\?\\\-\:\"\'\\\/\]\)';
 		let tr3 = '\(\?\<\=\^\|\[\\\s\]\)\(' + $('.tr3').val() + '\)\(\?\=\$\|\[\\\s\.\!\?\\\-\:\"\'\\\/\]\)';
 		let tr4 = '\(\?\<\=\^\|\[\\\s\]\)\(' + $('.tr4').val() + '\)\(\?\=\$\|\[\\\s\.\!\?\\\-\:\"\'\\\/\]\)';
@@ -53,7 +70,8 @@
 		let tr17 = '\(\?\<\=\^\|\[\\\s\]\)\(' + $('.tr17').val() + '\)\(\?\=\$\|\[\\\s\.\!\?\\\-\:\"\'\\\/\]\)';
 		let tr18 = '\(\?\<\=\^\|\[\\\s\]\)\(' + $('.tr18').val() + '\)\(\?\=\$\|\[\\\s\.\!\?\\\-\:\"\'\\\/\]\)';
 		let tr19 = '\(\?\<\=\^\|\[\\\s\]\)\(' + $('.tr19').val() + '\)\(\?\=\$\|\[\\\s\.\!\?\\\-\:\"\'\\\/\]\)';
-		
+		*/
+		/*
 		let reg1 = new RegExp(tr1, 'gi');
 		let reg2 = new RegExp(tr2, 'gi');
 		let reg3 = new RegExp(tr3, 'gi');
@@ -73,7 +91,8 @@
 		let reg17 = new RegExp(tr17, 'gi');
 		let reg18 = new RegExp(tr18, 'gi');
 		let reg19 = new RegExp(tr19, 'gi');
-		
+		*/
+		/*
 		// GET TEMPLATE NUMBER WHICH YOU'LL USE TO FIND TEMPLATE IN AIRTABLE
 		if(reg1.test(receivedEmail)){
 			chosenTemplate = 1;
@@ -115,7 +134,7 @@
 				chosenTemplate = 19;
 		}else{
 				chosenTemplate = 20;
-		}
+		} */
 		
 		
 		templateNumber.val(chosenTemplate);
