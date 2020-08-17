@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>0getInfoFeeder</title>
+</head>
+<body>
+
+    <table cellpadding="1" cellspacing="1" border="1">
+    <thead>
+    <tr><td rowspan="1" colspan="3">0getInfoFeeder</td></tr>
+    </thead><tbody>
+    
+      <tr>
+        <td>XDesktopAutomation</td>
+        <td>false</td>
+        <td></td>
+      </tr>
+    
+
+      <tr>
+        <td>localStorageExport</td>
+        <td>log</td>
+        <td>#DeleteAfterExport</td>
+      </tr>
+    
+
+      <tr>
+        <td>pause</td>
+        <td>1800</td>
+        <td></td>
+      </tr>
+    
+
+      <tr>
+        <td>XRun</td>
+        <td>C:\Users\Administrator\Desktop\Bats\deleteLog.bat</td>
+        <td></td>
+      </tr>
+    
+
+      <tr>
+        <td>pause</td>
+        <td>500</td>
+        <td></td>
+      </tr>
+    
+
+      <tr>
+        <td>store</td>
+        <td>fast</td>
+        <td>!replayspeed</td>
+      </tr>
+    
+
+      <tr>
+        <td>store</td>
+        <td>true</td>
+        <td>!statusok</td>
+      </tr>
+    
+
+      <tr>
+        <td>if_v2</td>
+        <td>${!statusok} == false</td>
+        <td></td>
+      </tr>
+    
+
+      <tr>
+        <td>label</td>
+        <td>onErrorMacro</td>
+        <td></td>
+      </tr>
+    
+
+      <tr>
+        <td>run</td>
+        <td>onErrorMacro</td>
+        <td></td>
+      </tr>
+    
+
+      <tr>
+        <td>end</td>
+        <td></td>
+        <td></td>
+      </tr>
+    
+
+      <tr>
+        <td>onError</td>
+        <td>#goto</td>
+        <td>onErrorMacro</td>
+      </tr>
+    
+
+      <tr>
+        <td>label</td>
+        <td>refresh</td>
+        <td></td>
+      </tr>
+    
+
+      <tr>
+        <td>comment</td>
+        <td>selectWindow // TAB=CLOSE</td>
+        <td></td>
+      </tr>
+    
+
+      <tr>
+        <td>comment</td>
+        <td>selectWindow // TAB=OPEN</td>
+        <td>https://feeder.co/reader?logged_in=yes</td>
+      </tr>
+    
+
+      <tr>
+        <td>open</td>
+        <td>https://feeder.co/reader?logged_in=yes</td>
+        <td></td>
+      </tr>
+    
+
+      <tr>
+        <td>pause</td>
+        <td>3000</td>
+        <td></td>
+      </tr>
+    
+
+      <tr>
+        <td>store</td>
+        <td>10</td>
+        <td>!TIMEOUT_WAIT</td>
+      </tr>
+    
+
+      <tr>
+        <td>click</td>
+        <td>xpath=//*[@id="0"]/div/div[2]/div/div[2]/div[2]/span</td>
+        <td></td>
+      </tr>
+    
+
+      <tr>
+        <td>pause</td>
+        <td>5000</td>
+        <td></td>
+      </tr>
+    
+
+      <tr>
+        <td>store</td>
+        <td>fast</td>
+        <td>!replayspeed</td>
+      </tr>
+    
+
+      <tr>
+        <td>verifyElementPresent</td>
+        <td>xpath=//*[@class="tpl-post-feed--scroll feeder--perfect-scrollbar-scroller"]/div[1]/div[1]/div[2]/div[1]/div[2]/span</td>
+        <td></td>
+      </tr>
+    
+
+      <tr>
+        <td>if_v2</td>
+        <td>${!statusOK} == false</td>
+        <td></td>
+      </tr>
+    
+
+      <tr>
+        <td>echo</td>
+        <td>NO MORE NEW JOBS</td>
+        <td>red</td>
+      </tr>
+    
+
+      <tr>
+        <td>comment</td>
+        <td>selectWindow // TAB=CLOSE</td>
+        <td></td>
+      </tr>
+    
+
+      <tr>
+        <td>pause</td>
+        <td>1000</td>
+        <td></td>
+      </tr>
+    
+
+      <tr>
+        <td>comment</td>
+        <td>selectWindow // TAB=OPEN</td>
+        <td>https://google.com</td>
+      </tr>
+    
+
+      <tr>
+        <td>comment</td>
+        <td>gotoLabel // refresh</td>
+        <td></td>
+      </tr>
+    
+
+      <tr>
+        <td>run</td>
+        <td>0getInfoFeeder</td>
+        <td></td>
+      </tr>
+    
+
+      <tr>
+        <td>else</td>
+        <td></td>
+        <td></td>
+      </tr>
+    
+
+      <tr>
+        <td>comment</td>
+        <td>CHECK FOR</td>
+        <td>DUPLICATES IN A ROW</td>
+      </tr>
+    
+
+      <tr>
+        <td>selectFrame</td>
+        <td>relative=top</td>
+        <td></td>
+      </tr>
+    
+
+      <tr>
+        <td>click</td>
+        <td>css=#ember28 > div.nav-button.nav-button--icon.next.hide-in-dashboard > svg</td>
+        <td></td>
+      </tr>
+    
+
+      <tr>
+        <td>storeText</td>
+        <td>xpath=//*[@class="tpl-post-feed--scroll feeder--perfect-scrollbar-scroller"]/div[1]/div[1]/div[2]/a</td>
+        <td>jobTitle</td>
+      </tr>
+    
+
+      <tr>
+        <td>run</td>
+        <td>1feederDupes</td>
+        <td></td>
+      </tr>
+    
+
+      <tr>
+        <td>storeAttribute</td>
+        <td>xpath=//*[@class="post-content--bottom-bar"]/a[1]@href</td>
+        <td>jobUrl</td>
+      </tr>
+    
+
+      <tr>
+        <td>comment</td>
+        <td>storeText // css=body > div:nth-child(10) > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) > div > div > div:nth-child(2) > div > span</td>
+        <td>feed</td>
+      </tr>
+    
+
+      <tr>
+        <td>executeScript</td>
+        <td>return document.getElementsByClassName('post-content--feed-title')[0].innerHTML;</td>
+        <td>feed</td>
+      </tr>
+    
+
+      <tr>
+        <td>selectFrame</td>
+        <td>index=1</td>
+        <td>Enter iFrame of First Offer</td>
+      </tr>
+    
+
+      <tr>
+        <td>pause</td>
+        <td>200</td>
+        <td></td>
+      </tr>
+    
+
+      <tr>
+        <td>storeText</td>
+        <td>//body/div</td>
+        <td>fullBodyText</td>
+      </tr>
+    
+
+      <tr>
+        <td>if_v2</td>
+        <td>${!LASTCOMMANDOK} == false</td>
+        <td></td>
+      </tr>
+    
+
+      <tr>
+        <td>gotoLabel</td>
+        <td>refresh</td>
+        <td></td>
+      </tr>
+    
+
+      <tr>
+        <td>end</td>
+        <td></td>
+        <td></td>
+      </tr>
+    
+
+      <tr>
+        <td>pause</td>
+        <td>200</td>
+        <td></td>
+      </tr>
+    
+
+      <tr>
+        <td>selectFrame</td>
+        <td>relative=top</td>
+        <td>Leave iFrames</td>
+      </tr>
+    
+
+      <tr>
+        <td>run</td>
+        <td>2cutTitleCustomSentence</td>
+        <td></td>
+      </tr>
+    
+
+      <tr>
+        <td>run</td>
+        <td>3Upwork Checker/1.1extractUpworkData</td>
+        <td></td>
+      </tr>
+    
+
+      <tr>
+        <td>comment</td>
+        <td>run // 4rebrandlyVar</td>
+        <td></td>
+      </tr>
+    
+
+      <tr>
+        <td>run</td>
+        <td>5airForm</td>
+        <td></td>
+      </tr>
+    
+
+      <tr>
+        <td>end</td>
+        <td></td>
+        <td></td>
+      </tr>
+    
+    </tbody></table>
+  
+<script>
+(function() {
+  var isExtensionLoaded = function () {
+    const $root = document.documentElement
+    return !!$root && !!$root.getAttribute('data-kantu')
+  }
+  var increaseCountInUrl = function (max) {
+    var url   = new URL(window.location.href)
+    var count = 1 + (parseInt(url.searchParams.get('reload') || 0))
+
+    url.searchParams.set('reload', count)
+    var nextUrl = url.toString()
+
+    var shouldStop = count > max
+    return [shouldStop, !shouldStop ? nextUrl : null]
+  }
+  var run = function () {
+    try {
+      var evt = new CustomEvent('kantuSaveAndRunMacro', {
+        detail: {
+          html: document.documentElement.outerHTML,
+          noImport: false,
+          storageMode: 'xfile'
+        }
+      })
+
+      window.dispatchEvent(evt)
+      setInterval(() => window.dispatchEvent(evt), 1000);
+
+      if (window.location.protocol === 'file:') {
+        var onInvokeSuccess = function () {
+          clearTimeout(timer)
+          clearTimeout(reloadTimer)
+          window.removeEventListener('kantuInvokeSuccess', onInvokeSuccess)
+        }
+        var timer = setTimeout(function () {
+          alert('Error #203: It seems you need to turn on *Allow access to file URLs* for Kantu in your browser extension settings.')
+        }, 8000)
+
+        window.addEventListener('kantuInvokeSuccess', onInvokeSuccess)
+      }
+    } catch (e) {
+      alert('Kantu Bookmarklet error: ' + e.toString());
+    }
+  }
+  var reloadTimer = null
+  var main = function () {
+    if (isExtensionLoaded())  return run()
+
+    var MAX_TRY   = 3
+    var INTERVAL  = 1000
+    var tuple     = increaseCountInUrl(MAX_TRY)
+
+    if (tuple[0]) {
+      return alert('Error #204: It seems UI.Vision RPA is not installed yet - or you need to turn on *Allow access to file URLs* for UI.Vision RPA in your browser extension settings.')
+    } else {
+      reloadTimer = setTimeout(function () {
+        window.location.href = tuple[1]
+      }, INTERVAL)
+    }
+  }
+
+  setTimeout(main, 500)
+})();
+</script>
+</body>
+</html>
+  
