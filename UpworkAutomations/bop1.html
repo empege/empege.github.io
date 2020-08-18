@@ -21,13 +21,6 @@
     
 
       <tr>
-        <td>open</td>
-        <td>https://feeder.co/reader?logged_in=yes</td>
-        <td></td>
-      </tr>
-    
-
-      <tr>
         <td>comment</td>
         <td>localStorageExport // log</td>
         <td>#DeleteAfterExport</td>
@@ -126,8 +119,8 @@
     
 
       <tr>
-        <td>comment</td>
-        <td>open // https://feeder.co/reader?logged_in=yes</td>
+        <td>open</td>
+        <td>https://feeder.co/reader?logged_in=yes</td>
         <td></td>
       </tr>
     
@@ -261,6 +254,27 @@
       <tr>
         <td>run</td>
         <td>1feederDupes</td>
+        <td></td>
+      </tr>
+    
+
+      <tr>
+        <td>if_v2</td>
+        <td>${isItDupe} == true</td>
+        <td></td>
+      </tr>
+    
+
+      <tr>
+        <td>gotoLabel</td>
+        <td>refresh</td>
+        <td></td>
+      </tr>
+    
+
+      <tr>
+        <td>end</td>
+        <td></td>
         <td></td>
       </tr>
     
