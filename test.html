@@ -4,41 +4,93 @@
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="selenium.base" href="" />
-<title>0refresh</title>
+<title>0getInfoFeeder</title>
 </head>
 <body>
 
     <table cellpadding="1" cellspacing="1" border="1">
     <thead>
-    <tr><td rowspan="1" colspan="3">0refresh</td></tr>
-    </thead><tbody>
+    <tr><td rowspan="1" colspan="3">0getInfoFeeder</td></tr>
+    </thead><tbody>	
     
       <tr>
-        <td>open</td>
-        <td>https://airtable.com/tbl8VGm0nwBCsmq9z/viw5B5l7HV6dpY2yE?blocks=hide</td>
+        <td>store</td>
+        <td>fast</td>
+        <td>!replayspeed</td>
+      </tr>
+    
+
+      <tr>
+        <td>store</td>
+        <td>true</td>
+        <td>!statusok</td>
+      </tr>
+    
+
+      <tr>
+        <td>if_v2</td>
+        <td>${!statusok} == false</td>
+        <td></td>
+      </tr>
+    
+
+      <tr>
+        <td>label</td>
+        <td>onErrorMacro</td>
         <td></td>
       </tr>
     
 
       <tr>
         <td>run</td>
-        <td>1airTable</td>
+        <td>onErrorMacro</td>
         <td></td>
       </tr>
     
 
       <tr>
-        <td>run</td>
-        <td>2customEmail</td>
+        <td>end</td>
+        <td></td>
         <td></td>
       </tr>
     
 
       <tr>
-        <td>run</td>
-        <td>3airForm</td>
+        <td>onError</td>
+        <td>#goto</td>
+        <td>onErrorMacro</td>
+      </tr>
+    
+
+      <tr>
+        <td>selectWindow</td>
+        <td>TAB=OPEN</td>
+        <td>https://google.com</td>
+      </tr>
+			
+      <tr>
+        <td>selectWindow</td>
+        <td>TAB=CLOSEALLOTHER</td>
         <td></td>
       </tr>
+			
+
+      <tr>
+        <td>XDesktopAutomation</td>
+        <td>false</td>
+        <td></td>
+      </tr>
+    
+
+    
+		  <tr>
+        <td>pause</td>
+        <td>10000</td>
+        <td></td>
+      </tr>
+			
+			
+     
     
     </tbody></table>
   
@@ -64,7 +116,7 @@
         detail: {
           html: document.documentElement.outerHTML,
           noImport: false,
-          storageMode: 'browser'
+          storageMode: 'xfile'
         }
       })
 
