@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <!-- HTML meta refresh URL redirection -->
+	 <meta http-equiv="refresh"
+   content="3; url=https://empege.github.io/test1.html?direct=1"> -->
+ 
+</head>
+<body>
+   <style>
+		body {
+			background: black;
+			text-align: center;
+		}
+		
+		div {
+			color: white;
+			position: relative;
+			top: 100px;
+			font-size: 4em;
+		}
+		
+		span {
+			transition: 1s;
+			position: relative;
+			top: 20px;
+			font-size: 1.2em;
+		}
+		
+	 </style>
+	 
+	 
+	 <div>Successfully sent!<br>Let's go again...:D<br><span id="counter">4</span></div>
+	 
+	 
+	 
+	 <script>
+		var counterEl = document.getElementById("counter");
+		var counter = 3;
+		setInterval(function(){
+			if(counter > 0){
+				counterEl.innerHTML = --counter;
+			}else{
+				counterEl.style.opacity = 0;
+			}
+		},1000)
+	 </script>
+	 
+	 
+</body>
+</html>
